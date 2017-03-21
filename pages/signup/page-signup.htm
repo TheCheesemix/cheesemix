@@ -1,0 +1,94 @@
+---
+action: 'shop:signup'
+template: template-2
+protocol: all
+published: true
+name: Get Started
+url: /getstarted
+---
+
+<div class="mix-pane-left-signup">
+
+    <div class="row">
+        <div class="small-9 small-centered">
+
+            <div class="auth-logo">
+                 <img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/Logo-Symbol-Cheesemix.svg">
+            </div>
+    
+            <p id="title-p">Lets get you started</p>
+  
+           <p>Creating a cheesemix account is free. It allows you to susbcribe and purchase our delightful cheesecubes to share with your friends and family. Already have a cheesemix account? <a href="{{ site_url('signup') }}">Log in here</a></p>
+
+
+            {{ open_form({'data-ajax-handler': 'shop:onSignup', 'data-validation-message' : '', 'class' : 'form-horizontal' }) }}
+
+
+                <div class="form-group">
+                    <div class="small-9 columns mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label for="signup[email]" class="mdl-textfield__label">Email</label><br>
+                        <input type="email" class="fs-hide mdl-textfield__input" id="signup[email]" name="signup[email]" value="{{ post('signup[email]') }}" size="40" />
+                        <span class="error small text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="small-9 columns mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label for="signup[first_name]" class="mdl-textfield__label">First name</label><br>
+                        <input type="text" class="mdl-textfield__input" id="signup[first_name]" name="signup[first_name]" value="{{ post('signup[first_name]') }}" size="16" />
+                        <span class="error small text-danger"></span>
+                    </div>
+                </div>
+
+
+              <div class="form-group">
+                    <div class="small-9 columns mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label for="signup[last_name]" class="mdl-textfield__label">Last name</label><br>
+                        <input type="text" class="mdl-textfield__input" id="signup[last_name]" name="signup[last_name]" value="{{ post('signup[last_name]') }}" size="16" />
+                        <span class="error small text-danger"></span>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="small-9 columns mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label for="signup[password]" class="mdl-textfield__label">Password</label><br>
+                        <input type="password" class="fs-hide mdl-textfield__input" id="signup[password]" name="signup[password]" value="" size="16" />
+                        <span class="error small text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="small-9 columns mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <label for="signup[password_confirmation]" class="mdl-textfield__label">Confirm Password</label><br>
+                        <input type="password" class="fs-hide mdl-textfield__input" id="signup[password_confirmation]" name="signup[password_confirmation]" value="" size="16" />
+                        <span class="error small text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="small-9 columns">
+                        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="accepts_marketing">
+                          <input type="checkbox" name="accepts_marketing" id="accepts_marketing" class="mdl-switch__input" checked>
+                          <span class="mdl-switch__label">Sign me up to your newsletter</span>
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-9">
+                        <button type="submit" class="btn-mix">Submit</button>
+                    </div>
+                </div>
+
+                <input type="hidden" name="autologin" value="0" />
+                <input type="hidden" name="redirect" value="{{ site_url('registered') }}"/>
+
+            {{ close_form() }}
+
+        </div>
+    </div>
+</div>

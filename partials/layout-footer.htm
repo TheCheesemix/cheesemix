@@ -1,0 +1,145 @@
+{{ code_block('setup') }}
+
+
+
+<footer class="footer-landing mdl-mini-footer">
+  <div class="mdl-mini-footer__left-section">
+    <ul>
+		<li><a href="{{ theme.socialFacebookUrl }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+		<li><a href="{{ theme.socialTwitterUrl }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+		<li><a href="{{ theme.socialInstagramUrl }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
+		<li><a href="{{ site_url('terms-of-service') }}" >Terms of Service</a></li>
+		<li><a href="{{ site_url('privacy-policy') }}" >Privacy Policy</a></li>
+		<li><a href="{{ site_url('faqs') }}" >FAQs</a></li>
+		<li><a href="{{ site_url('roadmap') }}" >Product Roadmap</a></li>
+		<li><a class="letsspeak" href="#letsspeak" >Need Help? Speak To Us</a></li>
+    </ul>
+  </div>
+
+
+  <div class="mdl-mini-footer__right-section">
+    <ul class="mdl-mini-footer__link-list">
+		  <div class="mdl-logo">
+				
+				A venture by <a href="//cappui.com/#cheesemix"><Img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/Logo-Cappui-Dark-Blue.svg" /></a>
+ 
+		  </div>
+    </ul>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+	<div id="refcandy-poprocks" data-id="tqg1792ivmj98fix8qixwcoyx" data-location="left" data-minimized="yes"></div>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//portal.referralcandy.com/assets/widgets/refcandy-poprocks.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","refcandy-poprocks-js");</script>
+
+
+
+          
+    <script type = 'text/javascript' data-cfasync="false" >
+
+      window['crthk_debug'] = false;
+
+      var carthook_lemonstand = function() {
+
+        function crthk_ls() {
+
+          var itemsDetected = false;
+          var crthk_items = [];
+
+          if (typeof crthk_complete === "undefined")
+            crthk_complete = false;
+
+          {% for item in items %}
+            itemsDetected = true;
+
+            try {
+
+              var cart_item = {
+                  "imgUrl": "{{ item.product.images.first.thumbnail(80, 80)|default('http://placehold.it/80x80') }}",
+                  "url": window.location.host + "/product/{{ item.product.url_name }}",
+                  "name": encodeURI("{{ item.product.name }}"),
+                  "eachItemCost": "{{ item.price() }}",
+                  "totalItemCost": "{{ item.total() }}"
+              };
+              crthk_items.push(cart_item);
+
+            } catch (err) {
+              if( window['crthk_debug'] )
+                console.log('crthk_err: ' + err);
+            }
+
+            {% endfor %}
+
+            if (itemsDetected && window['crthk_debug'])
+              console.log('we found some items');
+
+            // ---------------------------------
+            // Check for Empty Cart
+            //----------------------------------
+            if (itemsDetected || crthk_complete) {
+
+              //DEBUG:
+              if( window['crthk_debug'] )
+                console.log('(itemsDetected || crthk_complete) is true... load tracker!');
+
+              window['crthk_cart'] = {
+                items: crthk_items,
+                price: '{{ cart.getTotal() }}',
+                carturl: location.protocol + '//' + window.location.host + '/cart'
+              };
+
+              //Render Tracker
+              window['crthk_setup'] = 'mid_gYeRTgiV';
+
+              // Prevent script from loading more than once.
+              if ( !window['scriptLoaded'] ) {
+                (function () {
+                  var ch = document.createElement('script');
+                  ch.type = 'text/javascript';
+                  ch.async = true;
+                  ch.src = '//api.carthook.com/api/js/';
+                  var x = document.getElementsByTagName('script')[0];
+                  x.parentNode.insertBefore(ch, x);
+                  window['scriptLoaded']=true;
+                })();
+              }
+
+            } else {
+              //DEBUG:
+              if( window['crthk_debug'] )
+                console.log('no items detected, nor are we on a complete page');
+            }
+
+          }
+
+          var crthk_timer = null;
+
+          $("#cart-content").bind("DOMSubtreeModified", function () {
+            clearTimeout(crthk_timer);
+            crthk_timer = setTimeout(crthk_ls, 2000);
+          });
+
+          crthk_ls();
+      };
+
+      /**
+       * Wait until jQuery loads
+       */
+      function defer() {
+        if (window.jQuery)
+          setTimeout(function() { carthook_lemonstand(); }, 1000);
+        else
+          setTimeout(function() { defer(); }, 100);
+      }
+
+      defer();
+
+  </script>
+  
+          

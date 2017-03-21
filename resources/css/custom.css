@@ -1,0 +1,275 @@
+/*
+
+Write your custom css here
+
+*/
+
+body{}
+.mdl-layout_header {
+	background-color: rgb(255, 255, 255) !important;
+}
+
+/*======================================================
+		Login, Register and Checkout Pane
+======================================================*/
+
+.error.small.text-danger {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: middle;
+    height: 50px;
+    color: #fff !important;
+    background-color: #ee7d7d;
+}
+
+.error.small.text-danger span {
+    font-size: 20px;
+    line-height: 5.2vh;
+}
+
+#title-p {
+    text-align: center;
+    font-size: 2.3em;
+    font-weight: bold;
+}
+
+.mdl-logo img {
+    width: 100px;
+}
+
+.mix-pane-left {
+    background-color: #fff;
+    color: #434245;
+    min-width: 300px;
+    width: 100%;
+    max-width: 550px;
+    padding: 20vh 0;
+    float: left;
+    z-index: 1;
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+
+
+.mix-pane-left-signup {
+    background-color: #fff;
+    color: #434245;
+    width: 100%;
+    padding: 8vh 0;
+    float: left;
+    z-index: 1;
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+
+
+.mix-pane-left-home {
+    position: relative;
+    background-color: #fff;
+    color: #434245;
+    min-width: 300px;
+    width: 100%;
+    height: 100%;
+    max-width: 550px;
+    padding: 20vh 0;
+    float: left;
+    z-index: 1;
+    overflow-y: auto;
+    word-wrap: break-word;
+    overflow-x: hidden;
+    border-bottom: #f2f2f2 2px solid;
+}
+
+.mix-pane-left-home h1 {
+    font-size: 2rem;
+    text-align: center;
+    line-height: inherit;
+    font-weight: bold;
+}
+
+
+.mix-pane-left-home h1.arrow-bold {
+    font-size: 4rem !important;
+}
+
+.mix-pane-left-home p {
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.mix-pane-left-home .SmallText hr {
+    text-align: center;
+    width: 100%;
+}
+
+.mix-pane-left-home .SmallText {
+    max-width: 350px;
+    width: 100%;
+    min-width: 250px;
+    margin: 0 auto;
+}
+
+.mix-pane-left-home .width {
+    max-width: 680px;
+    min-width: 250px;
+}
+
+.mix-pane-left-home .yellow {
+    color: #FFC711;
+}
+
+.mix-pane-left-home .SmallText p {
+    font-size: 0.9rem !important;
+}
+
+
+.mix-pane-right {
+    width: auto;
+    overflow: hidden;
+    height: 100%;
+    background: url(https://s3-eu-west-1.amazonaws.com/cheesemix/assets/Cookie_Goat_1.jpg) center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+}
+
+
+
+
+.mdl-textfield__input {
+    font-family: "Karla", sans-serif;
+    border-radius: 8px;
+    padding: 20px !important;
+    background: #f4f4f4 !important;
+}
+
+.mdl-textfield__label {
+	top: 14px !important;
+}
+
+.mdl-switch.is-upgraded {
+    padding-bottom: 50px;
+}
+
+.mdl-textfield {
+    width: 100% !important; 
+}
+
+.mdl-mini-footer {
+    background-color: #f2f2f2 !important;
+    padding: 0px 0px !important;
+}
+
+
+.widget-153791 .vex-content input:not([type="checkbox"]), 
+.widget-153791 .vex-content textarea, 
+.widget-153791 .vex-content select {
+    border-radius: 8px !important;
+}
+
+
+.vex.vex-theme-default 
+.vex-close:before {
+    font-size: 60px !important;
+    height: 40px !important;
+    width: 40px !important;
+}
+
+
+
+.mdl-button {
+    font-family: "Karla",sans-serif !important;
+    font-weight: 600 !important;
+    line-height: 30px !important;
+}
+
+
+nav.fright {
+    float: right;
+}
+
+
+.mdl-layout__header 
+.mdl-layout__drawer-button {
+    color: rgb(40, 37, 56) !important;
+}
+
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover {
+    background-color: rgba(256,256,256, 0.0) !important;
+    color: #ffc711 !important;
+}
+
+
+.mdl-layout__drawer .mdl-navigation .vex-close:before {
+    font-family: Arial, sans-serif;
+    content: "\00D7";
+    font-size: 2em;
+}
+
+.logo-center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+.mdl-layout__title, .mdl-layout-title {
+    font-family: "Karla", sans-serif !important;
+}
+
+
+
+.btn-mix {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 1rem;
+    padding: .85em 1em;
+    -webkit-appearance: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    transition: background-color .25s ease-out,color .25s ease-out;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    background-color: #342680;
+    color: #fefefe;
+}
+
+
+.btn-mix:hover {
+    background-color: #282538;
+ }
+
+
+.auth-logo {
+    padding: 0 0 2vh 0;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.auth-logo img {
+    height: 100px;
+}
+
+.quality-cheese {
+    position: relative;
+    margin: 0 auto;
+    height: 100%;
+    background: #8695BF;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 35vh 0;
+}
+
+.quality-cheese h1 {
+    color: #fff;
+}
+
+.quality-cheese p {
+    color: #fff;
+    font-size: 1.5rem;
+}

@@ -1,0 +1,49 @@
+<!-- Uses a header that scrolls with the text, rather than staying
+  locked at the top -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <div class="medium-5">
+        <!-- Navigation -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+         <button href='#kol-popup-153791' class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored kol-popup-153791">
+          Pre-Register
+        </button>
+
+      </nav>
+    </div>
+    <div class="large-2 logo-center">
+      <!-- Title -->
+      <span class="mdl-layout-title"><a href="/" class="navbar-brand"><img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/Cheesemix-Typeface-Logo.svg"></a></span>
+    </div>
+
+
+     <div class="medium-5">
+
+      <!-- Navigation -->
+      <nav class="mdl-navigation fright mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link live" href="{{ site_url('cheesecube') }}">Meet The Cheesecube</a>
+        <a class="mdl-navigation__link live" href="{{ site_url('our_story') }}">Our Story</a>
+      </nav>
+    </div>
+  </div>
+  </header>
+
+<div class="mdl-layout__drawer mdl-layout--small-screen-only">
+    <nav class="mdl-navigation">
+        <a class="mdl-navigation__link vex-close" href="javascript:close();"></a>
+        <a class="mdl-navigation__link live" href="{{ site_url('/') }}">Home</a>
+        <a class="mdl-navigation__link live" href="{{ site_url('cheesecube') }}">Meet The Cheesecube</a>
+        <a class="mdl-navigation__link live" href="{{ site_url('our_story') }}">Our Story</a>
+        <button href='#kol-popup-153791' class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored kol-popup-153791">
+          Pre-Register
+        </button>
+    </nav>
+  </div>
+</div>
+
+<script>
+function close() {
+  var d = document.querySelector('.mdl-layout');
+  d.MaterialLayout.toggleDrawer();
+}</script>

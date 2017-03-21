@@ -1,0 +1,105 @@
+{% set on_sale = product.onSale %}
+
+<div class="medium-7 columns">
+	<div class="medium-12 columns img-thumb">
+		<img id="big-thumb" src="{{ product.images.first.thumbnail('auto','auto',{crop:true}) }}" class="main-img" alt="">
+	</div>
+	<div class="medium-12 columns">
+		{% for image in product.images %}
+			<div class="medium-3 columns img-thumb">
+				
+			</div>
+
+
+			  <div class="carousel carousel-slider">
+			    <a class="carousel-item" href="#one!"><img onclick='changeImage("{{ image.thumbnail('auto', 'auto') }}")' src="{{ image.thumbnail('auto','auto',{crop:true}) }}" alt="" class="small-thumb">
+			  </div>
+        
+		{% endfor %}
+	</div>
+	
+</div>
+
+<div class="medium-5 columns">
+	<div class="medium-12 columns">
+		<h1 class="uppercase">{{ product.name }}</h1> 
+		
+		<h3 id="why">{{ product.price|currency }}</h3>
+		{% if on_sale %}
+			<small class="previous-price">{{ product.fullPrice|currency }}</small>
+		{% endif %} 
+		<hr>
+		<p>{{product.description|unescape}}</p>
+		<hr>
+	</div>
+	{% if product.enabled %}	
+		{{ partial('shop-product-attributes') }}
+		{{ partial('shop-product-extras') }}
+		{{ partial('shop-product-options') }}
+		<br>
+	{% if not product.isOutOfStock() or product.allow_preorder %}
+
+
+
+	<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#starks-panel" class="mdl-tabs__tab is-active">Single Cube</a>
+      <a href="#lannisters-panel" class="mdl-tabs__tab">Subscription Cube</a>
+  </div>
+
+  <div class="mdl-tabs__panel is-active" id="starks-panel">
+      <div class="row add-to-cart-block">
+        <div class="four columns">
+          <input type="text" value="{{ quantity|default("1") }}" name="quantity"/>
+        </div>
+        <div class="four mobile-four columns left">
+          <input type="hidden" name="productId" value="{{ product.id }}"/>
+          <a class="button" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product">Add to Cart</a>
+        </div>
+      </div>
+  </div>
+  <div class="mdl-tabs__panel" id="lannisters-panel">
+		<input type="hidden" name="productId" value="{{ product.id }}"/>
+
+		<div class="product-options col-md-6">
+			<p class="title" for="billing_plan">Subscription plan</p>
+			<span class="col-md-12 custom-dropdown">
+		
+					{% for plan in billingPlans %}
+
+
+
+					<p ><button type="button" class="button" value="{{ plan.id }}" {{ option_state(plan.id, cart_billing_plan) }} > {{ plan.monthly }}</button></p>
+
+
+					{% endfor %}
+			</select>
+			</span>
+		<input type="hidden" name="productId" value="{{ product.id }}"/>
+	      <div class="add-cart-holder form-group col-md-12">
+				{{ flash() }}
+				<!-- <input type="hidden" name="subscribeRedirect" value="/checkout"> -->
+				<a class="button btn-important btn-add-cart pull-right" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#shop-product=shop-product, #mini-cart=shop-minicart-totals" data-ajax-extra-fields="subscribe=1, noFash=1">Subscribe</a>
+			</div>
+		</div>
+  </div>
+</div>
+
+
+    {% else %}
+      <div class="not-available">
+        <h5>This product is temporarily unavailable</h5>
+      </div>
+    {% endif %}
+	    
+	{% else %}
+	<div class="not-available">
+	  <h5>This product is not available</h5>
+	</div>
+  {% endif %}
+</div>
+
+
+
+
+

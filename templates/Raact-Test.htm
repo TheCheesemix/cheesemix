@@ -1,0 +1,18 @@
+---
+description: 'index template'
+---
+<!DOCTYPE html> 
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --> 
+<!--[if IE 8]> <html lang="en"> <![endif]--> 
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]--> 
+<head>
+    {{ partial('layout-head') }}
+</head> 
+<body>
+
+	<div id="mix"></div>
+
+	<script type="text/babel" src="{{ 'containers/text.js'|theme_resource }}"></script>
+ 
+</body>
+</html>
