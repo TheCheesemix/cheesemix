@@ -1,3 +1,5 @@
+{{ code_block('setup') }}
+
 
 <!-- Uses a header that scrolls with the text, rather than staying
   locked at the top -->
@@ -11,9 +13,11 @@
 
         {% if customer %}
 
-        <li><a href="{{ site_url('profile') }}"><i class="fa fa-user"></i> My Account</a></li>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link live"  href="{{ site_url('dashboard') }}"><i class="fa fa-user"></i> My Dashboard</a>
+      </nav>
         <!-- <li class="{{ active_page == 'orders' ? 'active' : null }}"><a href="{{ site_url('orders') }}">My Orders</a></li> -->
-        <li class="{{ active_page == 'subscriptions' ? 'active' : null }}"><a href="{{ site_url('subscriptions') }}"><i class="fa fa-tag"></i> My Subscriptions</a></li>
+
         {% else %}
         <button href="" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
           Sign-up

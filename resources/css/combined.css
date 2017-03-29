@@ -12,10 +12,13 @@ body{
 }
 
 a {
-    color: rgb(40, 37, 56) !important;
+    color: rgb(52, 38, 128) !important;
     text-decoration: none;
 }
 
+a:hover {
+    color: #282538 !important;
+}
 
 h1, h2 {
     font-family: "Karla", sans-serif !important;
@@ -327,13 +330,16 @@ sup{
 }
 
 
-
-
-.footer-landing a{
-	display:inline-block;
+.footer-landing a {
+    color: #282538 !important;
+    text-decoration: none;
+    display:inline-block;
 	padding:0 10px;
 }
 
+.footer-landing a:hover {
+    color: rgb(52, 38, 128) !important;
+}
 
 .footer-landing ul { 
     text-decoration: none;
@@ -1270,11 +1276,15 @@ sub{
 }
 /*The checkout tabs styles*/
 .checkout-tab-bar{
-  background: #f1f1f1;
+  background: #282538;
   padding: 10px;
   display:inline-block;
   width:100%;
   margin:0;
+}
+
+.checkout-tab-bar p {
+	color: #fff;
 }
 .checkout-tab p{
   padding: 0;
@@ -1290,14 +1300,16 @@ sub{
   margin: 0;
 }
 .checkout-tab .status{
-  color: #333;
-  text-rendering: geometricPrecision;
-  text-transform: uppercase;
-  font-size: 12px;
-  margin-left: 0;
+    color: #fec430;
+    text-rendering: geometricPrecision;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-left: 0;
+    font-weight: bold;
 }
 .checkout-tab .goback-icon{
-  color: #67966B;
+  color: #fec430;
+  font-weight: bold;
 }
 .checkout-arrow{
   float:left;
@@ -1330,6 +1342,7 @@ sub{
 }
 #checkout-row{
 	padding-top:40px;
+	position: relative;
 }
 #checkout-row #title-p-d{
   padding:20px 0;
@@ -1405,11 +1418,11 @@ sub{
   text-decoration: none;
 }
 .goback-tab{
-  color:#67966B;
+  color:#67966B !important;
   text-decoration: line-through;
 }
  .goback-icon{
-  color:#67966B;
+  color:#fec430;
  }
 .payment-card .fa-question:hover{
   cursor: pointer;
@@ -1978,13 +1991,7 @@ sub{
 		checkout
 ======================================================*/
 
-/*The checkout tabs styles*/
-.checkout-tab-bar{
-	background: #f1f1f1;
-	padding: 10px;
-	display:inline-block;
-	width:100%;
-}
+ 
 .checkout-tab p{
 	padding: 0;
 	margin: 0;
@@ -1997,11 +2004,12 @@ sub{
 	text-align: left;
 }
 .checkout-tab .status{
-	color: #333;
-	text-rendering: geometricPrecision;
-	text-transform: uppercase;
-	font-size: 12px;
-	margin-left: 0;
+    color: #fec430;
+    text-rendering: geometricPrecision;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-left: 0;
+    font-weight: bold;
 }
 .checkout-arrow{
 	float:left;
@@ -2410,12 +2418,7 @@ sub{
 ======================================================*/
 
 /*The checkout tabs styles*/
-.checkout-tab-bar{
-	background: #f1f1f1;
-	padding: 10px;
-	display:inline-block;
-	width:100%;
-}
+ 
 .checkout-tab p{
 	padding: 0;
 	margin: 0;
@@ -2428,11 +2431,12 @@ sub{
 	text-align: left;
 }
 .checkout-tab .status{
-	color: #333;
-	text-rendering: geometricPrecision;
-	text-transform: uppercase;
-	font-size: 12px;
-	margin-left: 0;
+    color: #fec430;
+    text-rendering: geometricPrecision;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-left: 0;
+    font-weight: bold;
 }
 .checkout-arrow{
 	float:left;

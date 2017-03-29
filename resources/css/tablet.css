@@ -442,12 +442,7 @@ sub{
 ======================================================*/
 
 /*The checkout tabs styles*/
-.checkout-tab-bar{
-	background: #f1f1f1;
-	padding: 10px;
-	display:inline-block;
-	width:100%;
-}
+ 
 .checkout-tab p{
 	padding: 0;
 	margin: 0;
@@ -460,11 +455,12 @@ sub{
 	text-align: left;
 }
 .checkout-tab .status{
-	color: #333;
-	text-rendering: geometricPrecision;
-	text-transform: uppercase;
-	font-size: 12px;
-	margin-left: 0;
+    color: #fec430;
+    text-rendering: geometricPrecision;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-left: 0;
+    font-weight: bold;
 }
 .checkout-arrow{
 	float:left;

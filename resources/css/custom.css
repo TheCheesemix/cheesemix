@@ -9,6 +9,9 @@ body{}
 	background-color: rgb(255, 255, 255) !important;
 }
 
+
+
+
 /*======================================================
 		Login, Register and Checkout Pane
 ======================================================*/
@@ -237,7 +240,7 @@ nav.fright {
     text-align: center;
     cursor: pointer;
     background-color: #342680;
-    color: #fefefe;
+    color: #fefefe !important;
 }
 
 
@@ -253,7 +256,7 @@ nav.fright {
 }
 
 .auth-logo img {
-    height: 100px;
+    height: 120px;
 }
 
 .quality-cheese {

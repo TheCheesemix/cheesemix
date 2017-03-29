@@ -1,0 +1,11 @@
+
+@import '../partials/base';
+
+
+.welcome {
+	h1 {
+		color: $header-welcome-color;
+		font-weight: $header-welcome-weight;
+		font-size: $header-welcome-size;
+	}
+}

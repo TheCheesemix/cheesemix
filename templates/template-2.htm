@@ -9,7 +9,18 @@ description: 'index template'
     {{ partial('layout-head') }}
 </head> 
 <body>
+
+	{% spaceless %}
+
     {{ page() }} 
+
+
+    {% endspaceless %}
+    
     {{ partial('layout-foot') }}
+
+
+
+    
 </body>
 </html>

@@ -15,12 +15,13 @@ url: /login
         <div class="small-9 small-centered">
 
                 <div class="auth-logo">
-                     <img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/Logo-Symbol-Cheesemix.svg">
+                     <img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/Heron.svg">
                 </div>
 
             <p id="title-p">Log In</p>
 
 
+            <div class="center" ><p>Need a Cheesemix account? <a href="{{ site_url('getstarted') }}">Create an account now here</a></p></div>
 
             {{ open_form({'data-ajax-handler': 'shop:onLogin', 'data-validation-message' : '', 'class' : 'form-horizontal' }) }}
 

@@ -1,8 +1,8 @@
 {% set on_sale = product.onSale %}
 
-<div class="medium-7 columns">
-	<div class="medium-12 columns img-thumb">
-		<img id="big-thumb" src="{{ product.images.first.thumbnail('auto','auto',{crop:true}) }}" class="main-img" alt="">
+<div class="medium-12 columns">
+	<div class="medium-9 columns img-thumb">
+
 	</div>
 	<div class="medium-12 columns">
 		{% for image in product.images %}
@@ -11,22 +11,19 @@
 			</div>
 
 
-			  <div class="carousel carousel-slider">
-			    <a class="carousel-item" href="#one!"><img onclick='changeImage("{{ image.thumbnail('auto', 'auto') }}")' src="{{ image.thumbnail('auto','auto',{crop:true}) }}" alt="" class="small-thumb">
-			  </div>
-        
+			 
 		{% endfor %}
 	</div>
-	
+	 
 </div>
 
-<div class="medium-5 columns">
-	<div class="medium-12 columns">
+<div class="medium-12 columns">
+	<div class="medium-9 columns">
 		<h1 class="uppercase">{{ product.name }}</h1> 
 		
-		<h3 id="why">{{ product.price|currency }}</h3>
+		<h3 id="why" class="price">{{ product.price|currency }}</h3>
 		{% if on_sale %}
-			<small class="previous-price">{{ product.fullPrice|currency }}</small>
+			<small class="previous-price">{{ totals.total|currency }}</small>
 		{% endif %} 
 		<hr>
 		<p>{{product.description|unescape}}</p>
@@ -40,46 +37,23 @@
 	{% if not product.isOutOfStock() or product.allow_preorder %}
 
 
-
-	<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-  <div class="mdl-tabs__tab-bar">
-      <a href="#starks-panel" class="mdl-tabs__tab is-active">Single Cube</a>
-      <a href="#lannisters-panel" class="mdl-tabs__tab">Subscription Cube</a>
-  </div>
-
-  <div class="mdl-tabs__panel is-active" id="starks-panel">
-      <div class="row add-to-cart-block">
-        <div class="four columns">
-          <input type="text" value="{{ quantity|default("1") }}" name="quantity"/>
-        </div>
-        <div class="four mobile-four columns left">
-          <input type="hidden" name="productId" value="{{ product.id }}"/>
-          <a class="button" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#mini-cart=shop-minicart, #product-page=shop-product">Add to Cart</a>
-        </div>
-      </div>
-  </div>
-  <div class="mdl-tabs__panel" id="lannisters-panel">
-		<input type="hidden" name="productId" value="{{ product.id }}"/>
-
-		<div class="product-options col-md-6">
+ 
+		<div class="product-options medium-6">
 			<p class="title" for="billing_plan">Subscription plan</p>
-			<span class="col-md-12 custom-dropdown">
-		
-					{% for plan in billingPlans %}
+			<span class="medium-12">
+			
 
-
-
-					<p ><button type="button" class="button" value="{{ plan.id }}" {{ option_state(plan.id, cart_billing_plan) }} > {{ plan.monthly }}</button></p>
-
-
-					{% endfor %}
-			</select>
+		 
 			</span>
 		<input type="hidden" name="productId" value="{{ product.id }}"/>
-	      <div class="add-cart-holder form-group col-md-12">
+	      <div class="add-cart-holder form-group medium-12">
 				{{ flash() }}
 				<!-- <input type="hidden" name="subscribeRedirect" value="/checkout"> -->
-				<a class="button btn-important btn-add-cart pull-right" href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#shop-product=shop-product, #mini-cart=shop-minicart-totals" data-ajax-extra-fields="subscribe=1, noFash=1">Subscribe</a>
+				<a class="button btn-important btn-add-cart pull-right" href="#" 
+				data-ajax-handler="shop:onAddToCart" 
+				data-ajax-update="#shop-product=shop-product, #mini-cart=shop-minicart-totals" 
+				data-ajax-extra-fields="subscribe=1, noFash=0"
+				data-ajax-redirect="{{ site_url('checkout') }}">Subscribe</a>
 			</div>
 		</div>
   </div>

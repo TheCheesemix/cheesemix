@@ -2,21 +2,12 @@
 description: 'Payment form partial for Braintree payment method'
 ---
 
-{% if payment %}
-<form method="post" action="{{ paymentMethod.getPaymentModuleObj().getFormAction(paymentMethod) }}">
 
     {% set hiddenFields = paymentMethod.getPaymentModuleObj().getHiddenFields(paymentMethod, payment) %}
-    {% for field, value in hiddenFields %}
-        <input type="hidden" value="{{ value }}" name="{{ field }}">
-    {% endfor %}
-    <input type="submit" value="Pay with PayPal" class="button">
-</form>
-{% else %}
-    <form method="post" action="" data-ajax-handler="shop:onPay">
-        <input type="hidden" value="{{ paymentMethod.id }}" name="payment_method_id">
-        <input type="submit" value="Pay with PayPal" class="btn btn-important">
-    </form>
-{% endif %}
+
+
+
+
 
 <form method="post" action="" data-ajax-handler="shop:onPay">
   <div class="payment-card">
@@ -24,18 +15,21 @@ description: 'Payment form partial for Braintree payment method'
     <div class="form">
         <div class="row">
         
-          <div class="small-6 form-group mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input autocomplete="off" name="cardholderName" value="" id="cardholderName" type="text" class="fs-hide mdl-textfield__label form-control" placeholder="Cardholder Name"/>
-              <span class="error small text-danger"></span> 
+          <div class="small-6 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              
+
               <label for="cardholderName">Cardholder Name</label>
-          </div>
-          <div class="small-6 form-group mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input autocomplete="off" name="cardNumber" value="" id="cardNumber" type="text" class="fs-hide form-control credit-card-input" placeholder="Credit Card Number"/>
+              <input autocomplete="off" name="cardholderName" value="" id="cardholderName" type="text" class="fs-hide mdl-textfield__label" placeholder="Cardholder Name"/>
               <span class="error small text-danger"></span> 
-              <label class="mdl-textfield__label" for="cardNumber">Credit Card Number</label>
           </div>
-          <div class="small-2 form-group helper mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input autocomplete="off" name="securityCode" value="" id="securityCode" type="text" class="fs-hide  form-control" placeholder="Card Verification Value (CVV)"/>
+          <div class="small-6 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+              <label class="mdl-textfield__label" for="cardNumber">Credit Card Number</label>
+              <input autocomplete="off" name="cardNumber" value="" id="cardNumber" type="text" class="fs-hide mdl-textfield__label credit-card-input" placeholder="Credit Card Number"/>
+              <span class="error small text-danger"></span> 
+          </div>
+          <div class="small-2 helper mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input autocomplete="off" name="securityCode" value="" id="securityCode" type="text" class="fs-hide mdl-textfield__label" placeholder="Card Verification Value (CVV)"/>
               <span class="error small text-danger"></span> 
               <label  class="mdl-textfield__label" for="securityCode">
                   (CVV)
@@ -44,7 +38,7 @@ description: 'Payment form partial for Braintree payment method'
           </div>
           <div class="small-3 form-group mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
 
-                <select id="expiryMonth" name="expiryMonth" class="fs-hide mdl-selectfield__select form-control">
+                <select id="expiryMonth" name="expiryMonth" class="fs-hide mdl-selectfield__select">
                 {% for i in 1..12 %}
                     <option value="{{ i }}">{{ i }}</option>
                 {% endfor %}
@@ -53,7 +47,7 @@ description: 'Payment form partial for Braintree payment method'
                 <label class="mdl-selectfield__label" for="expiryMonth">Expiration Date - Month</label>
           </div>
           <div class="small-3 mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label form-group">
-                <select autocomplete="off" name="expiryYear" id="expiryYear" class="fs-hide mdl-selectfield__select form-control">
+                <select autocomplete="off" name="expiryYear" id="expiryYear" class="fs-hide mdl-selectfield__select">
                     {% for i in 2014..2034 %}
                     <option value="{{ i }}">{{ i }}</option>
                     {% endfor %}
@@ -61,18 +55,20 @@ description: 'Payment form partial for Braintree payment method'
                 <span class="error small text-danger"></span> 
                 <label class="mdl-selectfield__label" for="expiryYear">Expiration Date - Year</label>
           </div>
-
           
         </div>
     </div>
     </div><!-- End .payment-card -->
 
   <div class="clearfix">
-      <a class="btn btn-default pull-left" href="#" 
-        data-ajax-handler="shop:checkout" 
+      <input type="hidden" name="saveCard" value="1" />
+      <button type="submit" class="btn-mix pull-right">Pay Now</button>
+      <a class="btn btn-default pull-left data-ajax-url"
+        id="previous-shipping-method"
+        data-ajax-handler="shop:checkout"
         data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
-        data-ajax-extra-fields="nextStep=shipping_method"><i class="fa fa-arrow-left"></i> Previous Step</a>
-      <button type="submit" class="btn btn-important pull-right">Pay Now</button>
+        data-ajax-extra-fields="nextStep=billing_info"
+        data-hash="step-2"><i class="fa fa-arrow-left"></i> Previous Step</a>
     </div>
 
 </form>

@@ -1,3 +1,4 @@
+
 // variables needed for the window hashchange event
 var hashHistory = ['step-1'];
 var windowBack = true;
@@ -13,7 +14,15 @@ $('.dropdown-text').on('tap', function() {
   $('.dropdown-content').toggleClass('dropdown-show');
 });
 
-
+// Handle thumbnail clicks on the Product page
+$('#shop-product').on('click', 'div.item-images ul a', function(){
+  $('div.big-image img', $(this).closest('.item-images')).attr('src', this.href);
+  return false;
+});
+//Review form toggle 
+$('#shop-product').on('click', '#review-form-toggle', function() {
+  $('#product-review-form').toggle();
+});
 
 //Payment forms history
 $("#checkout-page").on('click', '.data-ajax-url', function(e) {
@@ -310,26 +319,6 @@ if ('#checkout-page') {
   });
 }
 });
-
-
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-    acc[i].onclick = function(){
-        /* Toggle between adding and removing the "active" class,
-        to highlight the button that controls the panel */
-        this.classList.toggle("active");
-
-        /* Toggle between hiding and showing the active panel */
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
-    }
-}
 });
 
 
@@ -342,3 +331,57 @@ fn(elements[i],i);}
 function openSidebar(driftApi,event){event.preventDefault();driftApi.sidebar.open();return false;}
 ready(function(){drift.on('ready',function(api){var handleClick=openSidebar.bind(this,api)
 forEachElement(DRIFT_CHAT_SELECTOR,function(el){el.addEventListener('click',handleClick);});});});})();
+
+
+
+
+
+$(function() {
+
+    function Toast(type, css, msg) {
+        this.type = type;
+        this.css = css;
+        this.msg = 'This is positioned in the ' + msg + '. You can also style the icon any way you like.';
+    }
+
+    var toasts = [
+        new Toast('error', 'toast-bottom-full-width', 'This is positioned in the bottom full width. You can also style the icon any way you like.'),
+        new Toast('success', 'toast-bottom-full-width', 'This is positioned in the bottom full width. You can also style the icon any way you like.'),
+
+    ];
+
+    toastr.options.positionClass = 'toast-top-full-width';
+    toastr.options.extendedTimeOut = 0; //1000;
+    toastr.options.timeOut = 1000;
+    toastr.options.fadeOut = 250;
+    toastr.options.fadeIn = 250;
+
+    var i = 0;
+
+    $('#cardholderName').click(function () {
+        $('#cardholderName').prop('disabled', true);
+        delayToasts();
+    });
+
+    function delayToasts() {
+        if (i === toasts.length) { return; }
+        var delay = i === 0 ? 0 : 2100;
+        window.setTimeout(function () { showToast(); }, delay);
+
+        // re-enable the button        
+        if (i === toasts.length-1) {
+            window.setTimeout(function () {
+                $('#cardholderName').prop('disabled', false);
+                i = 0;
+            }, delay + 1000);
+        }
+    }
+
+    function showToast() {
+        var t = toasts[i];
+        toastr.options.positionClass = t.css;
+        toastr[t.type](t.msg);
+        i++;
+        delayToasts();
+    }
+})

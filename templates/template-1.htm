@@ -9,9 +9,15 @@ description: 'index template'
     {{ partial('layout-head') }}
 </head> 
 <body>
+	 {% spaceless %}
+
     {{ partial('layout-header')}}
     {{ page() }} 
     {{ partial('layout-footer') }}
+
+    {% endspaceless %}
+
     {{ partial('layout-foot') }}
+
 </body>
 </html>

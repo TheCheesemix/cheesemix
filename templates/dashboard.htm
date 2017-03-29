@@ -1,0 +1,22 @@
+---
+description: 'Your Cheesemix Dashboard'
+---
+<!DOCTYPE html> 
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --> 
+<!--[if IE 8]> <html lang="en"> <![endif]--> 
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]--> 
+<head>
+    {{ partial('layout-head-dashboard') }}
+</head> 
+<body>
+	{% spaceless %}
+     {{ partial('layout-header-dashboard') }} 
+    {{ page() }} 
+
+    {% endspaceless %}
+    
+    {{ partial('layout-foot') }}
+
+
+</body>
+</html>
