@@ -1,0 +1,32 @@
+---
+description: 'pre-launch template'
+---
+<!DOCTYPE html> 
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ --> 
+<!--[if IE 8]> <html lang="en"> <![endif]--> 
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]--> 
+<head>
+    {{ partial('layout-head') }}
+</head> 
+<body>
+	 {% spaceless %}
+
+	 <div id="as-root"></div><script>(function(e,t,n){var r,i=e.getElementsByTagName(t)[0];if(e.getElementById(n))return;r=e.createElement(t);r.id=n;r.src="//button.aftership.com/all.js";i.parentNode.insertBefore(r,i)})(document,"script","aftership-jssdk")</script>
+
+    {{ partial('layout-header-launch')}}
+    
+    <div class="mix-main">
+    
+    	{{ page() }} 
+
+    </div>
+ 
+    {% endspaceless %}
+
+    {{ partial('layout-footer') }}
+
+    {{ partial('layout-foot') }}
+
+
+</body>
+</html>

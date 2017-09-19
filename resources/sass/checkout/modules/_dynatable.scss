@@ -1,0 +1,114 @@
+/*
+ * jQuery Dynatable plugin 0.3.1
+ *
+ * Copyright (c) 2014 Steve Schwartz (JangoSteve)
+ *
+ * Dual licensed under the AGPL and Proprietary licenses:
+ *   http://www.dynatable.com/license/
+ *
+ * Date: Tue Jan 02 2014
+ */
+
+@import "../../neat/neat";
+@import "../../bourbon/bourbon";
+
+@import '../../site/partials/media';
+
+
+th {
+  font-weight: 400;
+}
+th a {
+  color: #fff;
+}
+th a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+th:nth-child(1) {
+    width: 55%;
+    text-align: left;
+}
+
+th:nth-child(2), 
+th:nth-child(3), 
+td:nth-child(2), 
+td:nth-child(3) {
+    text-align: center;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    padding: 1em;
+    border-top: 1px solid #282538;
+    border-bottom: 1px solid #282538;
+    font-weight: bold;
+  a {
+    color: #16141d;
+  }
+  a:hover {
+    color: #fec430;
+  }
+  @include grid-media($small-grid) {
+    span {
+      font-size: 0.5em;
+    }
+  }
+
+}
+
+.dynatable-search {
+  float: right;
+  margin-bottom: 10px;
+}
+
+.dynatable-pagination-links {
+  float: right;
+}
+
+.dynatable-record-count {
+  display: block;
+  padding: 5px 0;
+}
+
+.dynatable-pagination-links span,
+.dynatable-pagination-links li {
+  display: inline-block;
+}
+
+.dynatable-page-link,
+.dynatable-page-break {
+  display: block;
+  padding: 5px 7px;
+}
+
+.dynatable-page-link {
+  cursor: pointer;
+}
+
+.dynatable-active-page,
+.dynatable-disabled-page {
+  cursor: text;
+}
+.dynatable-active-page:hover,
+.dynatable-disabled-page:hover {
+  text-decoration: none;
+}
+
+.dynatable-active-page {
+  background: #71AF5A;
+  border-radius: 5px;
+  color: #fff;
+}
+.dynatable-active-page:hover {
+  color: #fff;
+}
+.dynatable-disabled-page,
+.dynatable-disabled-page:hover {
+  background: none;
+  color: #999;
+}

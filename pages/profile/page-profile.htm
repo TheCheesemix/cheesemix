@@ -1,35 +1,39 @@
 ---
+action: 'shop:customerProfile'
 template: dashboard
 protocol: all
 published: true
 name: My Account
-url: /dashboard/my-account
+url: /dashboard/my-account/profile
 ---
 
-<div class="row">
-    <div class="small-12">
-    <div class="welcome">
+{% if not customer %}
+    {% if page.name in ["my-account"]  %}
+        <style>
+            html {
+                display: none;
+            }
+        </style>
+        <meta http-equiv="refresh" content="0; url={{ site_url('/login') }}"/>
+    {% endif %}
+{% endif %}
 
-        {% if customer %}
-            <h1>Welcome {{customer.first_name}}!</h1>
-        {% else %}
-            <h1>Whoops! Login First</h1>
-        {% endif %}
 
-        </div>
-    </div>
-</div>
 
-<div class="jumbotron row">
+<div class="dashboard-content">
+ 
+
+<div class="panel-body">
     {% if customer %}
     
-    <div class="panel-group checkout-accordions text-center" id="profile-addresses">
+    <div class="panel-group checkout-accordions text-center" id="customer-details">
         {{ partial('shop-customerprofile') }}
     </div>      
-    
-{% else %}
-    
 
-  <div class="row">Please <a href="{{ root_url('login') }}">login</a> to edit your profile.</div>
-{% endif %}
 </div>
+     {% endif %}
+</div>
+
+</div>
+</div>
+

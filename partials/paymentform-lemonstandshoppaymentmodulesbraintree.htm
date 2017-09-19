@@ -1,74 +1,58 @@
 ---
 description: 'Payment form partial for Braintree payment method'
 ---
-
-
-    {% set hiddenFields = paymentMethod.getPaymentModuleObj().getHiddenFields(paymentMethod, payment) %}
-
-
-
-
-
 <form method="post" action="" data-ajax-handler="shop:onPay">
-  <div class="payment-card">
+  <h4>Credit & Debit Card Payments by Braintree Payments a Paypal Company</h4>
+  <p><small>Subscriber card information is not stored by us. Braintree process and save information. Which can be deleted by the subscriber in the their accounts dashboard. Subscriptions can also be cancelled or paused at anytime to.</small></p>
     <input type="hidden" value="{{  paymentMethod.id}}" name="payment_method_id">
     <div class="form">
         <div class="row">
         
-          <div class="small-6 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              
-
+          <div class="col-sm-6 form-group">
               <label for="cardholderName">Cardholder Name</label>
-              <input autocomplete="off" name="cardholderName" value="" id="cardholderName" type="text" class="fs-hide mdl-textfield__label" placeholder="Cardholder Name"/>
+              <input autocomplete="off" name="cardholderName" value="" id="cardholderName" type="text" class="form-control" placeholder="Cardholder Name"/>
               <span class="error small text-danger"></span> 
           </div>
-          <div class="small-6 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-
-              <label class="mdl-textfield__label" for="cardNumber">Credit Card Number</label>
-              <input autocomplete="off" name="cardNumber" value="" id="cardNumber" type="text" class="fs-hide mdl-textfield__label credit-card-input" placeholder="Credit Card Number"/>
+          <div class="col-sm-4 form-group">
+              <label for="cardNumber">Credit Card Number</label>
+              <input autocomplete="off" name="cardNumber" value="" id="cardNumber" type="text" class="form-control credit-card-input" placeholder="Credit Card Number"/>
               <span class="error small text-danger"></span> 
+      
           </div>
-          <div class="small-2 helper mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input autocomplete="off" name="securityCode" value="" id="securityCode" type="text" class="fs-hide mdl-textfield__label" placeholder="Card Verification Value (CVV)"/>
-              <span class="error small text-danger"></span> 
-              <label  class="mdl-textfield__label" for="securityCode">
+          <div class="col-sm-2 form-group helper">
+             <label for="securityCode">
                   (CVV)
               </label>
               <i class="fa fa-question" data-container="body" data-toggle="popover" data-placement="top" data-content="For MasterCard, Visa, and Discover, the CSC is the last three digits in the signature area on the back of your card. For American Express, it's the four digits on the front of the card."></i>
+              <input autocomplete="off" name="securityCode" value="" id="securityCode" type="text" class="form-control" min-length="3" max-length="4" placeholder="Card Verification Value (CVV)"/>
+              <span class="error small text-danger"></span> 
           </div>
-          <div class="small-3 form-group mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+          <div class=" form-group">
+                <label for="expiryMonth">Expiration</label>
 
-                <select id="expiryMonth" name="expiryMonth" class="fs-hide mdl-selectfield__select">
-                {% for i in 1..12 %}
-                    <option value="{{ i }}">{{ i }}</option>
-                {% endfor %}
-                </select>
-                <span class="error small  text-danger"></span> 
-                <label class="mdl-selectfield__label" for="expiryMonth">Expiration Date - Month</label>
+ 
+                <input type="text" length="2"  id="expiryMonth" name="expiryMonth" class="form-control">
+                <input autocomplete="off" name="expiryYear" id="expiryYear" min-length="4" max-length="4"  class="form-control">
+                <span class="error small text-danger" ></span> 
+           </div>
           </div>
-          <div class="small-3 mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label form-group">
-                <select autocomplete="off" name="expiryYear" id="expiryYear" class="fs-hide mdl-selectfield__select">
-                    {% for i in 2014..2034 %}
-                    <option value="{{ i }}">{{ i }}</option>
-                    {% endfor %}
-                </select>
-                <span class="error small text-danger"></span> 
-                <label class="mdl-selectfield__label" for="expiryYear">Expiration Date - Year</label>
-          </div>
+
           
         </div>
-    </div>
     </div><!-- End .payment-card -->
 
-  <div class="clearfix">
+   
+   <div class="clearfix">
       <input type="hidden" name="saveCard" value="1" />
-      <button type="submit" class="btn-mix pull-right">Pay Now</button>
-      <a class="btn btn-default pull-left data-ajax-url"
-        id="previous-shipping-method"
-        data-ajax-handler="shop:checkout"
+      <a class="btn-mix checkout previous" href="#" 
+        data-ajax-handler="shop:checkout" 
         data-ajax-update="#checkout-page=shop-checkout, #checkout-progress=shop-checkout-progress, #mini-cart=shop-minicart"
-        data-ajax-extra-fields="nextStep=billing_info"
-        data-hash="step-2"><i class="fa fa-arrow-left"></i> Previous Step</a>
-    </div>
+        data-ajax-extra-fields="nextStep=shipping_method"><i class="fa fa-arrow-left"></i> Previous Step</a>
+      <button type="submit" class="btn-mix checkout">Pay Now</button>
+  </div>
+
+ 
 
 </form>
+
+

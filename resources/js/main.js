@@ -1,4 +1,3 @@
-
 // variables needed for the window hashchange event
 var hashHistory = ['step-1'];
 var windowBack = true;
@@ -193,8 +192,8 @@ $(window).on("hashchange", window, function(e) {
       }
     });
 
-//Mobile shipping address functionality
-if (window.innerWidth < 991) {
+// Shipping address functionality
+if (window.innerWidth > 250) {
   $('#checkout-page #shipping-info').hide();
   $('.btn-form-mirror').on('click', function() {
     if($('.btn-form-mirror').data('toggle-mirror') == 'off') {
@@ -237,18 +236,6 @@ $(document).ajaxComplete(function() {
       cartFlag = new $.Deferred();
     }, 500);  
   });
-});
-
-$('body').on('click', '.remove-item', function() {
-  cartFlag.resolve();
-  
-  $(this).find('.fa').removeClass('fa-times').addClass('fa-refresh fa-spin');
-});
-
-$('body').on('click', '#remove-cart-item', function() {
-  cartFlag.resolve();
-  
-  $(this).find('.fa').removeClass('fa-times').addClass('fa-refresh fa-spin');
 });
 
 
@@ -300,15 +287,8 @@ if ('#checkout-page') {
            $('.credit-card-input').parent().removeClass('valid invalid');
         }
     }
-  
-  // $('.fa-question').on({
-  //   'mouseenter': function() {
-  //     $(this).popover('show');
-  //   },
-  //   'mouseleave': function() {
-  //     $(this).popover('hide');
-  //   }
-  // });
+
+
   var popoverimg = "<img src='//d1ikx7rs2s8wko.cloudfront.net/store-slate-543ef23235dfb/themes/asdfasdf/resources/img/cvn.jpg?1424897548' style='width:100px'>";
   var popbreak = "</br>";
   $('.fa-question').popover({
@@ -323,65 +303,3 @@ if ('#checkout-page') {
 
 
 
-jQuery(document).ready(function(){var DRIFT_CHAT_SELECTOR='.letsspeak'
-function ready(fn){if(document.readyState!='loading'){fn();}else if(document.addEventListener){document.addEventListener('DOMContentLoaded',fn);}else{document.attachEvent('onreadystatechange',function(){if(document.readyState!='loading')
-fn();});}}
-function forEachElement(selector,fn){var elements=document.querySelectorAll(selector);for(var i=0;i<elements.length;i++)
-fn(elements[i],i);}
-function openSidebar(driftApi,event){event.preventDefault();driftApi.sidebar.open();return false;}
-ready(function(){drift.on('ready',function(api){var handleClick=openSidebar.bind(this,api)
-forEachElement(DRIFT_CHAT_SELECTOR,function(el){el.addEventListener('click',handleClick);});});});})();
-
-
-
-
-
-$(function() {
-
-    function Toast(type, css, msg) {
-        this.type = type;
-        this.css = css;
-        this.msg = 'This is positioned in the ' + msg + '. You can also style the icon any way you like.';
-    }
-
-    var toasts = [
-        new Toast('error', 'toast-bottom-full-width', 'This is positioned in the bottom full width. You can also style the icon any way you like.'),
-        new Toast('success', 'toast-bottom-full-width', 'This is positioned in the bottom full width. You can also style the icon any way you like.'),
-
-    ];
-
-    toastr.options.positionClass = 'toast-top-full-width';
-    toastr.options.extendedTimeOut = 0; //1000;
-    toastr.options.timeOut = 1000;
-    toastr.options.fadeOut = 250;
-    toastr.options.fadeIn = 250;
-
-    var i = 0;
-
-    $('#cardholderName').click(function () {
-        $('#cardholderName').prop('disabled', true);
-        delayToasts();
-    });
-
-    function delayToasts() {
-        if (i === toasts.length) { return; }
-        var delay = i === 0 ? 0 : 2100;
-        window.setTimeout(function () { showToast(); }, delay);
-
-        // re-enable the button        
-        if (i === toasts.length-1) {
-            window.setTimeout(function () {
-                $('#cardholderName').prop('disabled', false);
-                i = 0;
-            }, delay + 1000);
-        }
-    }
-
-    function showToast() {
-        var t = toasts[i];
-        toastr.options.positionClass = t.css;
-        toastr[t.type](t.msg);
-        i++;
-        delayToasts();
-    }
-})

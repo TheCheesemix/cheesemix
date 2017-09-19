@@ -1,0 +1,43 @@
+.hidden {
+    display: none;
+}
+
+
+
+
+.product-options ul {
+    padding: 0;
+}
+
+.shop-product h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+.product-order-header h1 {
+    font-size: 2.5rem;
+    color: #282538;
+    font-weight: bold;
+}
+
+.price-box {
+    background-color: #F8F8F8;
+    padding: 0.6vh;
+    position: relative;
+}
+
+.review-count {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 190px;
+}
+
+
+@media only screen and (max-width: 1024px) {
+	.shop-product h1 {
+	    font-size: 2.5rem;
+	}
+}

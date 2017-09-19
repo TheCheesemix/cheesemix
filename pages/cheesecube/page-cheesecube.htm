@@ -1,100 +1,157 @@
 ---
-template: landing-layout
+description: 'The cheesecube is a subscription cheese box and a recipe booklet sent to you monthly'
+template: site
 protocol: all
 published: true
+title: 'Subscription Cheese Box'
 name: cheesecube
 url: /cheesecube
 ---
 
 
+ 
 
-<section class="cubejumbo home-head">
 
-	<div class="small-12 large-centered columns"></div>
-        <div class="row width ">
-              <div class="medium-9 small-centered columns">
-		 	<h1>Meet the cheesecube</h1>
-				<p>Our super cheesecube is not actually drawn to scale. 
-				Though its representation is as a snug and wonderful as shown below.</p>
-		 
 
-              </div>
-          </div>
+
+<div class="full-width-section hero blank">
+ 
+    <div class="grid--ones zero-top-padded">
+      <div class="hero__column product full-width-grid--ones-single-column">
+        <h1>A delightful box full of quality cheese for every cheese lover</h2>
+
       </div>
-</section>
+    </div>
+</div>
+
+<div class="full-width-container">
+  <div class="grid--twos">
+    <div class="grid-two-single-column square__column--empty table">
+    </div>
+    <div class="dark-column grid-two-single-column square__column--empty">
+
+      <div class="inner-content white center text">
+              
+
+          {{ widget_block("cheesecube-about-section-one") }}
+          
+     
+      </div>
+
+    </div>
+
+  </div>
+</div>
 
 
+<div class="full-width-container">
+  <div class="grid--twos">
 
-<div class="row cubepage content-center about">
-	<div class="medium-6 columns">
-
-		<img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/meet-cheesecube-1.svg">
-
-	</div>
+    <div class="grid-two-single-column square__column--empty open-cube mobile">
+    </div>
 
 
-	<div class="medium-6 right columns">
+    <div class="terracotta-column grid-two-single-column square__column--empty">
 
-		<p>Your cheesecube arrives in a 100% recyclable  and reusable premium box. The environment and our customers experience is our number one priority.</p>
+      <div class="inner-content dark center text">
  
-	</div>
+
+           {{ widget_block("cheesecube-about-section-two") }}  
+
+     
+      </div>
+
+    </div>
+
+    <div class="white-column grid-two-single-column square__column--empty open-cube desktop">
+    </div>
+
+  </div>
 </div>
 
+<div class="full-width-container">
+  <div class="grid--twos">
+    <div class="grid-two-single-column square__column--empty packing">    
+    </div>
+    <div class="dark-column grid-two-single-column square__column--empty">
 
+      <div class="inner-content white center text">
+              
 
-<div class="row cubepage content-center about">
-
-	<div class="medium-6 right large-push-6 columns">
-
-	
-		<img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/meet-cheesecube-2.svg">
-
-	</div>
-
-
-	<div class="medium-6 large-pull-6 columns">
-
-		<p>Upon opening your cheesecube your unique monthly cheese recipe booklet presents itself to you. This includes: cheese maker stories, recipes and the origin and history of each cheese. </p>
-
-
-	</div>
-
-</div>
-
-
-<div class="row cubepage content-center about">
-	<div class="medium-6 columns">
-
-		<img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/meet-cheesecube-3.svg">
-
-	</div>
-
-
-	<div class="medium-6 right columns">
-
-		<p>Your artisan cheeses are wrapped at the cheese maker. And come in our unique cheese pouches or cheese storage bags to keep your cheese fresh for longer. </p>
+          {{ widget_block("cheesecube-about-section-three") }}
  
+     
+      </div>
+
+    </div>
+
+  </div>
+</div>
+ 
+
+<div class="full-width-container">
+	<div class="grid--twos">
+		<div class="grid-two-single-column square__column--empty full-width video mobile">
+
+				<div class="covervid-wrapper">
+				    <video class="covervid-video" autoplay loop poster="img/video-fallback.png">
+				        <source src="//cheesemix.imgix.net/assets/images/site/product/cheesemix-recipes.mp4" type="video/mp4">
+				    </video>
+				    <script>
+				    $('.covervid-video').coverVid(1920, 1080);
+				    </script>
+				</div>
+
+		</div>
+		<div class="terracotta-column grid-two-single-column square__column--empty no-height full-width">
+
+			<div class="inner-content dark text wide">
+
+        {{ widget_block("cheesecube-about-section-four") }}
+
+			</div>
+
+		</div>
+		<div class="grid-two-single-column square__column--empty full-width video desktop">
+
+				<div class="covervid-wrapper">
+				    <video class="covervid-video" autoplay loop poster="img/video-fallback.png">
+				        <source src="//cheesemix.imgix.net/assets/images/site/product/cheesemix-recipes.mp4" type="video/mp4">
+				    </video>
+				    <script>
+				    $('.covervid-video').coverVid(1920, 1080);
+				    </script>
+				</div>
+
+		</div>
+
 	</div>
 </div>
 
 
 
-<div class="row cubepage content-center about">
 
-	<div class="medium-6 right large-push-6 columns">
+<div class="full-width-container pb">
+  <div class="grid--twos">
+    <div class="grid-two-single-column square__column--empty woolcool">    
+    </div>
+    <div class="dark-column grid-two-single-column square__column--empty">
 
-	
-		<img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/meet-cheesecube-4.svg">
+      <div class="inner-content white center text">
+              
 
-	</div>
+          {{ widget_block("cheesecube-about-section-five") }}
+ 
+     
+      </div>
 
+    </div>
 
-	<div class="medium-6 large-pull-6 columns">
-
-		<p>Your cheesecube includes five cheeses between 200 - 250g each. Enough for two weeks of recipes or a cheese board for 8 - 10 people.  The booklet is 24 pages long.</p>
-
-
-	</div>
-
+  </div>
 </div>
+
+
+
+	{{ partial('newsletter-signup') }}
+
 

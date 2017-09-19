@@ -1,0 +1,28 @@
+ 
+ 
+           
+              {% for index, option in product.options %}
+  
+              {% if loop.index == 2 %}
+            
+      
+              <div class="hidden">
+                  <select id="{{ 'option-'~index }}" name="options[{{ option.id }}]" class="select-option" data-ajax-handler="shop:product" data-ajax-update="#subscription-update=product-subscription-price">
+                    {% for key, value in option.values %}
+                    
+                     
+                      <option value="{{ key }}" {{ option_state(postedOptions[option.id], key) }}>{{ value }}</option>
+                         
+                       
+                    {% endfor %}
+                  </select>
+              </div>
+            
+                    
+                
+                 {% endif %}
+              {% endfor %}
+    
+
+
+   

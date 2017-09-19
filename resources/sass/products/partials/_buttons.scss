@@ -1,0 +1,52 @@
+
+.btn-prod {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 1rem;
+    padding: .85em 1em;
+    -webkit-appearance: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    transition: background-color .25s ease-out,color .25s ease-out;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    background-color: #989898;
+    color: #342680 !important;
+	
+	.btn-prod > .active {
+    	background-color: #989898;
+	}
+}
+
+.btn-item-select {
+    display: inline-block;
+    vertical-align: middle;
+    padding: .85em 1em;
+    -webkit-appearance: none;
+    border: 1px solid rgba(255, 255, 255, 1);
+    transition: background-color .25s ease-out,color .25s ease-out;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    background-color: #FFA750;
+    color: #fefefe !important;
+}
+
+ 
+.product-options ul > ol {
+    font-weight: 400;
+    letter-spacing: 0;
+    margin: 0 auto;
+}
+
+.product-options ol > ul {
+    margin: 0 auto;
+    padding: 0 0;
+}

@@ -1,0 +1,246 @@
+@import "../../neat/neat";
+@import "../../bourbon/bourbon";
+
+
+// Hero Grid Columns and Containers
+
+
+$medium-large-grid: (
+  media: "(max-width: 1200px)",
+);
+
+
+$medium-grid: (
+  media: "(max-width: 975px)",
+); 
+
+$small-grid: (
+  media: "(max-width: 800px)",
+);
+
+
+
+
+.faq a {
+    color: rgb(255, 196, 0) !important;
+}
+
+button {
+
+    &.accordion {
+    color: #444;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 0;
+    border: 1px solid #ececec;
+    font-weight: bold;
+    text-align: center;
+    line-height: 28px;
+    outline: none;
+    &.big {
+        background-color: #f9f9f9;
+        padding: 8vh 0;
+        font-size: 2.2rem;
+        &.active {
+            margin: 4px auto 0;
+            border-width: 5px 5px 0px 5px;
+            border-style: solid;
+            border-color: #282538;
+            border-radius: 5px 5px 0 0;
+            box-shadow: 4px 0px 0px 0 rgba(0,0,0,0.08);
+        }
+        &.active:hover {
+            border-width: 5px 5px 0px 5px;
+            border-style: solid;
+            border-color: #282538;
+            border-radius: 5px 5px 0 0;
+     }
+    }
+    &.mini {
+        background-color: #fff;
+        margin: 4px auto;
+        padding: 2vh 1vh;
+        font-size: 1.2rem;
+        box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.08);
+        &.active {
+            margin: 0 auto 0;
+            border-width: 5px 5px 0px 5px;
+            border-style: solid;
+            border-color: #282538;
+            border-radius: 5px 5px 0 0;
+            box-shadow: 4px 0px 0px 0 rgba(0,0,0,0.08);
+        }
+        &.active:hover {
+            border-width: 5px 5px 0px 5px;
+            border-style: solid;
+            border-color: #282538;
+            border-radius: 5px 5px 0 0;
+     }
+    }
+    &.how {
+        background-color: #fff;
+        margin: 4px auto;
+        padding: 0.8vh 1vh;
+        font-size: 1.2rem;
+        border-style: solid;
+        border-color: #e9e9e9;
+        border-width: 1px 0 0 0;
+        &.active {
+            margin: 4px auto 0;
+            border-width: 2px 0 0 0;
+            border-style: solid;
+            border-color: #e9e9e9;
+            border-radius: 0;
+            box-shadow: none;
+        }
+    }
+    &.product {
+        background-color: #fff;
+        margin: 4px auto;
+        padding: 3vh 5vh;
+        font-size: 1.2rem;
+        border: 5px solid #f2f2f2;
+        border-radius: 5px;
+        box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.08);
+        &:hover {
+            border: 5px solid #282538;
+            border-radius: 5px;
+        }
+        &.active {
+            margin: 4px auto 0;
+            border-width: 5px 5px 0px 5px;
+            border-style: solid;
+            border-color: #282538;
+            border-radius: 5px 5px 0 0;
+            box-shadow: 4px 0px 0px 0 rgba(0,0,0,0.08);
+        }
+        &.active:hover {
+            border-width: 5px 5px 0px 5px;
+            border-style: solid;
+            border-color: #282538;
+            border-radius: 5px 5px 0 0;
+         }
+      }
+    }
+    &.cart-checkout {
+        background-color: #f6c9b7;
+        margin: 4px auto;
+        padding: 1vh 2vh;
+        font-size: 1.2rem;
+        border: 5px solid #fae8e1;
+        border-radius: 5px;
+        box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.08);
+        &:hover {
+            border: 5px solid #282538;
+            border-radius: 5px;
+        }
+        img {
+            order: 0;
+            height: auto;
+            vertical-align: middle;
+            border-radius: 3px;
+            margin-right: 10px;
+            width: 40px;
+     }
+    }
+    &.accordion:after {
+        content: '\f107';
+        font-size: 1.5rem;
+        font-family: FontAwesome;
+        color: #F4C013;
+        font-weight: bold;
+        text-align: center;
+        margin-left: 5px;
+    }
+    &.accordion.active:after {
+        content: '\f106';
+        font-size: 1.5rem;
+        font-family: FontAwesome;
+        color: #F4C013;
+        font-weight: bold;
+        text-align: center;
+        margin-left: 5px;
+    }
+    @include grid-media($small-grid){
+        &.accordion.mini {
+            font-size: 1rem;
+        }  
+    }
+
+}
+
+
+/* Style the accordion panel. Note: hidden by default */
+
+.panel {
+        padding: 5vh 9vh;
+        background-color: #f9f9f9;
+        display: none;
+        max-width: 62.5rem;
+        margin: 0 auto;
+     &.products {
+        padding: 0vh 5vh 2em;
+        max-width: 100%;
+        background: #fff;
+        border-color: #282538;
+        border-style: solid;
+        border-width: 2px 5px 5px 5px;
+        border-radius: 0 0 5px 5px;
+        box-shadow: 0px 3px 3px 3px rgba(0,0,0,0.03);
+        margin: 0 auto 2em;
+    }
+    &.cart-checkout {
+        background-color: #f6c9b7;
+        margin: 4px auto;
+        padding: 1vh 2vh;
+        font-size: 1.2rem;
+        border: 5px solid #fae8e1;
+        border-radius: 5px;
+        box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.08);
+    }
+    &.how {
+        padding: 0.3vh 1vh;
+        background-color: #ffffff;
+        display: none;
+        max-width: 62.5rem;
+        margin: 0 auto;
+        text-align: center;
+        p {
+            line-height: inherit;
+        }
+    }
+    .heading-image {
+        img {
+             width: 50%;
+             height: auto;
+        }
+    }
+     p {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 28px;
+        color: #282538;
+    }
+    h4 {
+        font-weight: bold;
+        font-size: 1.4rem;
+        padding: 0 0 5px 0;
+        color: #444444;
+        margin: 0;
+    }
+    @include grid-media($small-grid){
+        padding: 4vh 3vh;
+        h4 {
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 0 0 5px 0;
+            color: #969696;
+            margin: 0;
+         }
+    }
+}
+
+
+.accordion-pd {
+    padding: 2.5vh 0;
+}

@@ -1,16 +1,56 @@
 {% if product.extras.count %}
-  <div class="medium-12" style="padding-bottom:20px;">
-  <h3>Product Extras</h3>
-    {% for index, extra in product.extras %}
-        <div class="extra">
-            <label class="title" for="{{ 'extra-'~index }}">{{ extra.name }} ({{ extra.price|currency }})</label>
-            {% if extra.enabled %}
-                <input type="checkbox" id="{{ 'extra-'~index }}" {{ checkbox_state(postedExtras[extra.id], extra.id) }} name="extras[{{ extra.id }}]" data-ajax-handler="shop:product" data-ajax-update="#product-page=shop-product">
-            {% else %}
-                <input type="checkbox" disabled="disabled">
-            {% endif %}
-        </div>
-    {% endfor %}
-  </div>
-  <br><br>
-{% endif %}
+    <div class="product-options">
+      <span>
+ 
+     
+           <div class="button-group">
+
+                <div class="btn-item-select">
+                     <ul>
+
+               {% for index, extra in product.extras|slice(0, 4)  %}
+      
+
+                 
+                   
+
+                         
+                    
+
+          
+                        <li>
+                        <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="{{ 'extra-'~index }}">
+
+                          <input type="radio" id="{{ 'extra-'~index }}" name="extras" class="mdl-radio__button"  {{ radio_state(postedExtras[extra.id], extra.id) }} value="{{ index }}" data-ajax-handler="shop:product" data-ajax-update="#update-product=product-prepaid" >
+                    
+
+                        <span class="mdl-radio__label">{{ extra.name }}</span>
+
+
+                        </label>
+
+                       </li>
+ 
+             
+             
+             
+        {% endfor %}
+                </ul>
+            </div>
+         </div>
+      
+   
+      </span>
+    </div>
+  {% endif %}
+ 
+
+
+  <script> 
+
+$("input[type='radio']").click(function (event) {
+    $(this).addClass("checked");    
+    $(this).siblings('input[type="radio"]').prop('checked', false).removeClass('checked')
+});
+
+</script>

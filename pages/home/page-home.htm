@@ -1,121 +1,329 @@
 ---
-template: template-1
+template: site
 protocol: all
 published: true
 name: Home
 url: /home
 ---
-
-
-<div class="mix-pane-left-home">
-
-
-<div class="small-12 large-centered columns"></div>
-        <div class="row width ">
-              <div class="small-10 small-centered columns">
-                <h1>Introducing the cheese<b class="yellow">cube</b>.</h1>
-               <P>Our Cheese Maker’s cubes are one of a kind moments. You can order our pilot makers cube named <a href="{{ site_url('cheesecube') }}"><b class="yellow">Pilot X</b></a> for £50 now.</P>
-
-              </div>
  
-
  
-              <div class="small-10 small-centered center columns">
+    <div class="pane-single-column home-pane">
+            <div class="pane-content">
+         
 
 
-
-                <button href='#kol-popup-153791' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent kol-popup-153791" data-kol-popup-153791="true" >
-                Get Your Cheese
-                </button>
-
-
-              <div class="SmallText">
-                  
-                  <hr/>
-
-                  <p class="small" >The first cheese makers cube - Pilot X is limited to 150 orders. We will make more available on our next pilot. As we expand our regions throughout the United Kingdom.</p>
+                    {{ widget_block("store-landing-about-heading") }}
+              
+     
+ 
+                    <a href='{{ site_url('product/cheesecube') }}' class="btn-mix home"  >
+                    Send Me Cheese
+                    </a>
 
 
-                  <h1 class="arrow-bold" ><i class="fa fa-angle-down" aria-hidden="true"></i></h1>
+                  <div class="smallText">
+                      
+                      <hr/>
 
-              </div>
+                      {{ widget_block("cube-edition-small-print-landing")}}
+
+                      <h2>Learn More</h2>
+                      <h1 class="home--pane-down-circle"><i class="fa fa-angle-down" aria-hidden="true"></i></h1>
+
+                  </div>
            </div>
-       </div>
-    </div>
-</div>
-
-
-
-<div class="mix-pane-right">
-</div>
-
-<div class="mix-pane-right-mobile">
-</div>
-
-
-
-<section class="quality-cheese text-center">
-  <div class="row">
-
-    <div class="small-12 large-centered columns"></div>
-        <div class="row width ">
-              <div class="small-9 small-centered center columns">
-                <h1>Quality <b class="yellow">Cheese</b>.</h1>
-               <P>Our Cheese comes direct from the cheese maker. Giving you the quality and convenience of the deli. Brought direct to your home.</P>
-
-              </div>
  
-
- 
-              <div class="small-10 small-centered center columns">
-
-
-
-                <button href='#kol-popup-153791' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent kol-popup-153791" data-kol-popup-153791="true" >
-                Learn More
-                </button>
-           </div>
-       </div>
     </div>
+
+    <div class="pane-single-column home-image"></div>
 
   </div>
-</section>
 
 
 
 
 
-<section class="jumbotron featured text-center">
-  <h4 class="buffer">How It Works</h4>
-  <br>
-  <div class="row">
-    <div class="medium-4 width-s columns">
-      <img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/cheesemix-how-it-works-1.svg">
+<section class="three-squares home">
+  <div class="grid--thirds">
+
+     <div class="mix-heads">
+          <h1>Its Simple</h1>
+        </div>
+        <br>
+
+
+    <div class="example__column--empty custom-grid--thirds__a-single-column">
+      <div class="square-content home">
+     <img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/cheesemix-how-it-works-1.svg">
       <br>
-        <p>Choose a regional cheese makers cheesecube to subscribe to or gift one to a friend. We have made it nice and easy.</p>
+      <div class="square-text">
+        
+            {{ widget_block("select-the-cube-landing-text") }}  
+        
+        </div>
+      </div>
     </div>
-    <div class="medium-4 width-s columns">
+    <div class="example__column--empty custom-grid--thirds__a-single-column">
+
+      <div class="square-content home">
       <img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/cheesemix-how-it-works-2.svg">
       <br>
-       <p>Your cheesecube is sent at the end of each month. The cheese maker selects, hand cuts and wraps your cheesy goodies.</p>
+
+      <div class="square-text">
+            
+            {{ widget_block("receive-the-cube-landing-text") }}  
+        
+         </div>      
+       </div>
     </div>
-    <div class="medium-4 width-s columns">
-      
-       <img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/gif/cheesecube-web.gif">
+    <div class="example__column--empty custom-grid--thirds__a-single-column">
+
+      <div class="square-content home">
+       <img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/site/HeronHome.svg">
        <br>
-       <p>You receive your delightfully ripe cheese by mail. In our eco-friendly cheesecube. You can now host a great evening!</p>
 
+      <div class="square-text">       
+
+        {{ widget_block("your-in-control-landing-text")}}
+        
+        </div>
     </div>
   </div>
+
+    <div class="btn-container order-it square-text">
+      <a href='{{ site_url('our-story') }}' class="btn-mix main"  >
+      Hear Our Story
+      </a>
+    </div>
 </section>
 
 
 
 
- <section class="jumbotron featured text-center">
-  <div class="row">
 
+
+<div class="full-width-container">
+  <div class="grid--twos">
+    <div class="white-column grid-two-single-column square__column--empty quality">  
+    </div>
+    <div class="dark-column grid-two-single-column square__column--empty">
+
+      <div class="inner-content white center text">
+
+              
+              {{ widget_block("quality-cheese-landing")}}
+ 
+              <div class="btn-container order-it">
+                <a href='{{ site_url('quality') }}' class="btn-mix white"  >
+                Learn More
+                </a>
+              </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+<div class="full-width-container ">
+  <div class="grid--twos">
+    
+    <div class="white-column grid-two-single-column square__column--empty open-prov mobile">
+      
+      <div class="box-container"> 
+  
+
+      <div class="big"> 
+        <div class="left">
+          <h3>Origin</h3>
+          <p>Where it came from? Who made it?</p>
+        </div>
+
+        <div class="image one">
+
+        </div>
+      </div>
+
+      <div class="big"> 
+        <div class="left">
+          <h3>Ingredients</h3>
+          <p>What's used in production?</p>
+        </div>
+
+        <div class="image two">
+
+        </div> 
+      </div>
+
+      <div class="big"> 
+
+        <div class="left">
+          <h3>Producers History</h3>
+          <p>What's the producers story?</p>
+        </div>
+
+        <div class="image three">
+
+        </div> 
+  
+      </div>
+
+      </div>
+
+
+
+
+    </div>
+
+
+
+    <div class="white-column  grid-two-single-column square__column--empty">
+
+      <div class="inner-content center text">
+
+
+              {{ widget_block("provenance-cheese-landing")}}
+
+ 
+              <div class="btn-container order-it">
+                <a href='{{ site_url('opennesss') }}' class="btn-mix main"  >
+                Learn More
+                </a>
+              </div>
+      </div>
+
+    </div>
+    <div class="white-column grid-two-single-column square__column--empty open-prov desktop">
+      
+      <div class="box-container"> 
+  
+
+      <div class="big"> 
+        <div class="left">
+          <h3>Origin</h3>
+          <p>Where it came from? Who made it?</p>
+        </div>
+
+        <div class="image one">
+
+        </div>
+      </div>
+
+      <div class="big"> 
+        <div class="left">
+          <h3>Ingredients</h3>
+          <p>What was used in production?</p>
+        </div>
+
+        <div class="image two">
+
+        </div> 
+      </div>
+
+      <div class="big"> 
+
+        <div class="left">
+          <h3>Producers History</h3>
+          <p>What is the producers story?</p>
+        </div>
+
+        <div class="image three">
+
+        </div> 
+  
+      </div>
+
+      </div>
+
+
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<div class="full-width-section we-care">
+  <div class="grid--one">
+    <div class="fast_fact__column full-width-grid--ones-single-column">
+
+      <div class="care-content">
+
+          {{ widget_block("care-content-landing")}}
+
+       </div>
+    
+    </div>
+  </div>
+</div>
+
+
+
+<div class="full-width-section order-cube">
+  <div class="grid--one">
+    <div class="fast_fact__column full-width-grid--ones-single-column">
+
+      <div class="order-cube-content home">
+        
+
+          {{ widget_block("send-me-cheese-landing")}}
+
+
+      </div>
+    
+    </div>
+  </div>
+</div>
+
+
+<section class="full-width-section moments">
+  <div class="grid--one">
+    <div class="full-width-grid--ones-single-column">
+
+      <div class="mix-heads">
+        <h1>Moments</h1>
+      </div>
+      <br>
+        <div class="hero-content">
+        <script src="//assets.juicer.io/embed.js" type="text/javascript"></script>
+        <link href="//assets.juicer.io/embed.css" media="all" rel="stylesheet" type="text/css" />
+        <ul class="juicer-feed" data-feed-id="cheesemix" columns="5" data-truncate="120" data-per="3" ></ul>
+       </div>             
+ 
+</section>
+
+
+
+<section class="three-squares home">
+  <div class="grid--thirds">
+
+    
+    <div class="example__column--empty custom-grid--thirds__a-single-column">
+      
+          {{ widget_block("freshness-guaranteed-landing")}}
+
+    </div>
+    <div class="example__column--empty custom-grid--thirds__a-single-column">
+
+          
+          {{ widget_block("secure-payments-landing")}}
+
+
+    </div>
+    <div class="example__column--empty custom-grid--thirds__a-single-column">
+
+          {{ widget_block("customer-happiness-landing")}}
 
   </div>
 </section>
 
+
+{{ partial('newsletter-signup') }}

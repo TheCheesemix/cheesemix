@@ -1,18 +1,149 @@
 ---
 action: 'shop:checkout'
-template: template-2
+template: checkout
 protocol: all
 published: true
 name: Checkout
 url: /checkout
 ---
-<div class="row" id="checkout-row">
+
+
+
+{{ partial('layout-header-checkout') }} 
+
+<div id="checkout-row">
 	<div class="content">
  
 	 
-	      <div id="checkout-page">{{ partial('shop-checkout') }}</div>
-	 
+ 			
+
+
+			<div class="full-width-container ">
+
+			<div class="grid--twos">
+			 
+
+
+			     {{ open_form({'class': 'custom'}) }}
+			 
+			        <div class="white-column grid-two-side-column mobile">
+			           <div class="side-content">
+
+			            <button class="accordion cart-checkout ">   
+			              
+			                {% for item in items %}
+			                   <table>
+			                    <thead>
+			                      <tr>
+			                        <th>Item</th>
+			                        <th>Price</th>
+			                        <th>QTY</th>
+			                        <th>Total</th>
+			                      </tr>
+			                    </thead>
+			                    <tbody>
+			                      <tr>
+			                        <td>        
+			                          <a href="/product/{{ item.product.url_name }}"><img src="{{ item.product.images.first.thumbnail('auto', 'auto') }}" alt="{{ item.product.name }}">
+			                          <span>{{ item.product.name }}</span></a>
+			                       
+			                      </td>
+			                        <td><span>{{ item.price|currency }}</span></td>
+			                        <td><span>{{ item.quantity }}</span></td>
+			                        <td><span>{{ totals.total|currency }}</span></td>
+			                      </tr>
+			                    </tbody>
+			                  </table>
+			                {% endfor %}
+			            
+			            </button>
+			            
+
+			             <div class="panel products">
+			              <div class="small-centered">
+			                
+			 
+			             </div>
+
+
+			              <div class="checkout-tab" id="shop-cart">
+			                <div class="checkout-content checkout-open">
+			                  {{ partial('shop-cart-checkout', {'edit_cart': true}) }}
+			                  
+			                </div>
+			              </div>
+			              <div id="checkout-totals" class="">
+			                {{ partial('shop-checkout-totals') }}
+
+
+			              </div>
+
+
+			                <input name="coupon" id="coupon-code" type="text" value="{{ coupon_code }}" placeholder="Promo Code">
+			                {{ flash() }}
+			                <a href="#" class="btn-mix news-main refresh-cart" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-totals=shop-checkout-totals, #cart-row=shop-cart-checkout">Apply</a>
+
+			          </div>
+			        </div>
+			      </div>
+			     
+
+			    {{ close_form() }} 
+
+	 						
+	      	<div class="white-column grid-two-single-column" >
+
+			<div class="inner-content" id="checkout-page" >
+
+			<div class="checkout-tab " id="shop-address">
+
+				{{ partial('shop-checkout') }}
+
+			</div>
+
+			</div>
+			</div>
+
+	 		<div class="white-column grid-two-side-column desktop">
+           			  <div class="side-content">
+           					
+
+					     {{ open_form({'class': 'custom'}) }}
+					 
+
+					                <div class="checkout-tab" id="shop-cart">
+					                  <div class="checkout-content checkout-open">
+					                    {{ partial('shop-cart-checkout', {'edit_cart': true}) }}
+					                    
+					                  </div>
+					                </div>
+					                <div id="checkout-totals" class="">
+					                  
+
+					                    {{ partial('shop-checkout-totals') }}
+
+
+					                </div>
+
+
+					                <input name="coupon" id="coupon-code" type="text" value="{{ coupon_code }}" placeholder="Promo Code">
+					                {{ flash() }}
+					                <a href="#" class="btn-mix news-main refresh-cart" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-totals=shop-checkout-totals, #cart-row=shop-cart-checkout">Apply</a>
+					   
+
+					    {{ close_form() }}    
+
+
+         
+           			  </div>
+				   </div>
+				</div>
+			  </div>
+			</div>
 		</div>
+
+
+
 	</div>	
 	
 </div>

@@ -1,0 +1,20 @@
+.a2a_svg {
+    height: 52px !important;
+    line-height: 52px !important;
+    width: 52px !important;
+}
+
+
+.a2a_default_style .a2a_img, .a2a_default_style .a2a_dd, .a2a_default_style .a2a_svg, .a2a_default_style .a2a_counter img {
+    float: inherit !important;
+    display: inline-block !important;
+}
+
+.a2a_default_style a {
+    float: inherit  !important;
+}
+
+
+.fa-heart {
+    color: #ffc400;
+}

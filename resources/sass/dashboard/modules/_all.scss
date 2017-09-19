@@ -1,9 +1,18 @@
 
-// import all modules
+// import body modules
+@import 'body';
+
+// import header modules
 @import 'header';
 
-// import all modules
+// import header modules
+@import 'container';
+
+// import welcome modules
 @import 'welcome';
 
-// import all modules
+// import welcome modules
+@import 'dynatable';
+
+// import cards modules
 @import 'cards';

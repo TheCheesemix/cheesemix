@@ -1,22 +1,449 @@
 ---
 action: 'shop:product'
-template: template-1
+template: product
 protocol: all
 published: true
 name: Product
 url: '/product/:urlName'
 ---
+                 
+ <span class="choice-description error-hint">{{ flash() }}</span>
+                  
 
-<div class="jumbotron row text-center no-border">
-	{{ open_form({'class': 'custom', 'onsubmit': 'return false'}) }}
-		{% if product %}
-			<div class="row shop-product" id="shop-product">
-				<div>
-					{{ partial('shop-product') }}
-				</div>
-			</div>
-		{% else %}
-			<h2>We are sorry, the requested product was not found.</h2>
-		{% endif %}
-	{{ close_form() }}
+  {% if product %}
+
+<div class="full-width-container pt pb">
+  <div class="grid--twos product">
+
+
+
+  
+
+    <div class="product-column grid-two-single-column square__column--empty auto-height product">
+      
+    <div class="gallery-product js-flickity"
+        data-flickity-options='{ "freeScroll": true, "wrapAround": true }'>     
+ 
+      {% for image in product.images|slice(0,1) %}
+     
+              <li class="product-slider"  style="background: url('{{ image.thumbnail( 'auto', 'auto') }}') center top; background-size: cover;">
+
+
+            </li>
+     
+      {% endfor %}
+
+      {% for image in product.images|slice(1,4) %}
+     
+              <li class="product-slider" style="background: url('{{ image.thumbnail('auto', 'auto') }}') center top; background-size: cover;"></li>
+     
+      {% endfor %}
+
+     
+      </div>
+
+    </div>
+
+
+  <div class="product-column grid-two-single-column square__column--empty auto-height product">
+
+      <div class="inner-content dark center product-details">
+              
+            <h1><strong>cheese<span class="yellow">cube</span></strong> | {{ product.name }}</h1>
+
+          
+          <div class="review-count">
+            <div class="yotpo bottomLine"
+            data-appkey="Yh3jqWY5FkeglEXJCngCpJY91hN9V04hVGRqDVHE"
+            data-domain="https://cheesemix.com"
+            data-product-id="{{ product.sku }}"
+            data-product-models="{{ product.short_description|unescape }}"
+            data-name="{{ product.name }}"
+            data-url="{{ product.url|unescape }}"
+            
+            {% for image in product.images|slice(0,1) %}
+            data-image-url="{{ image.thumbnail('auto', 'auto', {crop: true})|unescape }}"
+            {% endfor %}
+            
+            data-description="{{ product.description|unescape }}"
+
+            {% for category in product.categories %} 
+            data-bread-crumbs="{{ category }}">
+            {% endfor %} 
+          </div>
+        </div>
+
+
+
+
+          {% if product.short_description %}     
+            <p>{{ product.short_description|unescape }}</p>
+          {% endif %}    
+ 
+       
+              <div id="product-page">
+                {{ partial('shop-product') }}
+              </div>
+
+  
+
+      </div>
+
+    </div>
+
+
+  </div>
 </div>
+ 
+ 
+
+<div class="full-width-section product-description">
+  <div class="grid--twos">
+    <div class="fast_fact__column full-width-grid--twos__a-single-column">
+
+      <div class="description-content">
+        <h2>New memories and a introduction to new or different cheese monthly</h2>
+
+          {% if product.description %}     
+            {{ product.description|unescape }} 
+          {% endif %}    
+
+       </div>
+    
+    </div>
+ 
+
+  <div class="fast_fact__column full-width-grid--twos__a-single-column">
+
+      <div class="additional-content">
+        <h2>New memories and a introduction to new or different cheese monthly</h2>
+
+          {% if product.description %}     
+            {{ product.description|unescape }} 
+          {% endif %}    
+
+       </div>
+    
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="full-width-container pt ">
+  <div class="grid--twos">
+
+    <div class="grid-two-single-column square__column--empty origin mobile">
+      
+      <div class="box">
+        <ul>
+            <li>
+              <span>
+                      <h3>LORD OF LONDON, West Sussex</h3>
+                  </span>
+              </li>
+              <li>  
+                  <span>
+                      <p>Produced by Alsop & Walker</p>
+                  </span>
+              </li>
+          </ul>
+      </div>
+
+    </div>
+
+    <div class="white-column grid-two-single-column square__column--empty">
+
+      <div class="inner-content text">
+
+        <h2>Learn <b>About Origin</b></h2>
+        <p>We know our customers wish to learn about where  their produce comes from. </p> 
+
+        <p>Which is why we take the time to research each item we sell you. And document where it has come from and who produced it.</p> 
+
+        <p>This is why we take the time to document where the milk comes from to recording the auditing trail of each producers produce immutably.</p>
+
+      </div>
+
+    </div>
+    <div class="grid-two-single-column square__column--empty origin desktop">
+      
+      <div class="box">
+        <ul>
+            <li>
+              <span>
+                      <h3>LORD OF LONDON, West Sussex</h3>
+                  </span>
+              </li>
+              <li>  
+                  <span>
+                      <p>Produced by Alsop & Walker</p>
+                  </span>
+              </li>
+          </ul>     
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="full-width-container">
+  <div class="grid--twos">
+    <div class="grid-two-single-column square__column--empty history">
+      
+      <div class="box">
+        <ul>
+            <li>
+              <span>
+                      <h3>SUPPLIERS STORIES</h3>
+                  </span>
+              </li>
+              <li>  
+                  <span>
+                      <p>High Weald Dairy</p>
+                  </span>
+              </li>
+          </ul>
+      </div>
+
+    </div>
+    <div class="white-column grid-two-single-column square__column--empty">
+
+      <div class="inner-content text">
+
+        <h2>Discover <b>History</b></h2>
+        <p>Along with the origin of the produce. Comes the history of how it came to be, where it was made and the stories of each founder. </p> 
+
+        <p>We love to meet each founder of the dairy and even each generation who has started being involved to how they have grew from an 8 acre farm to over 300 acres. To discovering how </p> 
+
+        <p>Each supplier has a different and unique process to producing their produce. And each visit is an educate we wish to share with you. </p>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+ 
+
+
+<div class="full-width-container pb">
+  <div class="grid--twos">
+
+     
+    <div class="grid-two-single-column square__column--empty tested mobile">
+      
+      <div class="box-container"> 
+        <ul>
+          <li>x
+
+          </li>
+
+           <li>y
+
+          </li>
+
+          <li>z
+
+          </li>
+
+          <li>z
+
+          </li>
+
+          <li>z
+
+          </li>
+
+                    
+        </ul>
+      </div>
+
+
+    </div>
+
+    <div class="white-column grid-two-single-column square__column--empty">
+
+      <div class="inner-content text">
+
+        <h2>Supply Chain <b>Tracked</b></h2>
+        <p>We believe in notifying you with each process within our supply chain. Each stage is a check point to reaching you.  Making sure you have confidence in us. </p> 
+
+        <p>Which is why we update you when our produce is collected from the supplier, packed by the supplier and ready for dispatch. </p> 
+
+        <p>To make sure your products quality is improved we love to have your honest feedback. Because after-all a product or service is never perfect. And we love our customers. </p>
+
+      </div>
+
+    </div>
+    <div class="grid-two-single-column square__column--empty tested desktop">
+      
+      <div class="box-container"> 
+        <ul>
+          <li>
+            <span>
+              <h3>SUPPLIER</h3>
+            </span>
+              <span>
+                <p>The best cheese is selected</p>
+              </span>
+          </li>
+
+          <li>
+            <span>
+              <h3>COLLECTION</h3>
+            </span>
+              <span>
+                <p>Cheese is collected by courier</p>
+              </span>
+          </li>
+
+          <li>
+            <span>
+              <h3>FULFILMENT</h3>
+            </span>
+              <span>
+                <p>Picked and packed</p>
+              </span>
+          </li>
+
+          <li>
+            <span>
+              <h3>COURIER</h3>
+            </span>
+              <span>
+                <p>Collected for dispatch </p>
+              </span>
+          </li>
+
+          <li>
+            <span>
+              <h3>DELIVERED</h3>
+            </span>
+              <span>
+                <p>Arrives at your address</p>
+              </span>
+          </li>
+
+                    
+        </ul>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="full-width-section reviews pb">
+  <div class="grid--one">
+    <div class="fast_fact__column full-width-grid--ones-single-column">
+
+      <div class="hero-content">
+        
+        {% if customer %}
+              <div class="yotpo yotpo-main-widget"                   
+                  data-name="{{ product.name }}"
+                  data-product-id="{{ product.sku }}"
+                  data-url="{{ product.url|unescape }}"
+                  data-description="{{ product.description|unescape }}">
+              </div>
+        {% else %}
+
+          <script src="https://widget.reviews.co.uk/product/dist.js"></script>
+          <div id="widget"></div>
+          <script type="text/javascript">
+          productWidget("widget",{
+          store: "cheesemix-com",
+          sku: "PR-68;PR-69;PR-3", // Multiple SKU"s Seperated by Semi-Colons
+          primaryClr: "#FFC400",
+          neutralClr: "#EBEBEB",
+          buttonClr: "#EEE",
+          textClr: "#333",
+          tabClr: "#eee",
+          ratingStars: true,
+          showAvatars: true,
+          perPage: 10
+          });
+          </script>
+          
+        {% endif %}
+            </div>
+         </div>
+     </div>
+  </div>
+ 
+ 
+
+ 
+
+<section class="three-squares home">
+  <div class="grid--thirds">
+
+    
+      <div class="example__column--empty custom-grid--thirds__a-single-column">
+        <div class="square-content home">
+          
+        <img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/fresh.svg">
+        <br>
+
+        <div class="square-text">
+
+          <h2>Freshness Guaranteed</h2>
+          <hr>
+          <p>We have recyclable packaging designed to keep your food at its best throughout its journey.</p>
+     
+          </div>
+        </div>
+      </div>
+      <div class="example__column--empty custom-grid--thirds__a-single-column">
+
+        <div class="square-content home">
+        <img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/secure.svg">
+        <br>
+
+        <div class="square-text">
+         <h2>Secure Payments</h2>
+         <hr>
+         <p>Using best in class SSL via Comodo sitewide and payment technologies via Braintree.</p>
+     
+           </div>      
+         </div>
+      </div>
+      <div class="example__column--empty custom-grid--thirds__a-single-column">
+
+        <div class="square-content home">
+         <img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/chat-real.svg">
+          <br>
+         <div class="square-text">       
+         <h2>Customer Happiness</h2>
+         <hr>
+         <p>We are available to assist you in real-time 24/7</p>
+
+          </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+    {% else %}
+    
+    {{ partial('no-product-error') }}    
+
+    {% endif %}
+
+
+    {{ partial('newsletter-signup') }}
+
+
+
+
+

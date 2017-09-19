@@ -1,38 +1,64 @@
 {{ code_block('setup') }}
 
 
+<!-- Uses a footer that scrolls with the text, rather than staying
+  locked at the top -->
+  <footer id="footer" class="footer">
+    <div class="footer-container">
 
-<footer class="footer-landing mdl-mini-footer">
-  <div class="mdl-mini-footer__left-section">
-    <ul>
-		<li><a href="{{ theme.socialFacebookUrl }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
-		<li><a href="{{ theme.socialTwitterUrl }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
-		<li><a href="{{ theme.socialInstagramUrl }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
-		<li><a href="{{ site_url('terms-of-service') }}" >Terms of Service</a></li>
-		<li><a href="{{ site_url('privacy-policy') }}" >Privacy Policy</a></li>
-		<li><a href="{{ site_url('faqs') }}" >FAQs</a></li>
-		<li><a href="{{ site_url('roadmap') }}" >Product Roadmap</a></li>
-		<li><a class="letsspeak" href="#letsspeak" >Need Help? Speak To Us</a></li>
+       <div class="left">
+        <!-- Navigation -->
+      <nav class="navigation">
 
-    </ul>
-  </div>
+	    <ul>
+			<li><a href="{{ theme.socialFacebookUrl }}" target="_blank"><i class="fa fa-facebook"></i></a></li>
+			<li><a href="{{ theme.socialTwitterUrl }}" target="_blank"><i class="fa fa-twitter"></i></a></li>
+			<li><a href="{{ theme.socialInstagramUrl }}" target="_blank"><i class="fa fa-instagram"></i></a></li>
+			<li><a href="{{ site_url('terms-of-service') }}" >Terms of Service</a></li>
+			<li><a href="{{ site_url('privacy-policy') }}" >Privacy Policy</a></li>
+			<li><a href="{{ site_url('faqs') }}" >FAQs</a></li>
+			<li><a href="{{ site_url('roadmap') }}" >Product Roadmap</a></li>
+			<li><a class="letsspeak" href="#letsspeak" >Need Help? Speak To Us</a></li>
+
+	    </ul>
+
+      </nav>
+
+       </div>
+   
 
 
-  <div class="mdl-mini-footer__right-section">
-    <ul class="mdl-mini-footer__link-list logo-">
-		 
-		  <div class="mdl-logo">
-				
-				<a href="//cappui.com/#cheesemix">A venture by  <Img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/Logo-Cappui-Dark-Blue.svg" /></a>
- 
-		  </div>
-    </ul>
-  </div>
-
+     <div class="right">
   
-</footer>
+		  <div class="logo">
+	 
+		  </div>
+
+      </div>
+
+    </div>
+        <div class="footer-container">
+
+       <div class="left">
+        <!-- Navigation -->
+      <nav class="navigation">
+
+	    <ul>
+			<li><p>Cheesemix Limited</p></li>
+			
+	    </ul>
+
+      </nav>
+
+       </div>
+   
 
 
+     <div class="right">
 
+        <p><a href="//cheesemix.com/#footer">Made with <i class="fa fa-heart" aria-hidden="true"></i> by <Img src="//cheesemix.imgix.net/assets/images/site/footer/cheesemix-white-logo.svg" /></a></p>
 
+      </div>
 
+    </div>
+  </footer>

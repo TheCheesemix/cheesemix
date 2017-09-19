@@ -1,7 +1,136 @@
 {{ code_block('setup') }}
 
-<div class="dash-head">
 
-</div>
+<header class="mix-dropdown dash">
+  <div class="middle logo-center mobile">
+    <span>
+      <a src="/">
+      <img src="//cheesemix.imgix.net/assets/images/Logo-Symbol-Cheesemix-white.svg" alt="Logo Image">
+      </a>
+    </span>
 
+    <nav class="mobile-nav mobile">
+      <a href="#0" class="nav-trigger">
+        Open Nav
+        <span aria-hidden="true"></span>
+      </a>
+    </nav>
+  </div>
+
+
+  <nav class="main-nav">
+
+    <a src="/">
+      <img src="//cheesemix.imgix.net/assets/images/Logo-Symbol-Cheesemix-white.svg" alt="Logo Image">
+    </a>
+
+    <ul class="left dashboard">
+      <li class="nav-link"><span>Your</span><span><a href="/dashboard">
+         Dashboard {{customer.first_name}}!</span>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="right">
+      <li>
+        <a href="{{ site_url('cheese-tips') }}">
+          Cheese tips
+        </a>
+      </li>
+      <li>
+        <a href="#invite-a-friend">
+          Invite a friend
+        </a>
+      </li>
+      <li>
+        <a class="letsspeak" href="#letsspeak" >
+          Need help? Speak to us
+        </a>
+      </li>
+      <li>
+        <a href="{{ site_url('logout') }}">
+          Log out
+        </a>
+      </li>
+    </ul>
+  
+  </nav>
+
+
+
+  <div class="mix-dropdown-wrapper">
+    <div class="dropdown-list">
+
+      <li id="about" class="dropdown gallery">
+            <a href="#a" class="label" >Your
+            Dashboard {{customer.first_name}}!
+            </a>
+            
+            <div class="content"> 
+              <ul>
+                <li>
+                  <a href="{{ site_url('cheese-tips') }}">
+                    Cheese tips
+                  </a>
+                </li>
+                <li>
+                  <a href="#invite-a-friend">
+                    Invite a friend
+                  </a>
+                </li>
+                <li>
+                  <a href="#speaktous">
+                    Need help? Speak to us.
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ site_url('logout') }}">
+                    Log out
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+    </div>
+  </div>
+
+  </div>
+</header>
+
+
+
+<header class="mix-dropdown dash-bottom-nav">
  
+
+
+  <nav class="main-nav">
+
+
+
+    <ul class="left second-bar">
+      <li>
+        <div class="dash-page">
+          <h2>My Account:<h2>
+        </div>
+      </li>
+      <li>
+        <a href="{{ site_url('/dashboard/my-account') }}">
+          Your Details
+        </a>
+      </li>
+      <li>
+        <a href="{{ site_url('/dashboard/update-address') }}">
+          Your Address
+        </a>
+      </li>
+      <li>
+        <a href="{{ site_url('/dashboard/update-payment') }}">
+          Update Payment
+        </a>
+      </li>
+    </ul>
+  
+  </nav>
+
+  </div>
+</header>

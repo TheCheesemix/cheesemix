@@ -1,0 +1,82 @@
+ {{ code_block('setup') }}
+
+<!-- Uses a header that scrolls with the text, rather than staying
+  locked at the top -->
+    <header class="mix-dropdown">
+
+     <div class="middle logo-center mobile">
+      <!-- Title -->
+      <span class=""><a href="/" class="navbar-brand"><img src="//cheesemix.imgix.net/assets/images/Logo-Symbol-Cheesemix-white.svg"></a></span>
+     
+     <nav class="mobile-nav mobile">
+
+      {% if customer %}
+      <li>
+       <a class=""  href="{{ site_url('dashboard') }}"><i class="fa fa-user"></i></a>
+     </li>
+      {% else %}
+       <li>
+        <a class="" href="{{ site_url('login') }}"><i class="fa fa-user-circle"></i> Login</a>
+      </li> 
+      </nav>
+      {% endif %}
+
+     </div>
+  
+    <a href="#0" class="nav-trigger">Open Nav<span aria-hidden="true"></span></a>
+    
+    <nav class="main-nav">
+
+   
+        <ul class="left">
+
+          <li class="has-dropdown gallery" data-content="">
+					<a href="{{ site_url('cart') }}"><i class="fa fa-shopping-cart"></i> Cart
+						<span id="navbar-totals">({{ cart.getItemNum() }})</span></a>
+          </li>
+
+          <li class="has-dropdown gallery" data-content="">
+            <a href="{{ site_url('how-it-works') }}">Checkout</a>
+          </li>
+ 
+
+        </ul>
+
+     
+
+        <div class="middle logo-center desktop">
+                     <!-- Title -->
+          <span class=""><a href="/" class="navbar-brand"><img src="//cheesemix.imgix.net/assets/images/site/main-assets/two-tone-cheesemix-logo.svg"></a></span>
+
+
+         </div>
+    
+        <ul class="right">
+    
+          
+         
+          <li class="has-dropdown gallery" data-content="dashboard">
+           <a class=""  href="{{ site_url('product') }}" ><img src="https://cheesemix.imgix.net/assets/images/site/checkout/close-button.svg"></a>
+          </li>
+
+          {% if customer %}
+          <li class="has-dropdown gallery" data-content="dashboard">
+           <a class=""  href="{{ site_url('dashboard') }}"><img src="https://cheesemix.imgix.net/assets/images/site/checkout/close-button.svg"> <span>Dashboard</span></a>
+          </li>
+         
+          <!-- <li class="{{ active_page == 'orders' ? 'active' : null }}"><a href="{{ site_url('orders') }}">My Orders</a></li> -->
+
+          {% else %}
+  
+          {% endif %}
+         
+      	</ul>
+    </nav>
+    
+   
+  </header>
+
+
+
+
+ 

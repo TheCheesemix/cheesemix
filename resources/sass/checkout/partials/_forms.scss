@@ -1,0 +1,170 @@
+@import "../../neat/neat";
+@import "../../bourbon/bourbon";
+@import "../modules/columns";
+
+
+input, textarea {
+    font-family: "Karla", sans-serif;
+    border: 3px solid rgba(246, 201, 183, 0.4);
+    display: block;
+    font-size: 16px;
+    width: 100%;
+    text-align: left;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px 0;
+    background: #FCFCFC;
+    color: inherit;
+    -webkit-transition: border 400ms ease;
+    transition: border 400ms ease;
+    &:focus {
+    border: 3px solid #342680;
+    outline: none;
+    }
+    &:hover {
+    border: 3px solid #342680;
+    outline: none;
+    }
+    &:focus + label {
+    color: #342680
+    }
+
+}
+
+
+input.error {
+    border-color: #d34246 !important;
+}
+textarea.error {
+    border-color: #d34246 !important;
+}
+
+#your_safe_place {
+    width: 100%;
+}
+
+input.promo {
+    width: 100%;
+}
+
+ 
+ 
+.mix_label {
+    color: #16141d;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    @include grid-media($medium-grid){
+      font-size: 0.9rem;
+  }
+}
+
+
+
+
+
+
+.option-dropdown {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 1px auto;
+    width: 100%;
+}
+
+.option-dropdown select {
+    background-color: #1abc9c;
+    color: #fff;
+    font-size: inherit;
+    padding: 1em;
+    padding-right: 2.5em;
+    border: 0;
+    width: 100%;
+    border-radius: 0;
+    text-indent: 0.01px;
+    text-overflow: '';
+    -webkit-appearance: button;
+}
+
+.option-dropdown::before,
+.option-dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.option-dropdown::after { /*  Custom dropdown arrow */
+  content: "\25BC";
+  height: 1em;
+  font-size: .625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -.5em;
+}
+
+.option-dropdown::before { /*  Custom dropdown arrow cover */
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.option-dropdown select[disabled] {
+  color: rgba(0,0,0,.3);
+}
+
+.option-dropdown select[disabled]::after {
+  color: rgba(0,0,0,.1);
+}
+
+.option-dropdown::before {
+  background-color: rgba(0,0,0,.15);
+}
+
+.option-dropdown::after {
+  color: rgba(0,0,0,.4);
+}
+
+
+#payment_form h4 {
+    margin-bottom: 0.5em;
+}
+
+#payment_form p {
+    margin-bottom: 1.5em;
+}
+
+
+.payment-options ul {
+    padding: 0;
+    width: 100%;
+}
+
+.payment-options ul li {
+    display: inline-block;
+    padding: 0 3em 0 0em;
+}
+
+input[type="radio"] {
+    vertical-align: middle;
+}
+
+input.custom-radio {
+    border: #000;
+    border-style: solid;
+    border-width: 10px;
+    padding: 0;
+    margin: -17px 0;
+}
+
+
+label.mix_label-radio {
+    color: #16141d;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0em 1em 0 1.6em;
+}
+

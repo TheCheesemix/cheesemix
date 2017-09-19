@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
+
+*, :after, :before {
+    box-sizing: inherit;
+}
+
+::selection {
+    text-shadow: none;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+body, html {
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 100%;
+  min-height: 100%;
+  margin: 0; 
+  padding-top: 0px;
+  background: #f9f9f9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Lato', sans-serif;
+}
+
+p {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+a {
+  font-family: 'Source Sans Pro', sans-serif;
+  text-decoration: none;
+}
+ 
+* html .group             { zoom: 1; } /* IE6 */
+*:first-child+html .group { zoom: 1; } /* IE7 */
+
+
+.notfication {
+    text-align: center;
+}
+
+.flash {
+    &.success {
+        color: #ffffff;
+        padding: 1.5vh 2vh;
+        background: #62c46e;
+    }
+}

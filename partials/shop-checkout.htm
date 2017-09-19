@@ -1,4 +1,5 @@
-<div class="mix-pane-left-signup">
+
+
   {% if step == 'billing_info' %}
     {% set inputs %}
       <input type="hidden" name="step" value="billing_info,shipping_info">
@@ -8,312 +9,324 @@
       <input type="hidden" name="step" value="pay">
   {% endif %}
 
-<div class="row">
+ 
+<div class="checkout-tab " id="shop-address">
+ 
 
-<div class="small-9 small-centered">
-
-
-    <div class="auth-logo">
-         <img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/Heron.svg">
-    </div>
-
-    <p id="title-p">Lets Finish This Order.</p>
-
-     <div><p>If you are stuck or having issues or need some help. Speak to a cheesemix wizard in real time now. By <a class="letsspeak" href="#letsspeak">clicking me</a>.</p></div>
-
-
-<div class="checkout-tab" id="shop-address">
-  <div class="checkout-tab-bar row">
-    <div class="medium-6 columns">
-      <p>
-        {% if step == 'billing_info' %}
-          <i class="fa fa-circle-thin"></i>
+      {% if step == 'billing_info' %}
+   
+        <div class="step desktop"><i class="fa fa-circle-thin"></i>
           Step 1: Billing/Shipping Address
         {% elseif step == 'shipping_method' %}
-          <i class="fa fa-check goback-icon"></i>
+          <div class="step desktop"><i class="fa fa-check goback-icon"></i>
           <a class="goback-tab data-ajax-url"
         data-ajax-handler="shop:checkout"
         data-ajax-update="#checkout-page=shop-checkout"
         data-ajax-extra-fields="nextStep=billing_info"
         data-hash="step-1">Step 1: Billing/Shipping Address</a>
         {% elseif step == 'pay' %}
-          <i class="fa fa-check goback-icon"></i>
+        <div class="step complete desktop"><i class="fa fa-check goback-icon"></i>
           <a class="goback-tab data-ajax-url"
         data-ajax-handler="shop:checkout"
         data-ajax-update="#checkout-page=shop-checkout"
         data-ajax-extra-fields="nextStep=billing_info"
         data-hash="step-1">Step 1: Billing/Shipping Address</a>
         {% endif %}
+        </div>
 
-      </p>
-    </div>
-    <div class="medium-6 columns text-right">
-      {% if step == 'billing_info' %}
-        <span class="status">In Progress</span>
-      {% elseif step == 'shipping_method' %}
-        <span class="status  goback-icon">Complete</span>
-      {% elseif step == 'pay' %}
-        <span class="status  goback-icon">Complete</span>
-      {% endif %}
-    </div>
-  </div>
+
+
 {% if step == 'billing_info' %}
   <div class="checkout-content checkout-open">
-{% elseif step == 'shipping_method' %}
-  <div class="checkout-content ">
 {% elseif step == 'pay' %}
   <div class="checkout-content ">
 {% endif %}
 
+ 
 <div id="address-form">
 
 {{ open_form({'class': 'custom', 'data-validation-message' : ''}) }}
-  <div class="medium-12" style="padding-bottom: 0;">
-    <div class="small-12 medium-12">
+  <div class="">
+    <div class="">
+ 
 
-      <p id="title-p-d">
+
+      <h1 id="title-p-d">
 
       Billing Address
-        <span class="fa-stack" style="visibility:hidden;">
-              <i class="fa fa-square-o fa-stack-2x"></i>
-              <i class="fa fa-check fa-stack-1x"></i>
-            </span>
-      </p>
 
-      <div id="billing-info" class="row">
+      </h1>
+      <hr>
+      <div id="billing-info" class="">
         <div class="form-group">
-          <div class="small-6 columns mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <label class="mdl-textfield__label" for="billing_firstName">First Name *</label>
-            </br>
-            <input data-mirror type="text" class="fs-hide mdl-textfield__input " name="billingInfo[firstName]" id="billing_firstName" value="{{ billingInfo.firstName }}"  />
-            <span class="error small text-danger"></span>
+          <label class="mix_label" for="billing_firstName">First Name *</label>
+          <br>
+          <input data-mirror type="text" class="form-control" name="billingInfo[firstName]" id="billing_firstName" value="{{ billingInfo.firstName }}" placeholder="Jonathan" required/>
 
-          </div>
-       </div>
-       <div class="form-group">
-         <div class="small-6 columns mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <label  class="mdl-textfield__label"  for="billing_lastName">Last Name *</label>
-            </br>
-            <input data-mirror type="text" class=" fs-hide mdl-textfield__input" name="billingInfo[lastName]" id="billing_lastName" value="{{ billingInfo.lastName }}" />
-            <span class="error small text-danger"></span>
-          </div>
         </div>
-        <div class="small-6 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <label  class="mdl-textfield__label"  for="billing_email">E-mail Address *</label>
-          </br>
-          <input type="email" class=" fs-hide mdl-textfield__input" name="billingInfo[email]" id="billing_email" value="{{ billingInfo.email }}" />
-          <span class="error small text-danger"></span>
+        <div class="form-group">
+          <label class="mix_label" for="billing_lastName">Last Name *</label>
+          <br>
+          <input data-mirror type="text" class="form-control" name="billingInfo[lastName]" id="billing_lastName" value="{{ billingInfo.lastName }}" placeholder="Doe"required/>
         </div>
-        <div class="small-6 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <label  class="mdl-textfield__label"  for="billing_phone">Phone Number *</label>
-          </br>
-          <input data-mirror type="text" class=" fs-hide mdl-textfield__input" name="billingInfo[phone]" id="billing_phone" value="{{ billingInfo.phone }}" 
-          <span class="error small text-danger"></span>
+        <div class="form-group">
+          <label class="mix_label" for="billing_email">E-mail Address *</label>
+          <p><small>We needs for your personal account and notifications </small></p>
+          <input data-mirror type="email" class="form-control" name="billingInfo[email]" id="billing_email" value="{{ billingInfo.email }}" placeholder="example@email.com"/>
         </div>
-        <div class="small-12 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <label  class="mdl-textfield__label"  for="billing_address">Address *</label>
-          </br>
-          <input data-mirror type="text" class=" fs-hide mdl-textfield__input" id="billing_address" name="billingInfo[streetAddressLine1]" value="{{ billingInfo.streetAddressLine1 }}" />
-          <span class="error small text-danger"></span>
+        <div class="form-group">
+          <label class="mix_label" for="billing_phone">Mobile Number *</label>
+          <p><small>This allows us to send you order updates</small></p>
+          <input data-mirror type="text" class="form-control" name="billingInfo[phone]" id="billing_phone" value="{{ billingInfo.phone }}" placeholder="(012) 345-6789" required/>
         </div>
-        <div class="small-12 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <label  class="mdl-textfield__label"  for="billing_address">Address 2</label>
-          </br>
-          <input data-mirror type="text" class=" fs-hide mdl-textfield__input" id="billing_address" name="billingInfo[streetAddressLine2]" value="{{ billingInfo.streetAddressLine2 }}" placeholder="Suite # 555"/>
-          <span class="error small text-danger"></span>
+        <div class="address form-group">
+          <label data-mirror class="mix_label" for="billing_address">Address *</label>
+          <br>
+          <input data-mirror type="text" class="form-control" id="billing_address" name="billingInfo[streetAddressLine1]" value="{{ billingInfo.streetAddressLine1 }}" placeholder="123 Example Dr"/>
         </div>
-        <div class="small-6 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <label  class="mdl-textfield__label" for="billing_city">City *</label>
-          </br>
-          <input data-mirror type="text" class=" fs-hide mdl-textfield__input" name="billingInfo[city]" id="billing_city" value="{{ billingInfo.city }}" placeholder="Vancouver"/>
-          <span class="error small text-danger"></span>
+        <div class="address form-group">
+          <label class="mix_label" for="billing_address">Address 2</label>
+          <br>
+          <input data-mirror type="text" class="form-control" id="billing_address" name="billingInfo[streetAddressLine2]" value="{{ billingInfo.streetAddressLine2 }}" placeholder="Suite # 555"/>
         </div>
-        <div class="small-6 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <label  class="mdl-textfield__label"  for="billing_postalCode">Postal Code *</label>
-          </br>
-          <input data-mirror type="text" class=" fs-hide mdl-textfield__input" id="billing_postalCode" name="billingInfo[postalCode]" value="{{ billingInfo.postalCode }}" placeholder="A1B2C3"/>
-          <span class="error small text-danger"></span>
+        <div class="form-group">
+          <label class="mix_label" for="billing_city">City *</label>
+          <br>
+          <input data-mirror type="text" class="form-control" name="billingInfo[city]" id="billing_city" value="{{ billingInfo.city }}" placeholder="Vancouver"/>
         </div>
-        <div class="small-6 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <label for="billing_country"  class="mdl-textfield__label hide" >Country</label>
+        <div class="form-group">
+          <label class="mix_label" for="billing_postalCode">Zip Code *</label>
+          <br>
+          <input data-mirror type="text" class="form-control" id="billing_postalCode" name="billingInfo[postalCode]" value="{{ billingInfo.postalCode }}" placeholder="A1B2C3"/>
+        </div>
+        <div class="form-group">
+          <label class="mix_label" for="billing_country" class="hide">Country</label>
+          <br>
           <!--
             The state selector updates automatically when the country changes.
             See app.js for the implementation details.
             -->
-            <select data-mirror id="billing_country" class="chzn-select " name="billingInfo[countryId]" data-state-selector="#billing_state" data-current-state="{{ billingInfo.stateId }}">
+          <div class="option-dropdown">
+            <select data-mirror id="billing_country" class="chzn-select form-control" name="billingInfo[countryId]" data-state-selector="#billing_state" data-current-state="{{ billingInfo.stateId }}">
             {% for country in countries %}
             <option {{ option_state(billingInfo.countryId, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
             {% endfor %}
             </select>
-          <span class="error small text-danger"></span>
+          </div>
         </div>
-        <div class="small-6 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <label for="billing_state" class="hide">State</label>
-            <select data-mirror id="billing_state" class="chzn-select " name="billingInfo[stateId]" data-ajax-refresh>
+        <div class="form-group">
+          <label class="mix_label" for="billing_state" class="hide">State</label>
+          <br>
+          <div class=" option-dropdown">
+            <select data-mirror id="billing_state" class="chzn-select form-control" name="billingInfo[stateId]" data-ajax-refresh>
             {{ partial('shop-stateoptions', {'states': billingStates, 'selected': billingInfo.stateId}) }}
             </select>
-          <span class="error small text-danger"></span>
+          </div>
         </div>
 
       </div>
+        <br>
+
+        <br>
     </div>
 
-    <div class="small-12 medium-12" id="mobile-shipping">
-      <p id="title-p-d">Shipping Address |
-          <a data-toggle-mirror="on" class="btn-form-mirror">
-            <span class="fa-stack">
-              <i class="fa fa-square-o fa-stack-2x" style="visibility:visible"></i>
-              <i class="fa fa-check fa-stack-1x" style="visibility:visible" id="check-box"></i>
-            </span>
-            Same as Billing Address
+    <div class="billing-address-btn">
+        <a data-toggle-mirror="off" class="btn-form-mirror">
+                <span class="fa-stack">
+                  <i class="fa fa-square-o fa-stack-2x" style="visibility:visible"></i>
+                  <i class="fa fa-check fa-stack-1x" style="visibility:visible" id="check-box"></i>
+                </span>
+                My billing address is the same as my delivery address
           </a>
-      </p>
+      </div>
 
+    <div class="shipping" id="shipping-info">
+     
+       <h1 id="title-p-d">Shipping Address</h1>
+       <hr>
 
-      <div id="shipping-info">
-        <div class="small-6 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <label for="shipping_firstName" class="mdl-textfield__label" >First Name *</label>
-          </br>
-          <input  data-mirror type="text" class="mdl-textfield__input disabled" name="shippingInfo[firstName]" id="shipping_firstName" value="{{ shippingInfo.firstName }}" placeholder="First Name"/>
-          <span class="error small text-danger"></span>
+      <div class="">
+        <div class="form-group">
+          <label class="mix_label" for="shipping_firstName">First Name *</label>
+          <br>
+          <input  data-mirror type="text" class="form-control disabled" name="shippingInfo[firstName]" id="shipping_firstName" value="{{ shippingInfo.firstName }}" placeholder="First Name"/>
         </div>
-        <div class="small-6 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <label for="shipping_lastName" class="mdl-textfield__label" >Last Name *</label>
-          </br>
-          <input data-mirror type="text" class="mdl-textfield__input disabled" name="shippingInfo[lastName]" id="shipping_lastName" value="{{ shippingInfo.lastName }}" placeholder="Last Name"/>
-          <span class="error small text-danger"></span>
+        <div class="form-group">
+          <label class="mix_label" for="shipping_lastName">Last Name *</label>
+          <br>
+          <input data-mirror type="text" class="form-control disabled" name="shippingInfo[lastName]" id="shipping_lastName" value="{{ shippingInfo.lastName }}" placeholder="Last Name"/>
         </div>
-        <div class="small-6 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <label for="shipping_phone" class="mdl-textfield__label" >Phone Number *</label>
-          </br>
-          <input data-mirror type="text" class="mdl-textfield__input disabled" name="shippingInfo[phone]" id="shipping_phone" value="{{ shippingInfo.phone }}" placeholder="(012) 345-6789"/>
-          <span class="error small text-danger"></span>
+        <div class="form-group">
+          <label class="mix_label" for="shipping_phone">Phone Number *</label>
+          <br>
+          <input data-mirror type="text" class="form-control disabled" name="shippingInfo[phone]" id="shipping_phone" value="{{ shippingInfo.phone }}" placeholder="(012) 345-6789"/>
         </div>
-        <div class="small-12 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <label for="shipping_address" class="mdl-textfield__label" >Address *</label>
-          </br>
-          <input data-mirror type="text" class="mdl-textfield__input disabled" name="shippingInfo[streetAddressLine1]" id="shipping_address"  value="{{ shippingInfo.streetAddressLine1 }}" placeholder="123 Example Dr"/>
-          <span class="error small text-danger"></span>
+        <div class="address form-group">
+          <label class="mix_label" for="shipping_address">Address *</label>
+          <br>
+          <input data-mirror type="text" class="form-control disabled" name="shippingInfo[streetAddressLine1]" id="shipping_address"  value="{{ shippingInfo.streetAddressLine1 }}" placeholder="123 Example Dr"/>
         </div>
-        <div class="small-12 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <label for="shipping_address" class="mdl-textfield__label" >Address 2</label>
-          </br>
-          <input data-mirror type="text" class="mdl-textfield__input disabled" name="shippingInfo[streetAddressLine2]" id="shipping_address"  value="{{ shippingInfo.streetAddressLine2 }}" placeholder="Suite # 555"/>
-          <span class="error small text-danger"></span>
+        <div class="address form-group">
+          <label class="mix_label" for="shipping_address">Address 2</label>
+          <br>
+          <input data-mirror type="text" class="form-control disabled" name="shippingInfo[streetAddressLine2]" id="shipping_address"  value="{{ shippingInfo.streetAddressLine2 }}" placeholder="Suite # 555"/>
         </div>
-        <div class="small-6 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <label for="shipping_city" class="mdl-textfield__label" >City *</label>
-          </br>
-          <input data-mirror type="text" class="mdl-textfield__input disabled" name="shippingInfo[city]" id="shipping_city" value="{{ shippingInfo.city }}" placeholder="City"/>
-          <span class="error small text-danger"></span>
+        <div class="form-group">
+          <label class="mix_label" for="shipping_city">City *</label>
+          <br>
+          <input data-mirror type="text" class="form-control disabled" name="shippingInfo[city]" id="shipping_city" value="{{ shippingInfo.city }}" placeholder="City"/>
         </div>
-        <div class="small-6 mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-          <label for="shipping_postalCode" class="mdl-textfield__label">Postal Code *</label>
-          </br>
-          <input data-mirror type="text" class="mdl-textfield__input disabled" name="shippingInfo[postalCode]" id="shipping_postalCode" value="{{ shippingInfo.postalCode }}" placeholder="Zip Code"/>
-          <span class="error small text-danger"></span>
+        <div class="form-group">
+          <label class="mix_label" for="shipping_postalCode">Zip Code *</label>
+          <br>
+          <input data-mirror type="text" class="form-control disabled" name="shippingInfo[postalCode]" id="shipping_postalCode" value="{{ shippingInfo.postalCode }}" placeholder="Zip Code"/>
         </div>
-        <div class="small-6 ">
-          <label for="shipping_country" class="hide">Country</label>
-            <select data-mirror id="shipping_country" class="chzn-select  disabled" name="shippingInfo[countryId]" data-state-selector="#shipping_state" data-current-state="{{ shippingInfo.stateId }}" >
+        <div class="form-group">
+          <label class="mix_label" for="shipping_country" class="hide">Country</label>
+          <br>
+          <div class=" option-dropdown">
+            <select data-mirror id="shipping_country" class="chzn-select form-control disabled" name="shippingInfo[countryId]" data-state-selector="#shipping_state" data-current-state="{{ shippingInfo.stateId }}" >
             {% for country in countries %}
             <option {{ option_state(shippingInfo.countryId, country.id) }} value="{{ country.id }}">{{ country.name }}</option>
             {% endfor %}
             </select>
-          <span class="error small text-danger"></span>
+          </div>
         </div>
-        <div class="small-6">
-          <label for="shipping_state" class="hide">State</label>
-            <select data-mirror id="shipping_state" class="chzn-select  disabled" name="shippingInfo[stateId]" data-ajax-refresh >
+        <div class="form-group">
+          <label class="mix_label" for="shipping_state" class="hide">State</label>
+          <br>
+
+          <div class=" option-dropdown">
+            <select data-mirror id="shipping_state" class="chzn-select form-control disabled" name="shippingInfo[stateId]" data-ajax-refresh >
             {{ partial('shop-stateoptions', {'states': shippingStates, 'selected': shippingInfo.stateId}) }}
             </select>
-          <span class="error small text-danger"></span>
+          </div>
         </div>
 
       </div>
     </div>
 
-    <div class="medium-6">
-    {% if not customer %}
-      <div class="row">
-          <div class="medium-6 columns">
+    <div id="additional-info">
+      <h1 id="title-p-d">
 
-            <label for="password">Password</label>
-            <input type="password" name="billingInfo[password]" class="" id="password" value="" />
-            <span class="error"></span>
-          </div>
-          <div class="medium-6 columns">
-            <label for="password_confirmation">Password confirmation</label>
-            <input type="password" name="billingInfo[password_confirmation]" class="" id="password_confirmation" value=""/>
-            <span class="error"></span>
-          </div>
-          <div class="medium-6 columns">
-            <input type="checkbox" name="accepts_marketing" id="accepts_marketing" checked/>
-            <label for="accepts_marketing">Recieve promotional emails</label>
-          </div>
+        Additional Information
 
-          <div class="medium-12">
-            <div class="medium-12 user-id">
-              <p>In order to subscribe to or purchase products from cheesemix you will need a user account with password.</p>
-              <p>Already a subscriber of cheesemix? Login <a href="/login">Here</a></p>
-            </div>
-          </div>
-        </div>
+      </h1>
+      <hr>
+      <div class=" user-id">
+            <p>In order to subscribe you will need a user account with password.</p>
+            <p>Already got an account? Login <a href="/login">Here</a></p>
       </div>
+       {% if not customer and not param('guest') %}
+        <div class="columns form-group">
+          <label class="mix_label" for="password">Password</label>
+          <br>
+          <input type="password" name="billingInfo[password]" class="form-control" id="password" value="" />
+          <span class="error"></span>
+        </div>
+        <div class="columns form-group">
+          <label class="mix_label" for="password_confirmation">Password confirmation</label>
+          <br>
+          <input type="password" name="billingInfo[password_confirmation]" class="form-control" id="password_confirmation" value=""/>
+          <span class="error"></span>
+        </div>
+        {% endif %}
+        <div class="columns form-group">
+          <label class="mix_label" for="your_safe_place">Delivery Instructions</label>
+          <br>
+          <textarea  name="your_safe_place"  cols="40" rows="5" class="form-control" id="your_safe_place" value=""></textarea>
+          <span class="error"></span>
+        </div>
+        <div class="columns form-group">
+          <input class="promo" type="checkbox" name="accepts_marketing" id="accepts_marketing" checked/>
+          <label for="accepts_marketing">Recieve promotional emails</label>
+          <br>
+        </div>
+    </div>
 
-    {% endif %}
-  </div>
 
-    <div class="small-12">
+
+
+ 
         {% if step == 'billing_info' %}
-           <br><br>
-          <a class="btn-mix data-ajax-url" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=shop-checkout, #checkout-totals=shop-checkout-totals" data-hash="step-3">Proceed to Billing</a>
+          <a class="btn-mix checkout data-ajax-url desktop" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=shop-checkout, #checkout-totals=shop-checkout-totals" data-hash="step-2">Continue to payment</a>
+
+ 
+          <div class="mobile-btn mobile">
+            <a class="btn-mix checkout data-ajax-url" data-ajax-handler="shop:checkout" data-ajax-update="#checkout-page=shop-checkout, #checkout-totals=shop-checkout-totals" data-hash="step-2">
+
+
+            {% if step == 'billing_info' %}
+           <span><i class="fa fa-circle-thin"></i>
+              Step 1: 
+            {% elseif step == 'shipping_method' %}
+              <i class="fa fa-check goback-icon"></i>
+              <a class="goback-tab data-ajax-url"
+            data-ajax-handler="shop:checkout"
+            data-ajax-update="#checkout-page=shop-checkout"
+            data-ajax-extra-fields="nextStep=billing_info"
+            data-hash="step-1">Step 1: </a>
+            {% elseif step == 'pay' %}
+              <i class="fa fa-check goback-icon"></i>
+              <a class="goback-tab data-ajax-url"
+            data-ajax-handler="shop:checkout"
+            data-ajax-update="#checkout-page=shop-checkout"
+            data-ajax-extra-fields="nextStep=billing_info"
+            data-hash="step-1">Step 1: </a>
+            {% endif %}
+            </span>
+            Continue to payment</a>
+          </div>
+
         {% else %}
 
         {% endif %}
         {{ inputs }}
-    </div>
+ 
   {{ close_form() }}
 </div>
 </div>
 </div>
 
-
-
-
+ 
 <!-- PAYMENT METHOD -->
-
 <div class="checkout-tab" id="shop-pay">
   <div class="checkout-tab-bar row">
-    <div class="medium-6 columns">
-      <p>
+ 
+   
         {% if step == 'billing_info' %}
+          <i class="fa fa-circle-thin"></i>
+        {% elseif step == 'shipping_method' %}
           <i class="fa fa-circle-thin"></i>
         {% elseif step == 'pay' %}
           <i class="fa fa-circle-thin"></i>
         {% endif %}
-        Step 3: Payment Method
-      </p>
-    </div>
-    <div class="medium-6 columns text-right">
+        Step 2: Payment Method
+   
+ 
+ 
       {% if step == 'billing_info' %}
         <span class="status">Fill out Billing Info</span>
+      {% elseif step == 'shipping_method' %}
+        <span class="status">Choose a Shipping Method</span>
       {% elseif step == 'pay' %}
         <span class="status">In Progress</span>
       {% endif %}
-    </div>
+ 
   </div>
 </div>
 
 {% if step == 'billing_info' %}
   <div class="checkout-content">
+{% elseif step == 'shipping_method' %}
+  <div class="checkout-content ">
 {% elseif step == 'pay' %}
   <div class="checkout-content checkout-open">
 {% endif %}
-<div id="shop-checkout-payment-method" class="medium-12 row">
+<div id="shop-checkout-payment-method" class="">
 {% if cart %}
-    <div class="medium-12">
-        <p id="title-p-d">Select a Payment Method</p>
+    <div class="">
+        <h1 id="title-p-d">Select a Payment Method</h1>
       {% if step == 'billing_info' %}
         <p>Please fill out billing/shipping info</p>
       {% elseif step == 'shipping_method' %}
@@ -323,21 +336,28 @@
       {% else %}
         {% set paymentMethod = false %}
         <div id="payment_method">
-          <div class="medium-12 columns">
+          <div class="payment-options">
+            
             {{ open_form({'class': 'custom'}) }}
+             <ul>
                 {% for method in paymentMethods %}
                     {% if loop.index == 1 %}
                         {% set paymentMethod = method %}
-                        <input class="custom-radio" name="paymentMethodId" value="{{ method.id }}" type="radio" id="payment-method{{ method.id }}" checked="checked"/>
-                        <label for="payment-method{{ method.id }}" class="choice-title h6"> {{ method.name }} </label>
+                        
+
+                        <li><input class="custom-radio" name="paymentMethodId" value="{{ method.id }}" type="radio" id="payment-method{{ method.id }}" checked="checked"/>
+                        <label class="mix_label-radio" for="payment-method{{ method.id }}" class="choice-title h6"> {{ method.name }} </label>
+                        <br></li>
 
                     {% else %}
 
-                        <input class="custom-radio" name="paymentMethodId" value="{{ method.id }}" type="radio" id="payment-method{{ method.id }}" />
-                        <label for="payment-method{{ method.id }}" class="choice-title h6"> {{ method.name }} </label>
+                         <li><input class="custom-radio" name="paymentMethodId" value="{{ method.id }}" type="radio" id="payment-method{{ method.id }}" />
+                        <label class="mix_label-radio" for="payment-method{{ method.id }}" class="choice-title h6"> {{ method.name }} </label>
+                        <br></li>
 
                     {% endif %}
                 {% endfor %}
+              </ul>
             </form>
           </div>
         </div>
@@ -354,7 +374,6 @@
               {% endif %}
             {% endif %}
         </div>
-
       {% endif %}
     </div>
 {% else %}
@@ -364,25 +383,10 @@
 </div>
 </div>
 
-<div class="medium-12">
-<div class="checkout-tab" id="shop-cart">
-  <div class="checkout-tab-bar row">
-    <div class="medium-6 columns">
-      <p>Items</p>
-    </div>
-  </div>
-  <div class="checkout-content checkout-open">
-  {{ partial('shop-cart-checkout', {'edit_cart': false}) }}
-  <hr>
-  <span id="checkout-totals" class="text-right">{{ partial('shop-checkout-totals') }}</span>
-  </div>
-</div>
-</div>
-
-
-</div>
-</div>
 
 
 
-
+ 
+ 
+ 
+                

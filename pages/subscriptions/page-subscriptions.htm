@@ -1,40 +1,142 @@
 ---
 action: 'subscriptions:subscriptions'
-template: template-1
+template: dashboard
 protocol: all
 published: true
 name: Subscriptions
-url: /dashboard/subscriptions
+url: /dashboard/my-subscriptions/
 ---
-<div class="full-jumbotron no-padding row contact-head contact">
-  <div class="medium-12 text-center">
-    <h1>My Subscriptions</h1>
-  </div>
-</div>
 
 
-<div class="jumbotron row">
-
-  {% if not subscriptions or not subscriptions.count %}
-      <p class="flash info">Subscriptions not found</p>
-  {% else %}
-  {% for subscription in subscriptions %}
-  {% set url = root_url('/subscription/' ~ subscription.id) %}
-    <a href="{{ url }}">
-      <div class="row" id="subscription-row">
-        <div class="medium-2">
-          <p><span class="strong">Id:</span> {{ subscription.id }}</p>
+<div class="dashboard-content">
+    <div class="panel-body">
+        <div class="">
+          <div class="">
+            <h1>My Subscriptions</h1>
+          </div>
         </div>
-        <div class="medium-8">
-          <p><span class="strong">Started:</span> {{ subscription.created_at.format('M jS, Y') }}</p>
+        <div class="">
+
+            {% if not subscriptions or not subscriptions.count %}
+                <p class="no-subscriptions">There are no subscriptions for this account yet.</p>
+            {% else %}
+              <table id="subscriptions">
+                  <thead>
+                    <tr>
+                      <th class="order">id</th>
+                      <th class="data" data-dynatable-sorts="subscriptionCreation">Creation</th>
+                      <th class="status" >Status</th>
+                      <th class="total" >Total</th>
+                    </tr>
+                  </thead>
+                    <tbody>
+            {% for subscription in subscriptions %}
+            {% set url = root_url('/dashboard/subscriptions/subscription/' ~ subscription.id) %}
+                
+
+                    <tr>
+                      <td><a href="{{ url }}" >{{ subscription.id }}</a></td>
+                      <td><a href="{{ url }}" >{{ subscription.created_at.format('M jS, Y') }}</a></td>
+                      <td><a href="{{ url }}" >{{ subscription.status.name }}</a></td>
+                      <td><a href="{{ url }}" >{{ order.total|currency }}</a></td>
+                    </tr>
+ 
+
+            {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
         </div>
-        <div class="medium-2">
-          <p><span class="strong">Status:</span> {{ subscription.status.name }}</p>
+
+        <div class="">
+          <div class="">
+            <h1>Recent Orders</h1>
+          </div>
+        </div>
+        <div class="">
+        {% if customer.orders is empty %}
+                <p class="no-orders">There is no order history for this account yet.</p>
+        {% else %}
+
+            {% for order in customer.orders %}
+                 {% for item in order.orderItems %}
+                    {% for invoice in order.invoices %}  
+                      {% for shipment in invoice.shipments %}   
+                        {% for item in shipment.shipmentItems %}        
+                            {% set url = root_url('/dashboard/my-orders/' ~ order.id) %}
+                            <div class="order-box">
+                                <div class="heading">
+                                    <div class="top left">    
+                                        <ul>
+                                            <li class="data-name">
+                                                <p><strong>Order Placed</strong></p>
+                                                <p><a href="{{ url }}" ><span><a href="{{ url }}" >{{ order.created_at.format('M jS, Y') }}</span></a></p> 
+                                            </li>
+                                             <li class="data-name">
+                                                <p><strong>Total</strong></p>
+                                                <p><a href="{{ url }}" ><span>{{ order.total|currency }}</span></a></p> 
+                                            </li>
+                                        </ul>
+                                    </div>
+                               
+
+
+                                    
+                                    <div class="top right">
+                                        <ul>
+                                              <li class="data-name">
+                                                    <p><strong>Order Status</strong></p>
+                                                    <p class="label" style="background-color: {{ order.orderStatus.color }};" >
+
+                                                    <a href="{{ url }}" ><span>{{ order.orderStatus.name }}</span></a>
+
+                                                    </p> 
+                                                </li>
+                                                  <li class="data-name">
+                                                    <p><strong>Order No.</strong></p>
+                                                    <p><a href="{{ url }}" ><span>{{ order.number }}</span></a></p> 
+                                                </li>
+                                            </ul>
+                                        </div>  
+
+                                    </div>
+
+                                    <div class="main-order-content">
+                                        <div class="product-image left">
+
+                                            <a href="/product/{{ item.product.url_name }}">
+                                                <img src="{{ item.product.image.thumbnail(400, 'auto', {crop: true}) | default('http://placehold.it/150x150') }}">
+                                            </a>
+   
+
+                                        </div>
+                                        <div class="product-actions right">
+
+                                            <a class="btn-mix product-btn track" href="/product/{{ item.product.url_name }}#product-review">
+                                                Track Shipment
+                                            </a>
+
+                                            <a class="btn-mix product-btn" href="/product/{{ item.product.url_name }}#product-review">
+                                                Product Review
+                                            </a>
+
+                                           <a class="btn-mix product-btn" href="https://cheesemix.com/dashboard/subscriptions#product=feedback">
+                                                Leave Feedback
+                                            </a>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                               {% endfor %}
+                            {% endfor %}
+                       {% endfor %}
+                {% endfor %}
+            {% endfor %}
+               
+        {% endif %}
+          </div>
         </div>
       </div>
-    </a>
-  {% endfor %}
-  {% endif %}
-
-</div>
-
+    </div>

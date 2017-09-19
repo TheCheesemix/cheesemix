@@ -39,7 +39,7 @@
 				{% endif %}
 			</div>
 			<div class="small-3" id="item-middle">
-				<p class="small-9">{{ item.total()|currency }}</p>
+				<p class="small-9" data-ajax-refresh >{{ item.total()|currency }}</p>
 
 				{% if edit_cart %}
 					<a class="small-3" id="item-close" href="#close" 

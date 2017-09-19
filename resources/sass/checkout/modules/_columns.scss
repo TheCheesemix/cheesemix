@@ -1,0 +1,212 @@
+@import "../../neat/neat";
+@import "../../bourbon/bourbon";
+
+@import '../../site/partials/media';
+
+
+
+// For hiding and showing different content or variations on Mobile and Desktop Displays
+
+.desktop {
+    display: inline-block !important;
+    @include grid-media($medium-grid) {
+        display: none !important;
+    }
+}
+
+.mobile {
+    display: none !important;
+    @include grid-media($medium-grid) {
+        display: inline-block !important;
+    }
+}
+
+
+
+// Square Grid Columns and Containers
+
+$grid--twos: (
+  columns:  12,
+  gutter: 10px,
+);
+
+.grid--twos{
+  @include grid-container($grid--twos);
+}
+
+
+.full-width-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 9em 0 25vh;
+    @include grid-media($medium-grid) {
+        margin-top: 1em;
+    }
+    @include grid-media($small-grid) {
+        margin-top: 0.8em;
+    }
+}
+
+
+.white-column {
+    color: #282538;
+}
+
+
+.grid-two-single-column {
+    @include grid-column(7, $grid--twos);
+    height: 100% !important;
+    @include grid-media($medium-grid){
+    @include grid-collapse;
+    }
+}
+
+
+
+.grid-two-side-column {
+    @include grid-column(5, $grid--twos);
+    height: 100%;
+    padding: 0 2em;
+    @include grid-media($medium-grid){
+    @include grid-collapse;
+    }
+}
+
+
+.square__column--empty {
+}
+
+
+
+.inner-content {
+    max-width: 850px;
+    width: 100%;
+    padding: 0vh 2vh 0 2vh;
+    position: relative;
+    color: #000;
+    margin-right: 0;
+    float: right;
+    h2 {
+         font-size: 2rem;
+    }
+    p {
+        font-size: 1rem;
+        font-weight: 300;
+    }
+    hr {
+        width: 100%;
+        float: left;
+        border: 1px solid #fec430;
+    }
+    @include grid-media($medium-large-grid){
+        padding: 0vh 0 0 2vh;
+    }
+    @include grid-media($medium-grid){
+        float: none;
+        margin: 0 auto;
+        padding: 0vh 2em 0 2em;
+        h2 {
+            font-size: 2.1rem;
+        }    
+        p {
+            font-size: 0.9rem;
+            font-weight: 200;
+        }
+    }
+    @include grid-media($small-grid){
+        padding: 0vh 5vh;
+    }
+}
+
+
+$grid--twelve: (
+  columns: 12,
+  gutter: 10px,
+);
+
+.grid--twelve {
+  @include grid-container($grid--twelve);
+}
+
+
+.side-content {
+    padding: 3vh 3vh;
+    position: relative;
+    color: #000;
+    width: 100%;
+    max-width: 500px;
+    right: 0;
+    top: 0px;
+    background: #f6c9b7;
+    float: left;
+
+    .right {
+        @include grid-column(6, $grid--twelve);
+        margin-right: 0;
+    }
+    .left {
+        @include grid-column(6, $grid--twelve);
+        margin-right: 0;
+    }
+    .checkout-content img {
+        order: 0;
+        height: auto;
+        vertical-align: middle;
+        border-radius: 3px;
+        margin-right: 10px;
+        width: 40px;
+    }
+    h2 {
+         font-size: 2.5rem;
+    }
+    strong {
+        font-size: 1rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+    hr {
+        border-color: 1px solid #fff;
+    }
+    @include grid-media($medium-large-grid){
+        padding: 2vh 3vh;
+        h2 {
+            font-size: 1.2rem;
+        }    
+        p {
+            font-size: 0.9rem;
+            font-weight: 200;
+        }
+    }
+    @include grid-media($medium-grid){
+        max-width: 790px;
+        float: none;
+        padding: 2em 2em;
+        margin: 0 auto;
+        background: none;
+
+    }
+    @include grid-media($small-grid){
+        padding: 5vh 5vh;
+    }
+}
+
+      
+.validator {
+    width: 100% !important;
+}
+
+
+.mobile-btn {
+    @include grid-media($medium-grid){
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
+        z-index: 999;
+        background: #f2f2f2;
+    }
+}

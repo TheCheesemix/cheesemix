@@ -1,10 +1,8 @@
 {% if totals.discountTotal > 0 %}
-<p><strong>Discount applied:</strong> <i>{{ totals.discountTotal|currency }}</i></p>
+<p><strong>Discount applied:</strong> <i class="pull-right" >{{ totals.discountTotal|currency }}</i></p>
 {% endif %}
-<p><strong>Cart sub-total:</strong> <i>{{ totals.subtotal|currency }}</i></p>
-{% if totals.totalShippingQuote %}
-  <p><strong>Shipping:</strong> <i>{{ totals.totalShippingQuote|currency }}</i></p>
-{% endif %}
-<p><strong>Tax:</strong> <i>{{ totals.totalTax|currency }}</i></p>
-<p class="subtotal"><strong>Total:</strong>  <i>{{ totals.total|currency }}</i></p>
+<p><strong>Sub-total:</strong> <i class="pull-right" >{{ totals.subtotal|currency }}</i></p>
+ <p><strong>Shipping (DPD):</strong> <i class="pull-right"> {{  totals.totalShippingQuote|currency}}</i></p>
+ <p>Your order will be shipped at the end of the month both one-time purchases and subscriptions</p>
+<p class="subtotal"><strong>Total:</strong>  <i class="pull-right" >{{ totals.total|currency }}</i></p>
 

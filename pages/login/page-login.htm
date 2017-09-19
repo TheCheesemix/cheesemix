@@ -1,6 +1,6 @@
 ---
 action: 'shop:login'
-template: template-2
+template: auth
 protocol: all
 published: true
 name: Login
@@ -8,17 +8,15 @@ url: /login
 ---
 
 
-<div class="mix-pane-left">
-
-
-    <div class="row">
-        <div class="small-9 small-centered">
+<div class="mix-pane left">
+    <div class="pane-container">
+ 
 
                 <div class="auth-logo">
                      <img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/Heron.svg">
                 </div>
 
-            <p id="title-p">Log In</p>
+            <h1>Log In</h1>
 
 
             <div class="center" ><p>Need a Cheesemix account? <a href="{{ site_url('getstarted') }}">Create an account now here</a></p></div>
@@ -26,26 +24,44 @@ url: /login
             {{ open_form({'data-ajax-handler': 'shop:onLogin', 'data-validation-message' : '', 'class' : 'form-horizontal' }) }}
 
                 <div class="form-group">
-                    <div class="small-12 small-centered mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <label for="login_email" class="mdl-textfield__label">Your email address</label><br>
-                        <input  type="email" class="fs-hide mdl-textfield__input" id="login_email" name="email" value="{{ post('email') }}" size="40" autofocus />
+                    <div class="">
+                        <label for="login_email" class="">Your email address</label><br>
+                        <input  type="email" placeholder="alice@example.com"  class="fs-hide" id="login_email" name="email" value="{{ post('email') }}" size="40" autofocus required/>
                         <span class="error small text-danger"></span>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="small-12 small-centered mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <label class="mdl-textfield__label" for="login_password">Your password</label><br>
-                        <input type="password" class="fs-hide  mdl-textfield__input" id="login_password" name="password" size="40" />
-                        <span class="error small text-danger"></span>
+                    <div class="">
+                        <label class="" for="login_password">Your password</label><br>
+                        <input type="password"  class="fs-hide" id="login_password" name="password" size="40" required/>
+
+                        <span id="password-flash" class="notfication small text-danger">
+
+                        <p class="custom-msg" style="font-size:0;visibility:hidden;">
+                        We didn't recognise this cheesemix password or email. <a href="{{ site_url('getstarted') }}">Create a new accont here</a>? or <a href="{{ site_url('password-restore') }}">Recover your password here</a></p>
+
+                        {{ flash() }}
+                        
+                        </span>
+                        <script>
+
+                          $( document ).ajaxSuccess(function( event, request, settings ) { 
+                            if ( $( '#password-flash > .error' ).length ) { 
+                              var customMsg = $( '.custom-msg' ).text(); 
+                              $( '#password-flash > .error' ).text(customMsg); 
+                            } 
+                          })
+
+                        </script>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="small-12 small-centered">
-                        <button type="submit" class="btn-mix">Login</button>
+                    <div class="">
+                        <button type="submit" class="btn-mix main auth">Login</button>
                     </div>
-                     <div class="small-12 small-centered">
+                     <div class="">
                         <a class="btn btn-sm btn-link forgotpass" href="{{ site_url('password-restore') }}">Forgot your password?</a>
                     </div>
                 </div>
@@ -53,12 +69,12 @@ url: /login
                 <input type="hidden" name="redirect" value="{{ site_url(root_url('/')) }}"/>
       
             {{ close_form() }}
+        
+
         </div>
-    
-         
     </div>
-</div>
 
 
-<div class="mix-pane-right">
-</div>
+
+    <div class="mix-pane right">
+    </div>

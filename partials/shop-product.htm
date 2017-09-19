@@ -1,63 +1,171 @@
 {% set on_sale = product.onSale %}
-
-<div class="medium-12 columns">
-	<div class="medium-9 columns img-thumb">
-
-	</div>
-	<div class="medium-12 columns">
-		{% for image in product.images %}
-			<div class="medium-3 columns img-thumb">
-				
-			</div>
-
-
-			 
-		{% endfor %}
-	</div>
+	
 	 
-</div>
 
-<div class="medium-12 columns">
-	<div class="medium-9 columns">
-		<h1 class="uppercase">{{ product.name }}</h1> 
-		
-		<h3 id="why" class="price">{{ product.price|currency }}</h3>
-		{% if on_sale %}
-			<small class="previous-price">{{ totals.total|currency }}</small>
-		{% endif %} 
-		<hr>
-		<p>{{product.description|unescape}}</p>
-		<hr>
-	</div>
-	{% if product.enabled %}	
-		{{ partial('shop-product-attributes') }}
-		{{ partial('shop-product-extras') }}
-		{{ partial('shop-product-options') }}
-		<br>
-	{% if not product.isOutOfStock() or product.allow_preorder %}
-
+<div class=" " id="shop-product" >
+ 
 
  
-		<div class="product-options medium-6">
-			<p class="title" for="billing_plan">Subscription plan</p>
-			<span class="medium-12">
+		<div class="product-options center" id="paymentplan">
+		 
+            {% if product.enabled %}
+
+			 <div class="tab">
+ 	
+       		 {{ open_form({'class': 'custom'}) }}
+
+       		{% if product.productType.name == 'Subscription' %}
+             <a href="#" class="tablinks" onclick="plan(event, 'x')" data-ajax-handler="shop:product"  data-ajax-update="#product-options=product-subscription-price" >Subcription</a>
+             
+             </div>
+             <div id="x" class="tabcontent" id="product-options">
+                
+                {{ open_form({'class': 'custom', 'onsubmit': 'return false'}) }}
+                
+                {% set isSubCart = 0 %}
+                {% if cart.listitems|length %}
+                    {# Items in cart #}
+                    {% for item in cart.listitems %}
+                        {% if item.product.productType.name == 'Subscription' %}
+                            {% set isSubCart = 1 %}
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+    
+    
+                {% if product.productType.name == 'Subscription' %}
+                    <div class="">
+                        {# Can't change billing plan once set #}
+                        {% if isSubCart %}
+                            <div class="warning"><p><strong>It is not possible to checkout multiple subscriptions with different billing plans. In order to change your billing plan go to your <a href="{{ root_url('/cart') }}">shopping cart</a>.</strong></p></div>
+                        {% else %}
+    
+                             
+                    
+                            {{ partial('shop-subscription-options') }}
+    
+
+    
+             
+    
+                            {{ partial('shop-product-extras') }}
+    
+                        {% endif %}
+                    </div>
+                {% endif %}
+    
+                <div class="add-cart-holder form-group">
+                    {{ flash() }}
+                    
+                    {% if cart.listitems|length %}
+                        {% if isSubCart %}
+                            {# Subscriptions in cart #}
+                            {% if product.productType.name == 'Subscription' %}
+                                {# Product is subscription, check billing plan selected #}
+                                    
+    
+                                              
+                            {% else %}
+                                {# Sub in cart, Product non subscription #}
+                                <div class="warning"><p><strong>It is not possible to purchase non-subscription and subscription products at the same time. In order to order this product, please remove all subscription products from your <a href="{{ root_url('/cart') }}">shopping cart</a>.</strong></p></div>
+                            {% endif %}
+                        {% else %}
+                            {# No subscriptions in cart #}
+                            {% if product.productType.name == 'Subscription' %}
+                                {# Non-sub cart, Product is subscription #}
+                                <div class="warning"><p><strong>It is not possible to purchase non-subscription and subscription products at the same time. In order to order this product, please remove all non-subscription items from your <a href="{{ root_url('/cart') }}">shopping cart</a>.</strong></p></div>
+                            {% else %}
+                                {# Product is non subscription #}
+                                <a class="btn-mix content " href="#" data-ajax-handler="shop:onAddToCart" data-ajax-update="#shop-product=shop-product, #mini-cart=shop-minicart-totals" data-ajax-extra-fields="subscribe=0, noFlash=0">Add to Cart</a>
+                            {% endif %}
+                        {% endif %}
+                    {% elseif product.productType.name == 'Subscription' %}
+                        {# Empty cart, product is subscription #}
+                                
+     
+                                        <div id="subscription-update">
+    
+                                            {{ partial('product-subscription-price') }}
+    
+                                        </div>
+                                 
+                                        
+                                        <input type="hidden" name="productId" value="{{ product.id }}"/>
+                                          
+                                          <div class="add-cart-holder">
+    
+                                                    <a class="btn-mix content" 
+                                                    href="#"
+                                                    data-ajax-handler="shop:onAddToCart" 
+                                                    data-ajax-extra-fields="subscribe=1, noFlash=0"
+                                                    data-ajax-redirect="{{ site_url('checkout') }}"
+                                                    >Subscribe</a>
+    
+                                                       {{ flash() }}
+    
+                                        </div>
+       
+                            {% endif %}
+                         </div>
+                    </div>
+             
+             
+             {% endif %}
+
+
+
+
+
+
+             
+             {% if product.productType.name == 'One-Time-Purchase' %}
+			  <a href="#" class="tablinks" onclick="plan(event, 'one-off')" data-ajax-handler="shop:product" data-ajax-update="#product-options=product-prepaid" >One-Off</a>
+             </div>
+              <div id="one-off" class="tabcontent" id="product-options">	
+                {{ open_form({'class': 'custom', 'onsubmit': 'return false'}) }}
+          
+                         
+                             {{ partial('shop-product-options') }}
+                             {{ partial('shop-product-extras') }}
+                         {% if not product.isOutOfStock() or product.allow_preorder %}
+ 
+ 
+                      <div id="update-product">
+ 
+                         {{ partial('product-prepaid') }}
+ 
+                     </div>
+ 
+            
+                      <input type="hidden" name="productId" value="{{ product.id }}"/>
+                         <a class="btn-mix content" href="#" 
+                         data-ajax-handler="shop:onAddToCart" 
+                         data-ajax-update="#shop-product=shop-product, #mini-cart=shop-minicart-totals" 
+                         data-ajax-extra-fields="subscribe=0, noFlash=0, emptyCart=1"
+                         data-ajax-redirect="{{ site_url('cart') }}">Add to Cart</a>
+                
+                 {{ close_form() }}
+ 
+                 </div>
+             
+              {% endif %}  
+
+	 
+ 				 
+			 {{ close_form() }}
+
+			</div>
 			
 
+			
+		 			
+			
 		 
-			</span>
-		<input type="hidden" name="productId" value="{{ product.id }}"/>
-	      <div class="add-cart-holder form-group medium-12">
-				{{ flash() }}
-				<!-- <input type="hidden" name="subscribeRedirect" value="/checkout"> -->
-				<a class="button btn-important btn-add-cart pull-right" href="#" 
-				data-ajax-handler="shop:onAddToCart" 
-				data-ajax-update="#shop-product=shop-product, #mini-cart=shop-minicart-totals" 
-				data-ajax-extra-fields="subscribe=1, noFash=0"
-				data-ajax-redirect="{{ site_url('checkout') }}">Subscribe</a>
-			</div>
-		</div>
-  </div>
-</div>
+	 
+	 	{{ close_form() }}
+ 	
+  
+
 
 
     {% else %}
@@ -73,7 +181,4 @@
   {% endif %}
 </div>
 
-
-
-
-
+  

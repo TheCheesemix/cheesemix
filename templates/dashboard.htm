@@ -10,12 +10,24 @@ description: 'Your Cheesemix Dashboard'
 </head> 
 <body>
 	{% spaceless %}
-     {{ partial('layout-header-dashboard') }} 
-    {{ page() }} 
+	
+
+
+    {{ partial('layout-header-dashboard') }} 
+    
+    <div class="mix-main">
+    
+    	{{ page() }} 
+
+    </div>
+
+    {{ partial('layout-footer') }}
 
     {% endspaceless %}
-    
+
+
     {{ partial('layout-foot') }}
+
 
 
 </body>

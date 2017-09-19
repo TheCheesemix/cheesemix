@@ -1,0 +1,6 @@
+	<div class="price-box" id="subscription-price">
+		<h3 id="why" class="price">{{ product.price|currency }}/pm</h3>
+			{% if on_sale %}
+				<small class="previous-price">{{ totals.total|currency }}</small>
+			{% endif %} 
+	</div>

@@ -1,0 +1,17 @@
+.step {
+    background: #f6f6f6;
+    padding: 0.5em;
+    border-radius: 5px;
+    color: #282538;
+    width: 100%;
+    border-width: 5px 5px 5px 5px;
+    border-color: #e7e7e7;
+    border-style: solid;
+    font-weight: bold;
+    &.complete {
+        border-width: 1px 1px 0px 1px;
+        border-color: #e7e7e7;
+        border-style: solid;
+        border-radius: 5px 5px 0 0;
+    }
+}

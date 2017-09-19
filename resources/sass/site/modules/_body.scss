@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
+
+*, :after, :before {
+    box-sizing: inherit;
+}
+
+::selection {
+    background: #FFC400;
+}
+
+
+
+html {
+    box-sizing:border-box;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    min-height:100%;
+    -webkit-text-size-adjust:100%;
+    -ms-text-size-adjust:100%;
+    text-size-adjust:100%;
+    -moz-osx-font-smoothing:grayscale;
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:none;
+    -ms-text-size-adjust:none;
+    text-size-adjust:none;
+    text-rendering:optimizeLegibility;
+    background: #f9f9f9;    
+}
+
+body {
+  font-family: 'Lato', sans-serif, serif;
+  width: 100%;
+  min-height: 100%;
+  margin: 0; 
+  padding-top: 0px;
+}
+
+a {
+    color: #282538;;
+    text-decoration: none;
+	&:hover {
+	    color: #282538;
+	}
+}
+
+
+h1, h2 {
+  font-family: 'Source Sans Pro', sans-serif, serif;
+}
+
+
+.group:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+}
+* html .group             { zoom: 1; } /* IE6 */
+*:first-child+html .group { zoom: 1; } /* IE7 */
+
+
+

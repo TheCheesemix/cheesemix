@@ -1,0 +1,147 @@
+@import "../../neat/neat";
+@import "../../bourbon/bourbon";
+
+@import '../../site/partials/media';
+
+
+// For hiding and showing different content or variations on Mobile and Desktop Displays
+
+.desktop {
+    display: inline-block;
+    @include grid-media($medium-grid) {
+        display: none;
+    }
+}
+
+.mobile {
+    display: none;
+    @include grid-media($medium-grid) {
+        display: inline-block;
+    }
+}
+
+
+.layout-container {
+	@include grid-container;
+	width: 100%;
+    max-width: 895px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 4em 0;
+}
+
+
+.dashboard-content {
+    margin: 2em auto;
+    width: 100%;
+    max-width: 870px;
+    padding-bottom: 10em;
+    .panel-body {
+        width: 100%;
+        max-width: 655px;
+        margin: 0 auto;
+      .password {
+        margin: 3em 0;
+      }
+    }
+
+   	@include grid-media($medium-large-grid){
+   	   max-width: 100%;
+   	   padding: 0 15px;	
+    }
+}
+
+
+
+$grid--twelve: (
+  columns: 12,
+  gutter: 10px,
+);
+
+.grid--twelve {
+  @include grid-container($grid--twelve);
+}
+
+
+
+.order-box {
+    @include grid-container;
+    width: 100%;
+    border: 1px solid #e3e3e3;
+    height: 350px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.066);
+    a {
+      color: #16141d;
+    }
+    a:hover {
+      color: #fec430;
+    }
+    .main-order-content {
+        .product-image {
+          margin-left: 0 !important;
+          img {
+            width: 100%;
+            max-width: 265px;
+        }
+      }
+    }
+    .product-actions {
+        margin-top: 2em;
+        .product-image {
+          img {
+            width: 100%;
+            max-width: 265px;
+          }
+        }
+        .product-btn {
+            background-color: #d3d3d3;
+            width: 65%;
+            font-weight: 400;
+            font-size: 1em;
+            margin: 3px auto;
+            box-shadow: 0 1px 0 0 rgba(0,0,0,0.066);
+            &.track {
+             background: #fec430;
+             margin-bottom: 10px;
+            }
+        }
+    }
+    .right {
+        @include grid-column(6, $grid--twelve);
+        margin-right: 0;
+    }
+    .left {
+        @include grid-column(6, $grid--twelve);
+        margin-right: 0;
+    }
+    .heading {
+    @include grid-container;
+      height: 100px;
+      background: #ebebeb;
+      padding: 0.2em 1em;
+      ul {
+          padding: 0;
+          margin: 0;
+      }
+      ul li {
+          display: inline-block;
+          padding: 0 10px;
+      }
+      .label {
+          border-radius: 4px;
+          text-align: center;
+         a {
+            font-weight: bold;
+            color: #fff;
+        }
+      }
+      .top {
+        @include grid-media($medium-large-grid){
+
+        }
+      }
+  }
+}
+

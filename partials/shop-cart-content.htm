@@ -13,17 +13,17 @@
     <p id="title-p-d">Order Summary</p>
     <ul class="price-list list-group">
         {% if totals.discountTotal > 0 %}
-            <li class="list-group-item">Discount: {{ totals.discountTotal|currency }}</li>
+            <li class="list-group-item" data-ajax-refresh >Discount: {{ totals.discountTotal|currency }}</li>
         {% endif %}
         {% if totals.totalShippingQuote > 0 %}
-            <li class="list-group-item">Shipping: {{ totals.totalShippingQuote|currency }}</li>
+            <li class="list-group-item" data-ajax-refresh >Shipping: {{ totals.totalShippingQuote|currency }}</li>
         {% endif %}
-        <li class="list-group-item important">Total: {{ totals.total|currency }}</li>
+        <li class="list-group-item important" data-ajax-refresh >Total: {{ totals.total|currency }}</li>
     </ul>
 
 
     <input type="text" class="form-control" id="coupon-code" name="coupon" placeholder="Coupon Code" value="{{ coupon_code }}" /><br><br>
-    <a class="btn-mix refresh-cart" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart, #navbar-totals=shop-minicart-totals">Update Cart <i class="fa fa-refresh"></i></a><br><br>
+    <a class="mix-btn refresh-cart" href="#" data-ajax-handler="shop:cart" data-ajax-update="#cart-content=shop-cart-content, #mini-cart=shop-minicart, #navbar-totals=shop-minicart-totals">Update Cart <i class="fa fa-refresh" data-ajax-refresh  ></i></a><br><br>
     {% if customer %}
     <a class="small-12 btn-mix  solid " href="{{ site_url('/checkout') }}">Checkout</a>
     {% else %}

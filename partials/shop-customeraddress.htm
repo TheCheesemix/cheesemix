@@ -1,0 +1,35 @@
+{{ flash() }}
+{{ open_form({'data-ajax-handler': 'shop:onUpdateCustomerProfile', 'class': 'custom clearfix', 'data-ajax-update': "#profile=shop-customerprofile,#profile-changepassword=shop-changepassword", 'data-validation-message' : ''}) }}
+<input type="hidden" name="customer[id]" value="{{ customer.id }}" />
+{# <div class="panel"> #}
+  
+
+  <div id="customer-info" class=""             
+    data-ajax-handler="shop:onUpdateCustomerProfile"
+    data-ajax-update="#profile=shop-customerprofile"
+    data-validation-message="" >
+ 
+        <div class="form-group">
+          <label for="first_name" class="">First Name</label>
+          <input name="customer[first_name]" id="first_name" type="text" class="form-control" value="{{ customer.first_name }}"  placeholder="first name*"/>
+          <span class="error"></span>
+        </div>
+        
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input name="customer[last_name]" id="last_name" type="text" class="form-control" value="{{ customer.last_name }}" placeholder="last name*"/>
+          <span class="error"></span>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input data-mirror type="text" name="customer[phone]" id="phone" value="{{ customer.phone }}" class="form-control" placeholder="phone number"/>
+          <span class="error"></span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" name="customer[email]" id="email" value="{{ customer.email }}" class="form-control" placeholder="Email*" />
+          <span class="error"></span>
+        </div>
+        
+  
+{# </div> #}

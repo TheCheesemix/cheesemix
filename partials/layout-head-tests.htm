@@ -1,0 +1,70 @@
+{{ code_block('setup') }}
+
+	<!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>{{ theme.storeTitle }}</title>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<meta name="Description" content="{{ page.description }}"/>
+  	<meta name="Keywords" content="{{ page.keywords }}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="{{ theme.faviconImage.thumbnail('auto', 'auto') }}" type="image/png">
+    <link rel="icon" href="{{ theme.faviconImage.thumbnail('auto', 'auto') }}" type="image/png">
+    
+    <!-- Required by LemonStand -->    
+    <link rel="stylesheet" type="text/css" href="/cms/core.css">
+
+    <!-- Stylesheets -->
+
+    <link rel="stylesheet" href="{{ 'css/custom.css'|theme_resource }}">
+    <link rel="stylesheet" href="{{ 'css/combined.css'|theme_resource }}">
+    <link rel="stylesheet" href="{{ 'css/mobile.css'|theme_resource }}">
+    <link rel="stylesheet" href="{{ 'css/tablet.css'|theme_resource }}">
+    <link rel="stylesheet" href="{{ 'css/foundation.min.css'|theme_resource }}">
+
+
+
+    <link href="//fonts.googleapis.com/css?family=Karla:400,400i,700,700i" rel="stylesheet">
+
+    
+
+
+
+
+    <style>
+        .header-home-left{
+             height: 750px;
+                        padding: 190px 0px;
+             background: 
+
+             linear-gradient(
+                  rgba(103, 103, 103, 0.73), 
+                  rgba(103, 103, 103, 0.73)
+               ), 
+
+                url( {{ theme.homeHeaderImage.thumbnail('auto','auto') }} ) center center;
+             background-color: #E7B719;
+               background-size: cover;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+              -o-background-size: cover;
+              background-size: cover;
+        }
+        .contact-head{
+            background: url( {{ theme.contactHeaderImage.thumbnail('auto','auto') }} )no-repeat top center;
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+        }
+        .header-about{
+            background: url( {{ theme.aboutHeaderImage.thumbnail('auto','auto') }} )no-repeat top center;
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+        }
+    </style>
+    

@@ -1,52 +1,208 @@
-{{ code_block('setup') }}
+ {{ code_block('setup') }}
 
 
 <!-- Uses a header that scrolls with the text, rather than staying
   locked at the top -->
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="mdl-layout__header mdl-layout__header--scroll">
-    <div class="mdl-layout__header-row">
+    <header class="mix-dropdown">
 
-       <div class="medium-5">
-        <!-- Navigation -->
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
+     <div class="middle logo-center mobile">
+      <!-- Title -->
+      <span class=""><a href="/" class="navbar-brand"><img src="//cheesemix.imgix.net/assets/images/Logo-Symbol-Cheesemix-white.svg"></a></span>
+      
+     <nav class="mobile-nav mobile">
 
-        {% if customer %}
-
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link live"  href="{{ site_url('dashboard') }}"><i class="fa fa-user"></i> My Dashboard</a>
+      {% if customer %}
+      <li>
+       <a class=""  href="{{ site_url('dashboard') }}"><i class="fa fa-user"></i></a>
+     </li>
+      {% else %}
+       <li>
+        <a class="" href="{{ site_url('login') }}"><i class="fa fa-user-circle"></i> Login</a>
+      </li> 
       </nav>
-        <!-- <li class="{{ active_page == 'orders' ? 'active' : null }}"><a href="{{ site_url('orders') }}">My Orders</a></li> -->
-
-        {% else %}
-        <button href="" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-          Sign-up
-        </button>
-        <a class="mdl-navigation__link live" href="{{ site_url('login') }}">Login</a>
-      </nav>
-
       {% endif %}
 
-       </div>
-      <div class="large-2 logo-center">
-      <!-- Title -->
-      <span class="mdl-layout-title"><a href="/" class="navbar-brand"><img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/Cheesemix-Typeface-Logo.svg"></a></span>
-      </div>
-
-
-     <div class="medium-5">
-      <!-- Navigation -->
-      <nav class="mdl-navigation fright mdl-layout--large-screen-only">
-        <a class="mdl-navigation__link live" href="">About Us</a>
-        <a class="mdl-navigation__link live" href="">Our Cheese Makers</a>
-      </nav>
-    </div>
-    </div>
+     </div>
+  
+    <a href="#0" class="nav-trigger">Open Nav<span aria-hidden="true"></span></a>
     
+    <nav class="main-nav">
 
+   
+        <ul class="left">
 
+          <li class="has-dropdown gallery" data-content="">
+            <a href="{{ site_url('how-it-works') }}">How It Works</a>
+          </li>
+
+          <li class="has-dropdown gallery" data-content="">
+            <a href="{{ site_url('cheesecube') }}">Product</a>
+          </li>
+
+          <li class="has-dropdown gallery" data-content="about">
+            <a href="#0">About</a>
+          </li>
+
+        </ul>
+
+     
+
+        <div class="middle logo-center desktop">
+          <!-- Title -->
+          <span class=""><a href="/" class="navbar-brand"><img src="//cheesemix.imgix.net/assets/images/site/main-assets/MainLogo.svg"></a></span>
+          
+        </div>
+        {% if customer %}
+        <ul class="right">
+    
+          <li class="has-dropdown gallery" data-content="resources">
+            <a href="#0">Resources</a>
+          </li>
+         
+          <li class="link has-dropdown gallery" data-content="">
+            <a href="//blog.cheesemix.com">Blog</a>
+          </li>
+
+         
+          <li class="has-dropdown gallery" data-content="dashboard">
+           <a class=""  href="{{ site_url('dashboard') }}"><i class="fa fa-user"></i> Dashboard</a>
+          </li>
+         
+          <!-- <li class="{{ active_page == 'orders' ? 'active' : null }}"><a href="{{ site_url('orders') }}">My Orders</a></li> -->
+
+          {% else %}
+
+        <ul class="right store">
+    
+          <li class="has-dropdown gallery" data-content="resources">
+            <a href="#0">Resources</a>
+          </li>
+         
+          <li class="link has-dropdown gallery" data-content="">
+            <a href="//blog.cheesemix.com">Blog</a>
+          </li>
+
+          <li class="has-dropdown gallery" data-content="">
+            <a class="login" href="{{ site_url('login') }}">Sign In</a>
+          </li>   
+            <li class="has-dropdown gallery sign-up" data-content="">
+              <a class="" href="{{ site_url('getstarted') }}" >Sign Up
+            </a>  
+          {% endif %}
+         
+      </ul>
+    </nav>
+    
+    <div class="mix-dropdown-wrapper">
+      <div class="dropdown-list">
+        <ul>
+          <li id="how-it-works" >
+             <a href="{{ site_url('how-it-works') }}" class="label">How It Works</a>
+          </li>
+          <li id="product" >
+             <a href="{{ site_url('cheesecube') }}" class="label">Product</a>
+          </li>
+          <li id="about" class="dropdown gallery about">
+            <a href="#0" class="label">About</a>
+            
+            <div class="content"> 
+              <ul>
+                <li>
+                  <a href="{{ site_url('our-story') }}">
+                    <em>Our Story</em>
+                    <span>Why we created cheesemix</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ site_url('openness') }}">
+                    <em>Openness</em>
+                    <span>Why we are transparent</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ site_url('quality') }}">
+                    <em>Quality</em>
+                    <span>Why we care about quality</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+           <li id="resources" class="dropdown gallery resources">
+            <a href="#0" class="label">Resources</a>
+            
+            <div class="content"> 
+              <ul>
+
+                <li>
+                  <a href="{{ site_url('cheese-tips') }}">
+                    <em>Cheese Tips</em>
+                    <span>A few useful tips on cheeee</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ site_url('moments') }}">
+                    <em>Moments</em>
+                    <span>A continuous stream of #lovecheesemix photos</span>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="{{ site_url('legal/faqs') }}">
+                    <em>FAQs</em>
+                    <span>Have a question? Look here first</span>
+                  </a>
+                </li>
+                </div>
+              </li>
+
+               <li id="dashboard" class="dropdown gallery dashboard">
+                <a href="#0" class="label">Dashboard</a>
+                
+                <div class="content dashboard"> 
+                  <ul>
+                    <li>
+                      <a href="{{ site_url('dashboard/my-account') }}">
+                        <em>Update Account</em>
+                        <span>How we came to be and the vision</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="{{ site_url('dashboard/orders') }}">
+                        <em>Manage Orders</em>
+                        <span>How to look after and care for cheese</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="{{ site_url('invite-a-friend') }}">
+                        <em>Invite A Friend</em>
+                        <span>A look at why we are transparent</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="{{ site_url('logout') }}">
+                        <em>Log Out</em>
+                        <span>Why we care about quality products</span>
+                      </a>
+                    </li>
+                    </div>
+                  </li>
+
+              </ul>
+            </div>
+          </li>
+       </div> <!-- dropdown-list -->
+    </div> <!-- morph-dropdown-wrapper -->
   </header>
 
 
-</div>
+
+
  

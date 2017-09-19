@@ -1,11 +1,29 @@
 
+@import "../../neat/neat";
+@import "../../bourbon/bourbon";
 @import '../partials/base';
 
 
+$welcome-layout-grid: (
+  columns: 1,
+  gutter: 1rem,
+);
+
 .welcome {
+	@include grid-column(1, $welcome-layout-grid)
+
 	h1 {
 		color: $header-welcome-color;
 		font-weight: $header-welcome-weight;
 		font-size: $header-welcome-size;
+	}
+}
+
+
+@media screen and (width: 900px) {
+	    welcome {
+	   	 h1 {
+	   		 text-align: center;
+	   	}
 	}
 }

@@ -1,4 +1,4 @@
-@media screen and (max-width: 480px) {
+fdmedia screen and (max-width: 480px) {
 
 .width-s {
     padding-top: 25px;
@@ -9,8 +9,8 @@
 
 
 .mix-pane-left-home h1 {
-    font-size: 1.4rem !important;
-    line-height: 1.2vh !important;
+    font-size: 1.35rem !important;
+    line-height: 9px;
 }
 
 
@@ -109,105 +109,6 @@ div.panel p {
 .pricing-box .col-md-6{
 	text-align: center;
 	padding-bottom:40px;
-}
-/*======================================================
-		shop-product
-======================================================*/
-.shop-product .col-md-5{
-	text-align: left;
-}
-.shop-product h1{
-	font-size:16px;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-}
-.shop-product h3{
-	color: #A1A1A1;
-}
-.shop-product .col-md-3{
-	padding:0;
-	margin-top:10px;
-}
-.shop-product .col-md-3 img{
-	padding: 10px;
-}
-.shop-product .main-img{
-	padding-left:10px;
-}
-.img-thumb img{
-	width:100%;
-}
-.small-thumb:hover{
-	cursor:pointer;
-}
-.previous-price{
-	text-decoration: line-through;
-}
-.product-attributes th, .product-attributes td{
-	color: #989A9C;
-	font-weight:400;
-}
-.product-options{
-	margin-bottom:20px;
-}
-.product-options select{
-	-webkit-appearance:none;
-	border-radius:0;
-	background:white;
-	border:3px solid #ddd;
-	width:100%;
-	padding:10px;
-	font-weight:400;
-	color:#989A9C;
-	outline:none;
-}
-/*#billing_plan, #subscription_status*/
-.custom-dropdown{
-	margin:0;
-	padding:0;
-	width:100%;
-}
-.custom-dropdown select{
-	border-radius:0;
-	background:white;
-	border:3px solid #ddd;
-	width:100%;
-	padding:10px;
-	font-weight:400;
-	color:#989A9C;
-	margin-bottom:20px;
-	outline:none;
-	display:inline-block;
-	-webkit-appearance:none;
-	-moz-appearance:none;
-}
-/* Custom dropdown */
-.custom-dropdown {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.custom-dropdown::before,
-.custom-dropdown::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-}
-
-.custom-dropdown::after { /*  Custom dropdown arrow */
-  content: "\F078";
-  font-family:FontAwesome;
-  height: 1em;
-  font-size: 1em;
-  line-height: 1;
-  right: 1.2em;
-  top: 35%;
-  color:#989A9C;
-  margin-top: -.5em;
-}
-sub{
-	bottom:0;
 }
 /*======================================================
 		about page
@@ -506,14 +407,7 @@ sub{
 /*======================================================
 		Placeholder styles
 ======================================================*/
-.form-group input::-webkit-input-placeholder{
-	color:#D1D1D1;
-}
-.form-group input::-moz-placeholder{
-	color:#D1D1D1;
-}
-.form-group input::-ms-input-placeholder{
-	color:#D1D1D1;
+
 }
 .btn-form-mirror{
 	color:#333;

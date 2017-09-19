@@ -6,148 +6,143 @@ published: true
 name: Dashboard
 url: /dashboard
 ---
-<div class="row">
-    <div class="small-12">
-    <div class="welcome">
 
-        {% if customer %}
-            <h1>Welcome {{customer.first_name}}!</h1>
-        {% else %}
-            <h1>Whoops! Login First</h1>
-        {% endif %}
-
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="medium-12">
-    {% if customer %}
-    <div class="row">
-        <div class="large-4 columns">
-            <div class="card-square mdl-card mdl-card-width mdl-shadow--2dp">
-              <div class="mdl-card__title mdl-card--expand">
-                <h2 class="mdl-card__title-text">My Account</h2>
-              </div>
-              <div class="mdl-card__supporting-text">
-                For updating account information
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{ root_url('/dashboard/my-account') }}">
-                  Update Details
-                </a>
-                
-            </div>
-         </div>
-     </div>
-
-        <div class="large-4 columns">
-            <div class="card-square mdl-card mdl-card-width mdl-shadow--2dp">
-              <div class="mdl-card__title mdl-card--expand">
-                <h2 class="mdl-card__title-text">My Subscriptions</h2>
-              </div>
-              <div class="mdl-card__supporting-text">
-                For managing your subscriptions 
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                  Manage Subscription
-                </a>
-                
-            </div>
-         </div>
-     </div>
-
-
-        <div class="large-4 columns">
-            <div class="card-square mdl-card mdl-card-width mdl-shadow--2dp">
-              <div class="mdl-card__title mdl-card--expand">
-                <h2 class="mdl-card__title-text">Next Delivery</h2>
-              </div>
-              <div class="mdl-card__supporting-text">
-                  May 24, 2016
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                              <i class="material-icons">event</i>  Add to Calendar
-                </a>
-  
-   
-                
-            </div>
-         </div>
-    </div>
-         </div>
-    </div>
-</div>
-
-
-
-
-<div class="card-padt row">
-    <div class="medium-12">
  
-  
-    <div class="row">
-        <div class="large-4 columns">
-            <div class="card-square mdl-card mdl-card-width mdl-shadow--2dp">
-              <div class="mdl-card__title mdl-card--expand">
-                <h2 class="mdl-card__title-text">Your Orders</h2>
+<script>
+
+!function(){var a=window.VL=window.VL||{};return a.instances=a.instances||{},a.invoked?void(window.console&&console.error&&console.error("VL snippet loaded twice.")):(a.invoked=!0,void(a.load=function(b,c,d){var e={};e.publicToken=b,e.config=c||{};var f=document.createElement("script");f.type="text/javascript",f.id="vrlps-js",f.defer=!0,f.src="https://app.viral-loops.com/client/vl/vl.min.js";var g=document.getElementsByTagName("script")[0];return g.parentNode.insertBefore(f,g),f.onload=function(){a.setup(e),a.instances[b]=e},e.identify=e.identify||function(a,b){e.afterLoad={identify:{userData:a,cb:b}}},e.pendingEvents=[],e.track=e.track||function(a,b){e.pendingEvents.push({event:a,cb:b})},e.pendingHooks=[],e.addHook=e.addHook||function(a,b){e.pendingHooks.push({name:a,cb:b})},e.$=e.$||function(a){e.pendingHooks.push({name:"ready",cb:a})},e}))}();
+var campaign = VL.load("7uRDutitA-IDIQF8smbXBs8b_84");
+
+
+  campaign.identify({
+    "firstname": "{{ customer.first_name }}",
+    "lastname": "{{ customer.last_name }}",
+    "email": "{{ customer.email }}",
+    "createdAt":  //Creation date of your user in UNIX timestamp format. Leave empty for new users.
+  }, function(err, details) {
+    campaign.widgets.load();
+  });
+
+  campaign.get("inquiry", function(err, data) {
+    console.log(err, data); //data.eligible => true/false
+  });
+
+  campaign.track("conversion", function(err, data) {
+  console.log(err, data);
+  });
+
+  campaign.$(function() {
+    campaign.logout({reloadWidgets: true});
+  });
+
+
+</script> 
+
+
+
+{% if not customer %}
+    {% if page.name in ["Dashboard"]  %}
+        <style>
+            html {
+                display: none;
+            }
+        </style>
+        <meta http-equiv="refresh" content="0; url={{ site_url('/login') }}"/>
+    {% endif %}
+{# Check if in specific customer group if logged in, and display an error message if not #}
+{% else %}
+
+
+ <div class="layout-container">
+   
+ 
+
+
+ 
+ 
+            <div class="cards">
+
+              <div class="card">
+                <div class="card-image">
+                  <img src="//cheesemix.imgix.net/assets/images/site/dashboard/my-account.svg" alt="">
+                </div>
+                <div class="card-header">
+                  My Account
+                </div>
+                <div class="card-copy">
+                  <p>For updating account information</p>
+                </div>
+                <div class="main-button">
+                  <a class="" href="{{ root_url('/dashboard/my-account') }}">
+                    Update Details
+                  </a>
+                  
               </div>
-              <div class="mdl-card__supporting-text">
-                You can manage order heres
+            </div>
+
+              <div class="card">
+                <div class="card-image">
+                  <img src="//cheesemix.imgix.net/assets/images/site/dashboard/subscriptions.svg" alt="">
+                </div>
+                <div class="card-header">
+                  My Subscriptions
+                </div>
+                <div class="card-copy">
+                  <p>For managing your subscriptions</p>
+                </div>
+                <div class="main-button">
+                  
+                  <a class="" href="{{ root_url('dashboard/subscriptions') }}">
+                    Manage Subscriptions
+                  </a>
+                  
               </div>
-              <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="{{ root_url('/dashboard/my-account') }}">
+            </div>
+
+              <div class="card">
+                <div class="card-image">
+                  <img src="//cheesemix.imgix.net/assets/images/site/dashboard/my-orders.svg" alt="">
+                </div>
+                <div class="card-header">
+                  Your Orders
+                </div>
+                <div class="card-copy">
+                  <p>For updating account information</p>
+                </div>
+                <div class="main-button">
+                <a class="" href="{{ root_url('/dashboard/my-account') }}">
                   Manage Orders
                 </a>
-                
+                  
+              </div>
             </div>
+
          </div>
-     </div>
-
-        <div class="large-4 columns">
-            <div class="card-square mdl-card mdl-card-width mdl-shadow--2dp">
-              <div class="mdl-card__title mdl-card--expand">
-                <h2 class="mdl-card__title-text">Track It</h2>
-              </div>
-              <div class="mdl-card__supporting-text">
-                Tracking orders simply
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                  Tract An Order
-                </a>
-                
-            </div>
-         </div>
-     </div>
-
-
-        <div class="large-4 columns">
-            <div class="card-square mdl-card mdl-card-width mdl-shadow--2dp">
-              <div class="mdl-card__title mdl-card--expand">
-                <h2 class="mdl-card__title-text">Referrals</h2>
-              </div>
-              <div class="mdl-card__supporting-text">
-                We love you. So refer a friend.
-              </div>
-              <div class="mdl-card__actions mdl-card--border">
-                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                  Refer A Friend
-                </a>
-                
-                    </div>
-                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-{% else %}
     
 
-  <div class="row">Please <a href="{{ root_url('login') }}">login</a> to edit your profile.</div>
-{% endif %}
+    
+    
+   <div class="cards">
 
+
+              <div class="card">
+                
+                <div data-vl-widget="sharingWidget"></div>
+                  
+         
+            </div>
+
+
+              <div class="card">
+                
+                 <div data-vl-widget="rewardStats"></div>
+
+            </div>
+
+
+         </div>
+  
+
+ 
+{% endif %}
+</div>

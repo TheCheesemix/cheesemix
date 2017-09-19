@@ -1,0 +1,119 @@
+@import "../../neat/neat";
+@import "../../bourbon/bourbon";
+
+@import '../partials/media';
+
+
+
+$footer-container: (
+  columns: 12,
+  gutter: 0,
+  media: "(min-width: 53.75em)",
+);
+
+ 
+
+
+.footer-container {
+@include grid-container($footer-container);
+  
+}
+
+.footer-left {
+  @include grid-column(9, $footer-container);
+  text-align: left;
+  float: left;
+    @include grid-media($medium-grid){
+    @include grid-collapse;
+        margin-left: 0px;
+        margin-right: 0px;
+        text-align: center;
+        margin-top: 10px;
+        width: 100%;
+
+    }
+}
+
+.footer-right {
+  @include grid-column(3, $footer-container);
+  float: right;
+  text-align: right;
+   @include grid-media($medium-grid){
+    @include grid-collapse;
+        float: left;
+        text-align: center;
+        margin-top: 10px;
+        width: 100%;
+
+    }
+}
+ 
+
+.footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  clear: both;
+  text-align: center;
+    &.large {
+      margin-top: 40px;
+      background-color: #16141d;
+    }
+    &.small {
+      padding: 0vh 3vh;
+      background-color: #f2f2f2;
+  }
+  .navigation {
+      a {
+        display: inline-block;
+        margin: 0 10px;
+    	  font-size: 1rem;
+        font-weight: 400;
+        color: #ffffff;
+      }
+      p {
+        color: #fff;
+      }
+    ul {
+      padding: 0;
+      margin-left: 1em;
+      margin-right: 1em;
+      margin-bottom: 0;
+      @include grid-media($medium-grid){
+            margin-left: 2em;
+            margin-right: 2em;
+         }
+    }
+    ul li {
+        display: inline-block;
+        @include grid-media($medium-grid){
+        @include grid-collapse;
+        margin-top: 10px;
+
+       }
+     }
+  }
+}
+
+
+
+.logo img {
+    height: 22px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.navbar-brand {
+    padding-top: 10px;
+}
+
+
+.navbar-brand img{
+    height:22px;
+    float: none;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+

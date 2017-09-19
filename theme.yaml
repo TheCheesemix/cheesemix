@@ -2,11 +2,11 @@
 name: cheesemix
 description: 'The Official Cheesemix Theme'
 author: 'Duncan Forbes (@DuncanAForbes)'
-website: 'http://cappui.com'
+website: 'http://cheesemix.com'
 engine: twig
 404: '404'
 customFields:
-    storeTitle: { type: text, title: 'We create cheesy moments', default: Cheesemix }
+    storeTitle: { type: text, title: 'Cheesemix | Your home for cheesy moments', default: Cheesemix }
     faviconImage: { type: image, title: 'Favicon Image (Image you see in the browser)', default: '@img/logo.png' }
     logoImage: { type: image, title: 'Global: Logo Image', default: '@/img/logo.png' }
     navbarBackgroundColor: { type: color, title: 'Global: Navbar Background Color', default: white }
@@ -14,8 +14,19 @@ customFields:
     homeHeaderImage: { type: image, title: 'Home: Header Image', default: '@/img/bgmain.jpg' }
     aboutHeaderImage: { type: image, title: 'About: header image', default: '@/img/contact.jpg' }
     contactHeaderImage: { type: image, title: 'Contact: header image', default: '@/img/contact.jpg' }
+    cheeseOneImage: { type: image, title: 'Cheese One Image', default: '@/img/contact.jpg' }
+    cheeseOneDescription: { type: text, title: 'Cheese One Description', default: Cheesemix }
+    cheeseTwoImage: { type: image, title: 'Cheese Two Image', default: '@/img/contact.jpg' }
+    cheeseTwoDescription: { type: text, title: 'Cheese Two Description', default: Cheesemix }
+    cheeseThreeImage: { type: image, title: 'Cheese Three Image', default: '@/img/contact.jpg' }
+    cheeseThreeDescription: { type: text, title: 'Cheese Three Description', default: Cheesemix } 
+    cheeseFourImage: { type: image, title: 'Cheese Four Image', default: '@/img/contact.jpg' }
+    cheeseFourDescription: { type: text, title: 'Cheese Four Description', default: Cheesemix }   
+    cheeseFiveImage: { type: image, title: 'Cheese Five Image', default: '@/img/contact.jpg' }
+    cheeseFiveDescription: { type: text, title: 'Cheese Five Description', default: Cheesemix }   
     contactAddress: { type: text, title: 'Home: Contact Address', default: '9203 Pender St, Vancouver BC, J2K 2J2' }
     socialFacebookUrl: { type: text, title: 'Global: Facebook URL', default: 'http://facebook.com/cheesemix' }
     socialTwitterUrl: { type: text, title: 'Global: Twitter URL', default: 'http://twitter.com/thecheesemix' }
     socialInstagramUrl: { type: text, title: 'Global: Instagram URL', default: 'http://Instagram.com/thecheesemix' }
+    viralloopsEcommerceApiKey: { type: text, title: 'Viral Loops ecommerce API KEY', default: yi7xZ58JmBYjNlwQWLewE7xA73g }
 ---

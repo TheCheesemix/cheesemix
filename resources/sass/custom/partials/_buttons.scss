@@ -1,0 +1,24 @@
+.mdl-tabs.is-upgraded .mdl-tabs__tab.is-active {
+    color: #fff !important;
+    background-color: #2D4D79;
+}
+
+.mdl-tabs__tab {
+    margin: 0;
+    border: none;
+    padding: 0 24px;
+    float: left;
+    position: relative;
+    display: block;
+    text-decoration: none;
+    height: 48px;
+    width: 100%;
+    line-height: 48px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #989898;
+    text-transform: uppercase;
+    color: #fff !important;
+    overflow: hidden;
+}

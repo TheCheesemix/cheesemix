@@ -1,0 +1,169 @@
+@import "../../neat/neat";
+@import "../../bourbon/bourbon";
+
+@import '../../site/partials/media';
+
+
+/* Style the tab */
+.tab-prod {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab-prod btn-prod {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab-prod button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab-prod btn-prod.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: inline-block;
+    padding: 6px 12px;
+    width: 100%;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+
+/* forked from https://codepen.io/artlawry/pen/domFD */
+
+/* Android 2.3 :checked fix */
+@keyframes fake {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+    }
+}
+body {        
+    animation: fake 1s infinite;
+}
+
+.worko-tabs {
+    margin: 20px;
+    width: 80%;
+  
+    .state{
+      position: absolute;
+      left: -10000px;
+    }
+  
+    .flex-tabs{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+        
+        .tab{
+          flex-grow: 1;
+          max-height: 40px;
+        }
+      
+        .panel {
+          background-color: #fff;
+          padding: 20px;
+          min-height: 300px;
+          display: none;
+          width: 100%;
+          flex-basis: auto;
+      }
+    }
+
+    .tab {
+      display: inline-block;
+      padding: 10px;
+      vertical-align: top;
+      background-color: #eee;
+      cursor: hand;
+      cursor: pointer;
+      border-left: 10px solid #ccc;
+      
+        &:hover{
+          background-color: #fff;
+        }
+    }  
+}
+
+#tab-one:checked ~ .tabs #tab-one-label,
+#tab-two:checked ~ .tabs #tab-two-label,
+#tab-three:checked ~ .tabs #tab-three-label,
+#tab-four:checked ~ .tabs #tab-four-label{
+    background-color: #fff;
+    cursor: default;
+    border-left-color: #69be28;
+}
+
+#tab-one:checked ~ .tabs #tab-one-panel,
+#tab-two:checked ~ .tabs #tab-two-panel,
+#tab-three:checked ~ .tabs #tab-three-panel,
+#tab-four:checked ~ .tabs #tab-four-panel{
+    display: block;
+}
+
+@media (max-width: 600px){
+  .flex-tabs{
+    flex-direction: column;
+    
+    .tab{
+      background: #fff;
+      border-bottom: 1px solid #ccc;
+      
+        &:last-of-type{
+          border-bottom: none;
+        }
+    }
+    
+    #tab-one-label{order:1;}
+    #tab-two-label{order: 3;}
+    #tab-three-label{order: 5;};
+    #tab-four-label{order: 7;};
+    #tab-one-panel{order: 2;}
+    #tab-two-panel{order: 4;}
+    #tab-three-panel{order: 6;}
+    #tab-four-panel{ order: 8;}
+  }
+  
+    #tab-one:checked ~ .tabs #tab-one-label,
+    #tab-two:checked ~ .tabs #tab-two-label,
+    #tab-three:checked ~ .tabs #tab-three-label,
+    #tab-four:checked ~ .tabs #tab-four-label{
+      border-bottom: none;
+    }
+  
+  #tab-one:checked ~ .tabs #tab-one-panel,
+  #tab-two:checked ~ .tabs #tab-two-panel,
+  #tab-three:checked ~ .tabs #tab-three-panel,
+  #tab-four:checked ~ .tabs #tab-four-panel{
+    border-bottom: 1px solid #ccc;
+  }
+}

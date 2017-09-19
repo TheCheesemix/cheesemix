@@ -1,50 +1,79 @@
 ---
 action: 'shop:signup'
-template: template-2
+template: auth
 protocol: all
 published: true
 name: Get Started
 url: /getstarted
 ---
 
-<div class="mix-pane-left-signup">
+<script>
+ 
 
-    <div class="row">
-        <div class="small-9 small-centered">
+!function(){var a=window.VL=window.VL||{};return a.instances=a.instances||{},a.invoked?void(window.console&&console.error&&console.error("VL snippet loaded twice.")):(a.invoked=!0,void(a.load=function(b,c,d){var e={};e.publicToken=b,e.config=c||{};var f=document.createElement("script");f.type="text/javascript",f.id="vrlps-js",f.defer=!0,f.src="https://app.viral-loops.com/client/vl/vl.min.js";var g=document.getElementsByTagName("script")[0];return g.parentNode.insertBefore(f,g),f.onload=function(){a.setup(e),a.instances[b]=e},e.identify=e.identify||function(a,b){e.afterLoad={identify:{userData:a,cb:b}}},e.pendingEvents=[],e.track=e.track||function(a,b){e.pendingEvents.push({event:a,cb:b})},e.pendingHooks=[],e.addHook=e.addHook||function(a,b){e.pendingHooks.push({name:a,cb:b})},e.$=e.$||function(a){e.pendingHooks.push({name:"ready",cb:a})},e}))}();
+  var campaign = VL.load("1b_kaoMG_6ovab5v4CZf3bv6idA");
 
-            <div class="auth-logo">
+  campaign.identify({
+    "firstname": "{{ customer.first_name }}",
+    "lastname": "{{ customer.last_name }}",
+    "email": "{{ customer.email }}",
+    "createdAt":  //Creation date of your user in UNIX timestamp format. Leave empty for new users.
+  }, function(err, details) {
+    campaign.widgets.load();
+  });
+
+  campaign.get("inquiry", function(err, data) {
+    console.log(err, data); //data.eligible => true/false
+  });
+
+  campaign.track("conversion", function(err, data) {
+  console.log(err, data);
+  });
+
+
+</script> 
+
+
+<div class="mix-pane center">
+    <div class="pane-container">
+ 
+
+        <div class="auth-logo">
                  <img src="//s3-eu-west-1.amazonaws.com/cheesemix/assets/images/Heron.svg">
             </div>
     
-            <p id="title-p">Lets get you started</p>
+            <h1>Lets get you started</h1>
   
-           <p>Creating a cheesemix account is free. It allows you to susbcribe and purchase our delightful cheesecubes to share with your friends and family. Already have a cheesemix account? <a href="{{ site_url('signup') }}">Log in here</a></p>
+           <p>Creating a cheesemix account is free. It allows you to susbcribe and purchase our delightful cheesecubes to share with your friends and family. Already have a cheesemix account? <a href="{{ site_url('login') }}">Log in here</a></p>
 
 
             {{ open_form({'data-ajax-handler': 'shop:onSignup', 'data-validation-message' : '', 'class' : 'form-horizontal' }) }}
 
 
                 <div class="form-group">
-                    <div class="small-9 columns mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <label for="signup[email]" class="mdl-textfield__label">Email</label><br>
-                        <input type="email" class="fs-hide mdl-textfield__input" id="signup[email]" name="signup[email]" value="{{ post('signup[email]') }}" size="40" />
+                    <div class="">
+                         </br>
+                        <label for="signup[email]" class="">Email</label><br>
+                        <input type="email" class="fs-hide" id="signup[email]" name="signup[email]" value="{{ post('signup[email]') }}" size="40" />
                         <span class="error small text-danger"></span>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="small-9 columns mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <label for="signup[first_name]" class="mdl-textfield__label">First name</label><br>
-                        <input type="text" class="mdl-textfield__input" id="signup[first_name]" name="signup[first_name]" value="{{ post('signup[first_name]') }}" size="16" />
+                    <div class="">
+                         </br>
+                        <label for="signup[first_name]" class="">First name</label><br>
+                        <input type="text" class="" id="signup[first_name]" name="signup[first_name]" value="{{ post('signup[first_name]') }}" size="16" />
                         <span class="error small text-danger"></span>
                     </div>
                 </div>
 
 
               <div class="form-group">
-                    <div class="small-9 columns mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <label for="signup[last_name]" class="mdl-textfield__label">Last name</label><br>
-                        <input type="text" class="mdl-textfield__input" id="signup[last_name]" name="signup[last_name]" value="{{ post('signup[last_name]') }}" size="16" />
+                    <div class="">
+                         </br>
+                        <label for="signup[last_name]" class="">Last name</label><br>
+                        <input type="text" class="" id="signup[last_name]" name="signup[last_name]" value="{{ post('signup[last_name]') }}" size="16" />
                         <span class="error small text-danger"></span>
                     </div>
                 </div>
@@ -52,43 +81,53 @@ url: /getstarted
 
 
                 <div class="form-group">
-                    <div class="small-9 columns mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <label for="signup[password]" class="mdl-textfield__label">Password</label><br>
-                        <input type="password" class="fs-hide mdl-textfield__input" id="signup[password]" name="signup[password]" value="" size="16" />
+                    <div class="">
+                         </br>
+                        <label for="signup[password]" class="">Password</label><br>
+                        <input type="password" class="fs-hide" id="signup[password]" name="signup[password]" value="" size="16" />
                         <span class="error small text-danger"></span>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="small-9 columns mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <label for="signup[password_confirmation]" class="mdl-textfield__label">Confirm Password</label><br>
-                        <input type="password" class="fs-hide mdl-textfield__input" id="signup[password_confirmation]" name="signup[password_confirmation]" value="" size="16" />
+                    <div class="">
+                         </br>
+                        <label for="signup[password_confirmation]" class="">Confirm Password</label><br>
+                        <input type="password" class="fs-hide" id="signup[password_confirmation]" name="signup[password_confirmation]" value="" size="16" />
                         <span class="error small text-danger"></span>
                     </div>
                 </div>
 
                 <div class="form-group">
 
-                    <div class="small-9 columns">
-                        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="accepts_marketing">
-                          <input type="checkbox" name="accepts_marketing" id="accepts_marketing" class="mdl-switch__input" checked>
-                          <span class="mdl-switch__label">Sign me up to your newsletter</span>
+                    <div class="">
+                        </br>
+
+                                 <div class="switch">
+                                    <label type="checkbox" for="accepts_marketing"></label>
+                                    <input name="accepts_marketing" id="accepts_marketing" class="cmn-toggle cmn-toggle-round" type="checkbox" checked>
+                                    <span class="">Sign me up to your newsletter</span>
+                                  </div>
+                         </br>
                         </label>
+
                     </div>
 
                 </div>
 
                 <div class="form-group">
-                    <div class="col-sm-9">
-                        <button type="submit" class="btn-mix">Submit</button>
+                    <div class="">
+                        <button type="submit" class="btn-mix main">Submit</button>
                     </div>
                 </div>
 
+                <input type="hidden" name="referrer" value="{{ param('referralCode') }}" />
                 <input type="hidden" name="autologin" value="0" />
-                <input type="hidden" name="redirect" value="{{ site_url('registered') }}"/>
+                <input type="hidden" name="redirect" value="{{ site_url('registered') }}{{ param('referralCode') }} "/>
 
             {{ close_form() }}
 
+
         </div>
     </div>
-</div>
+ 

@@ -1,0 +1,203 @@
+@import "../../neat/neat";
+@import "../../bourbon/bourbon";
+
+@import '../../site/partials/media';
+
+
+*, :after, :before {
+    box-sizing: inherit;
+}
+
+::selection {
+    text-shadow: none;
+
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+body, html {
+	font-family: "Karla", sans-serif !important;
+  	width: 100%;
+  	min-height: 100%;
+	margin: 0;
+	padding-top: 0px;
+  	background: #ffffff;
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: "Karla", sans-serif !important;
+    text-align: center;
+}
+
+p {
+    font-family: "Karla", sans-serif !important;
+    text-align: center;
+}
+
+a {
+    font-family: "Karla", sans-serif !important;
+    text-decoration: none;
+}
+ 
+$grid--twos: (
+  columns:  12,
+  gutter: 10px,
+);
+
+.grid--twos{
+  @include grid-container($grid--twos);
+}
+
+
+.pane-container {
+    padding: 10vh 5vh;
+    margin: 0 auto;
+    max-width: 750px;
+	   @include grid-media($small-grid) {
+		padding: 0 1vh;
+    }
+}
+
+
+.mix-pane {
+    background-color: #fff;
+    color: #434245;
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+    min-width: 300px;
+    z-index: 1;
+    overflow-y: auto;
+    word-wrap: break-word;
+    &.center {
+        margin: 0 auto;
+        max-width: 750px;
+        padding: 5vh 0;
+    }
+    &.left {
+        @include grid-column(7, $grid--twos);
+        float: left;
+        margin-left: 10px;
+    }
+    &.right {
+        @include grid-column(5, $grid--twos);
+        overflow: hidden;
+        background: #000;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        @include grid-media($small-grid){
+             display: none;
+        }
+    }
+    @include grid-media($small-grid) {
+    	width: 100%;
+    	max-width: initial;
+    	height: 50em;
+        &.left {
+            float: left;
+            max-width: 550px;
+            padding: 5vh 10px;
+        }
+        &.center { 
+            width: 100%;
+            max-width: initial;
+            height: 80em;
+            float: left;
+            max-width: 550px;
+            padding: 5vh 10px;
+        }
+    }
+}
+
+
+.mix-pane-left-signup {
+    background-color: #fff;
+    color: #434245;
+    width: 100%;
+    padding: 8vh 0;
+    float: left;
+    z-index: 1;
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+
+
+.mix-pane-left-home {
+    position: relative;
+    background-color: #fff;
+    color: #434245;
+    min-width: 300px;
+    width: 100%;
+    height: 100%;
+    max-width: 550px;
+    padding: 30vh 0;
+    float: left;
+    z-index: 1;
+    overflow-y: hidden;
+    word-wrap: break-word;
+    overflow-x: hidden;
+    border-bottom: #f2f2f2 2px solid;
+}
+
+.mix-pane-left-home h1 {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    line-height: 18px;
+}
+
+
+.mix-pane-left-home h1.arrow-bold {
+    font-size: 4rem !important;
+}
+
+.mix-pane-left-home p {
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.mix-pane-left-home .SmallText hr {
+    text-align: center;
+    width: 100%;
+}
+
+.mix-pane-left-home .SmallText {
+    max-width: 350px;
+    width: 100%;
+    min-width: 250px;
+    margin: 0 auto;
+}
+
+.mix-pane-left-home .width {
+    max-width: 680px;
+    min-width: 250px;
+}
+
+.mix-pane-left-home .yellow {
+    color: #FFC711;
+}
+
+.mix-pane-left-home .SmallText p {
+    font-size: 0.9rem !important;
+}
+
+ 
+
+
+
+
+.auth-logo {
+    padding: 0 0 2vh 0;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.auth-logo img {
+    height: 120px;
+}
