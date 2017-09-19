@@ -273,8 +273,12 @@ $grid--ones: (
     h1 {
         font-size: 2.3rem;
         text-align: center;
-        font-weight: 300;
+        font-weight: 600;
         margin-bottom: 40px;
+    }
+    h2 {
+        font-weight: 300;
+        text-align: center;
     }
     @include grid-media($medium-grid) {
         h1 {
@@ -323,10 +327,10 @@ $grid--ones: (
         color: #ffffff;
     }
     &.bubble {
-        color: #ffffff;
+        color: #000000;
         position: relative;
-        background: #282538;
-        padding: 3vh 2vh 1vh;
+        border: solid 1px #282538;
+        padding: 6vh 2vh 1vh;
         border-radius: 10px;
         box-shadow: 0 2px 2px 0 rgba(0,0,0,0.066);
         h2 {
@@ -360,7 +364,7 @@ $grid--ones: (
         width: 75px;
         position: relative;
         height: 75px;
-        margin: -60px auto 0;
+        margin: -70px auto 0;
         border: 2px solid #282538;
         background: #c2c2c2 url(https://cheesemix.imgix.net/assets/images/site/profile/duncan_forbes.png) center;
         background-size: cover;
@@ -511,7 +515,7 @@ $grid--ones: (
     }
     @include grid-media($medium-large-grid){
         h1 {
-            font-size: 3rem;
+            font-size: 2.1rem;
         }
         p {
             font-size: 1.3rem;
@@ -530,7 +534,7 @@ $grid--ones: (
             padding: 5vh 2vh;
         }
         h1 {
-            font-size: 3rem;
+            font-size: 2rem;
         }
         p {
             font-size: 1rem;
